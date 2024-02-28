@@ -10,8 +10,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	obter_alvo()
-	
-	global_position = global_position.lerp(posicao_alvo, 1.0 - exp(-delta * 25))
+	global_position = global_position.lerp(posicao_alvo, 1.0 - exp(-delta * 10))
 	
 	
 func obter_alvo() -> void:
