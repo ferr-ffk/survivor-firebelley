@@ -11,10 +11,19 @@ config_version=5
 [application]
 
 config/name="survivor-firebelley"
-config/features=PackedStringArray("4.2", "Mobile")
+run/main_scene="res://scenes/principal/principal.tscn"
+config/features=PackedStringArray("4.2", "C#", "Mobile")
 boot_splash/bg_color=Color(0.176471, 0.121569, 0.137255, 1)
 config/icon="res://icon.png"
 boot_splash/minimum_display_time=20
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
 
 [dotnet]
 
