@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk0vgd7mwfqvm"]
+
+[ext_resource type="Script" path="res://scenes/abilidade/abilidade_espada_controller/abilidade_espada_controller.gd" id="1_dot2b"]
+[ext_resource type="PackedScene" uid="uid://cfg21dyo0crbo" path="res://scenes/abilidade/abilidade_espada/abilidade_espada.tscn" id="2_27rr6"]
+
+[node name="AbilidadeEspadaController" type="Node"]
+script = ExtResource("1_dot2b")
+node_espada = ExtResource("2_27rr6")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

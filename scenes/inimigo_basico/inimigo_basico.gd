@@ -2,9 +2,6 @@ extends CharacterBody2D
 
 const VELOCIDADE_MAXIMA = 75
 
-func _ready() -> void:
-	pass
-
 func _process(delta: float) -> void:
 	var direction = get_direcao_para_jogador()
 	
@@ -20,3 +17,7 @@ func get_direcao_para_jogador() -> Vector2:
 		push_error("Nenhum jogador no grupo player!")
 	
 	return (jogador.global_position - global_position).normalized()
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	queue_free()
