@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://do82vuox6wbdt"]
+[gd_scene load_steps=6 format=3 uid="uid://do82vuox6wbdt"]
 
 [ext_resource type="Texture2D" uid="uid://bgfwxg7mskyua" path="res://assets/ambiente/tilemap_packed.png" id="1_ca2x3"]
 [ext_resource type="PackedScene" uid="uid://cfm83vj8aawne" path="res://scenes/jogador/jogador.tscn" id="1_tw575"]
+[ext_resource type="PackedScene" uid="uid://b65qad73v0m12" path="res://scenes/inimigo_basico/inimigo_basico.tscn" id="3_xsp3v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vwn2"]
 texture = ExtResource("1_ca2x3")
@@ -48,3 +49,6 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 4, 1, 65536, 4, 2, 0, 4, 3, 65536
 
 [node name="Jogador" parent="." instance=ExtResource("1_tw575")]
 position = Vector2(80, 37)
+
+[node name="InimigoBasico" parent="." instance=ExtResource("3_xsp3v")]
+position = Vector2(332, 94)
