@@ -17,6 +17,10 @@ boot_splash/bg_color=Color(0.184314, 0.121569, 0.113725, 1)
 config/icon="res://icon.png"
 boot_splash/minimum_display_time=20
 
+[autoload]
+
+EventosJogo="*res://scenes/autoload/eventos_jogo.tscn"
+
 [debug]
 
 gdscript/warnings/unused_variable=0
