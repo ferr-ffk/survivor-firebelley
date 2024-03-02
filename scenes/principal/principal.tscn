@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://do82vuox6wbdt"]
+[gd_scene load_steps=8 format=3 uid="uid://do82vuox6wbdt"]
 
+[ext_resource type="PackedScene" uid="uid://q1t0ikfsr4e3" path="res://scenes/ui/tempo_arena_ui.tscn" id="1_7b83i"]
 [ext_resource type="PackedScene" uid="uid://vyi7878l7pjd" path="res://scenes/camera_jogo/camera_jogo.tscn" id="1_86pjv"]
 [ext_resource type="Texture2D" uid="uid://bgfwxg7mskyua" path="res://assets/ambiente/tilemap_packed.png" id="1_ca2x3"]
 [ext_resource type="PackedScene" uid="uid://cfm83vj8aawne" path="res://scenes/jogador/jogador.tscn" id="1_tw575"]
@@ -42,6 +43,8 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_5vwn2")
 
 [node name="Principal" type="Node"]
+
+[node name="TempoArenaUI" parent="." instance=ExtResource("1_7b83i")]
 
 [node name="CameraJogo" parent="." instance=ExtResource("1_86pjv")]
 

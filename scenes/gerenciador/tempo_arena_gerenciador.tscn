@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b22lqm08ipnij"]
+
+[node name="TempoArenaGerenciador" type="Node"]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
