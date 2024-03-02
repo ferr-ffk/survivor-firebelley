@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const VELOCIDADE_MAXIMA = 75
+const VELOCIDADE_MAXIMA = 50
 
 func _process(delta: float) -> void:
 	var direction = get_direcao_para_jogador()

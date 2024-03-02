@@ -9,7 +9,7 @@ func _process(delta) -> void:
 	var velocidade_alvo = direcao * VELOCIDADE_MAXIMA
 	
 	# lerp é usado para alcançar uma velocidade em um tempo dado
-	velocity = velocity.lerp(velocidade_alvo, 1 - exp(-delta * ACELERACAO))
+	velocity = velocity.lerp(velocidade_alvo,  1 - exp(-delta * ACELERACAO))
 	
 	move_and_slide()
 
