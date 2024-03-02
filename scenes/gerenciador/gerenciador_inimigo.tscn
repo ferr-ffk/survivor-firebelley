@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://clc4iqewsswl4"]
+
+[ext_resource type="Script" path="res://scenes/gerenciador/gerenciador_inimigo.gd" id="1_vsesw"]
+[ext_resource type="PackedScene" uid="uid://b65qad73v0m12" path="res://scenes/inimigo_basico/inimigo_basico.tscn" id="2_4p7nn"]
+
+[node name="GerenciadorInimigo" type="Node"]
+script = ExtResource("1_vsesw")
+inimigo_basico_cena = ExtResource("2_4p7nn")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

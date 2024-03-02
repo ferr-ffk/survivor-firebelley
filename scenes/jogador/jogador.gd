@@ -13,8 +13,6 @@ func _process(delta) -> void:
 	move_and_slide()
 
 func get_vetor_movimento() -> Vector2:
-	var vetor_movimento = Vector2.ZERO
-	
 	var movimento_x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	var movimento_y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	
