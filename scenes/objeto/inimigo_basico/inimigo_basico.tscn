@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b65qad73v0m12"]
 
-[ext_resource type="Script" path="res://scenes/inimigo_basico/inimigo_basico.gd" id="1_jwog1"]
-[ext_resource type="Texture2D" uid="uid://brwk2erg54vgs" path="res://scenes/inimigo_basico/rato.png" id="2_0tugv"]
+[ext_resource type="Script" path="res://scenes/objeto/inimigo_basico/inimigo_basico.gd" id="1_jwog1"]
+[ext_resource type="Texture2D" uid="uid://brwk2erg54vgs" path="res://scenes/objeto/inimigo_basico/rato.png" id="2_0tugv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htbvc"]
 radius = 12.0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://clc4iqewsswl4"]
 
 [ext_resource type="Script" path="res://scenes/gerenciador/gerenciador_inimigo.gd" id="1_vsesw"]
-[ext_resource type="PackedScene" uid="uid://b65qad73v0m12" path="res://scenes/inimigo_basico/inimigo_basico.tscn" id="2_4p7nn"]
+[ext_resource type="PackedScene" uid="uid://b65qad73v0m12" path="res://scenes/objeto/inimigo_basico/inimigo_basico.tscn" id="2_4p7nn"]
 
 [node name="GerenciadorInimigo" type="Node"]
 script = ExtResource("1_vsesw")

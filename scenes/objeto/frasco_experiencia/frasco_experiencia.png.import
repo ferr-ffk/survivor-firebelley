@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brwk2erg54vgs"
-path="res://.godot/imported/rato.png-a0c15ef9705096942f15980d8cdc0abc.ctex"
+uid="uid://cswuh68yvlot8"
+path="res://.godot/imported/frasco_experiencia.png-0650c3c129edb5eba429c364c2de5bd3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/inimigo_basico/rato.png"
-dest_files=["res://.godot/imported/rato.png-a0c15ef9705096942f15980d8cdc0abc.ctex"]
+source_file="res://scenes/objeto/frasco_experiencia/frasco_experiencia.png"
+dest_files=["res://.godot/imported/frasco_experiencia.png-0650c3c129edb5eba429c364c2de5bd3.ctex"]
 
 [params]
 

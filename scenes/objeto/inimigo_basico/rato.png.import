@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vw50ckqdvc7q"
-path="res://.godot/imported/player.png-1396c804819bbf9c5148982bcd997622.ctex"
+uid="uid://brwk2erg54vgs"
+path="res://.godot/imported/rato.png-43cbe35833bfc2b9c326118c691fe857.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/jogador/player.png"
-dest_files=["res://.godot/imported/player.png-1396c804819bbf9c5148982bcd997622.ctex"]
+source_file="res://scenes/objeto/inimigo_basico/rato.png"
+dest_files=["res://.godot/imported/rato.png-43cbe35833bfc2b9c326118c691fe857.ctex"]
 
 [params]
 
