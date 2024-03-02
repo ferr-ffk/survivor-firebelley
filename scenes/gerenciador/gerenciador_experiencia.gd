@@ -9,7 +9,6 @@ func _ready() -> void:
 
 func aumentar_experiencia(n: float) -> void:
 	experiencia_atual += n
-	print(experiencia_atual)
 
 
 func on_frasco_experiencia_coletado(n: float) -> void:

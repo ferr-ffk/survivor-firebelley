@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfm83vj8aawne"]
+[gd_scene load_steps=8 format=3 uid="uid://cfm83vj8aawne"]
 
 [ext_resource type="Script" path="res://scenes/objeto/jogador/jogador.gd" id="1_mq4pk"]
 [ext_resource type="Texture2D" uid="uid://vw50ckqdvc7q" path="res://scenes/objeto/jogador/player.png" id="1_n3371"]
+[ext_resource type="PackedScene" uid="uid://bg1r0r82d0fa7" path="res://scenes/componente/componente_vida.tscn" id="2_sw7gv"]
 [ext_resource type="PackedScene" uid="uid://vyi7878l7pjd" path="res://scenes/objeto/camera_jogo/camera_jogo.tscn" id="3_1p53f"]
 [ext_resource type="PackedScene" uid="uid://dk0vgd7mwfqvm" path="res://scenes/abilidade/abilidade_espada_controller/abilidade_espada_controller.tscn" id="4_cxgr0"]
 
@@ -9,13 +10,14 @@
 radius = 28.0179
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7rcng"]
-radius = 6.0
 
 [node name="Jogador" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, -8)
 collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_mq4pk")
+
+[node name="ComponenteVida" parent="." instance=ExtResource("2_sw7gv")]
 
 [node name="GerenciadorAbilidade" type="Node" parent="."]
 
@@ -30,11 +32,10 @@ position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_dd3i4")
 debug_color = Color(0.52549, 0.572549, 0, 0.419608)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7rcng")
+
 [node name="CameraJogo" parent="." instance=ExtResource("3_1p53f")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_n3371")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_7rcng")

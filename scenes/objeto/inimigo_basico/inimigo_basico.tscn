@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b65qad73v0m12"]
+[gd_scene load_steps=7 format=3 uid="uid://b65qad73v0m12"]
 
 [ext_resource type="Script" path="res://scenes/objeto/inimigo_basico/inimigo_basico.gd" id="1_jwog1"]
 [ext_resource type="Texture2D" uid="uid://brwk2erg54vgs" path="res://scenes/objeto/inimigo_basico/rato.png" id="2_0tugv"]
+[ext_resource type="PackedScene" uid="uid://bg1r0r82d0fa7" path="res://scenes/componente/componente_vida.tscn" id="2_cufi0"]
+[ext_resource type="PackedScene" uid="uid://dni55x2aschb" path="res://scenes/componente/componente_drop_frasco.tscn" id="3_crgxr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htbvc"]
 radius = 12.0
@@ -14,6 +16,11 @@ collision_layer = 8
 collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_jwog1")
+
+[node name="ComponenteVida" parent="." instance=ExtResource("2_cufi0")]
+
+[node name="ComponenteDropFrasco" parent="." node_paths=PackedStringArray("componente_vida") instance=ExtResource("3_crgxr")]
+componente_vida = NodePath("../ComponenteVida")
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var componente_vida: ComponenteVida = $ComponenteVida
+
 const VELOCIDADE_MAXIMA = 50
 
 func _process(delta: float) -> void:
@@ -20,4 +22,4 @@ func get_direcao_para_jogador() -> Vector2:
 
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
-	queue_free()
+	componente_vida.dano(5)
