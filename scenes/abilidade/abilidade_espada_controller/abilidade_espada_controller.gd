@@ -1,13 +1,10 @@
 extends Node
 
-@export var node_espada: PackedScene
+@export var cena_espada: PackedScene
 @export var alcance_maximo = 150
 
 @onready var timer = $Timer
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@export var dano: float = 25.0
 
 
 func _on_timer_timeout() -> void:
@@ -17,7 +14,7 @@ func _on_timer_timeout() -> void:
 	if player == null:
 		push_error("Nenhum jogador no grupo player!")
 	
-	# filtra todos os inimigos que sua distância ao quadrado até o player é maior que 150px 
+	# filtra todos os inimigos que sua distância ao quadrado até o player é maior que o alcance máximo ao quadrado
 	inimigos = inimigos.filter(func(inimigo: Node2D): 
 		return inimigo.global_position.distance_squared_to(player.global_position) < pow(alcance_maximo, 2)
 	)
@@ -33,10 +30,13 @@ func _on_timer_timeout() -> void:
 		return a_distancia < b_distancia
 	)
 	
-	var espada: Node2D = node_espada.instantiate()
+	var espada: AbilidadeEspada = cena_espada.instantiate()
 	player.get_parent().add_child(espada)
+	espada.componente_hit_box.dano = self.dano
 	
 	espada.global_position = inimigos[0].global_position
+	
+	# da uma rotação aleatória ao vetor
 	espada.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU)) * 4
 	
 	var posicao_inimigo = inimigos[0].global_position - espada.global_position

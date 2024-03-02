@@ -13,8 +13,8 @@ func dano(qtd_dano: float) -> void:
 	# para monitorar alguma mudança de estado e realizar mudanças no próximo frame livre
 	Callable(checar_morreu).call_deferred()
 	
-func curar(hp: float) -> void:
-	vida_atual = min(vida_atual + hp, vida_maxima)
+func curar(vida: float) -> void:
+	vida_atual = min(vida_atual + vida, vida_maxima)
 
 
 func checar_morreu() -> void:

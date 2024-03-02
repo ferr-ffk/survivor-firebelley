@@ -16,7 +16,6 @@ func on_morreu() -> void:
 		push_error("Owner deve ser do tipo Node2D!")
 		
 	var posicao_spawn = (owner as Node2D).global_position
-	
 	var chance_drop_frasco = randf_range(0, 100)
 	
 	if not chance_drop_frasco <= chance_drop:

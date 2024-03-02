@@ -22,6 +22,7 @@ script = ExtResource("1_mq4pk")
 [node name="GerenciadorAbilidade" type="Node" parent="."]
 
 [node name="AbilidadeEspadaController" parent="GerenciadorAbilidade" instance=ExtResource("4_cxgr0")]
+dano = 5.0
 
 [node name="AreaColeta" type="Area2D" parent="."]
 collision_layer = 16

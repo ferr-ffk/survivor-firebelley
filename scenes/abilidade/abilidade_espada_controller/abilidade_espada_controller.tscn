@@ -5,7 +5,7 @@
 
 [node name="AbilidadeEspadaController" type="Node"]
 script = ExtResource("1_dot2b")
-node_espada = ExtResource("2_27rr6")
+cena_espada = ExtResource("2_27rr6")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.5

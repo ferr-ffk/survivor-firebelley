@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfg21dyo0crbo"]
+[gd_scene load_steps=8 format=3 uid="uid://cfg21dyo0crbo"]
 
 [ext_resource type="Texture2D" uid="uid://rrh0pimbrwhy" path="res://scenes/abilidade/abilidade_espada/espada.png" id="1_a1x7j"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7ijh"]
-size = Vector2(30, 30)
+[ext_resource type="Script" path="res://scenes/abilidade/abilidade_espada/abilidade_espada.gd" id="1_gknpg"]
+[ext_resource type="PackedScene" uid="uid://lf8kck3wuhga" path="res://scenes/componente/componente_hit_box.tscn" id="2_etik5"]
 
 [sub_resource type="Animation" id="Animation_b53ps"]
 length = 0.001
@@ -34,7 +33,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/2/path = NodePath("ComponenteHitBox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -89,11 +88,11 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/3/path = NodePath("ComponenteHitBox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -105,16 +104,11 @@ _data = {
 "swing": SubResource("Animation_sne4g")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jhel"]
+size = Vector2(30, 30)
+
 [node name="AbilidadeEspada" type="Node2D"]
-
-[node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(15, 0)
-shape = SubResource("RectangleShape2D_v7ijh")
-disabled = true
+script = ExtResource("1_gknpg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_a1x7j")
@@ -125,3 +119,10 @@ libraries = {
 "": SubResource("AnimationLibrary_mlfsd")
 }
 autoplay = "swing"
+
+[node name="ComponenteHitBox" parent="." instance=ExtResource("2_etik5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComponenteHitBox"]
+position = Vector2(15, 0)
+shape = SubResource("RectangleShape2D_0jhel")
+disabled = true
