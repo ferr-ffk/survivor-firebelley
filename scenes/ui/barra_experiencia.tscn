@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqemdq54saayo"]
+
+[ext_resource type="Script" path="res://scenes/ui/barra_experiencia.gd" id="1_fi662"]
+
+[node name="BarraExperiencia" type="CanvasLayer"]
+script = ExtResource("1_fi662")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 15
+
+[node name="BarraVida" type="ProgressBar" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+max_value = 1.0
+value = 0.5
+show_percentage = false
