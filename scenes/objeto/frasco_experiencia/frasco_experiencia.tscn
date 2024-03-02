@@ -1,3 +1,23 @@
-[gd_scene format=3 uid="uid://clsw43ydx4et6"]
+[gd_scene load_steps=4 format=3 uid="uid://clsw43ydx4et6"]
 
-[node name="FrascoExperiencia" type="Node"]
+[ext_resource type="Script" path="res://scenes/objeto/frasco_experiencia/frasco_experiencia.gd" id="1_qmgt0"]
+[ext_resource type="Texture2D" uid="uid://cswuh68yvlot8" path="res://scenes/objeto/frasco_experiencia/frasco_experiencia.png" id="1_suw17"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cu38k"]
+radius = 22.0907
+
+[node name="FrascoExperiencia" type="Node2D"]
+script = ExtResource("1_qmgt0")
+
+[node name="AreaColetaJogador" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaColetaJogador"]
+shape = SubResource("CircleShape2D_cu38k")
+debug_color = Color(0.563987, 0.558465, 7.70092e-07, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_suw17")
+
+[connection signal="area_entered" from="AreaColetaJogador" to="." method="_on_area_coleta_jogador_area_entered"]

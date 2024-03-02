@@ -66,6 +66,7 @@ move_down={
 2d_physics/layer_2="Jogador"
 2d_physics/layer_3="Inimigo"
 2d_physics/layer_4="Colisão Inimigo"
+2d_physics/layer_5="Coleta Jogador"
 
 [rendering]
 
