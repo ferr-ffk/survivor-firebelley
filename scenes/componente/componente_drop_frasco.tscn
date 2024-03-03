@@ -5,4 +5,5 @@
 
 [node name="ComponenteDropFrasco" type="Node"]
 script = ExtResource("1_2l3ny")
+chance_drop = 60.0
 cena_frasco = ExtResource("2_xamt3")

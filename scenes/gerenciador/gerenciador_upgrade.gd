@@ -10,7 +10,12 @@ var upgrades_atuais: Dictionary = {}
 func _ready() -> void:
 	gerenciador_experiencia.nivel_upgrade.connect(on_nivel_upgrade)
 
-
+## A tela de upgrade é instanciada quando o nivel muda, de acordo com o sinal do GerenciadorUpgrade
+##  
+## Ela mostra os upgrades disponiveis da variavel de export em forma de Card
+## O Card irá escutar algum evento de click nele, se for chamado ele envia o sinal para a tela
+## A tela emite esse sinal para o gerenciador de upgrade
+## O gerenciador, por fim, atualiza os upgrades do jogador com o upgrade fornecido
 func on_nivel_upgrade(nivel_atual: int) -> void:
 	var upgrade_escolhido: UpgradeAbilidade = upgrades_disponiveis.pick_random()
 	
@@ -23,11 +28,12 @@ func on_nivel_upgrade(nivel_atual: int) -> void:
 	
 	tela_upgrade_instancia.set_upgrade_abilidade([upgrade_escolhido] as Array[UpgradeAbilidade])
 	
+	tela_upgrade_instancia.upgrade_selecionado.connect(on_upgrade_selecionado)
 
-func aplicar_tela_upgrade(upgrade: UpgradeAbilidade) -> void:
+func aplicar_upgrade(upgrade: UpgradeAbilidade) -> void:
 	var upgrade_existente: bool = upgrades_atuais.has(upgrade.id)
 	
-	# anexa o upgrade na lista de upgrades do jogador, se ele já existir, aumenta o nivel dele
+	# anexa o upgrade na lista de upgrades do jogador; se ele já foi alcançado, aumenta o nivel dele
 	if !upgrade_existente:
 		upgrades_atuais[upgrade.id] = {
 			"resource": upgrade,
@@ -36,4 +42,7 @@ func aplicar_tela_upgrade(upgrade: UpgradeAbilidade) -> void:
 	else:
 		upgrades_atuais[upgrade.id]["quantidade"] += 1
 
+	print(upgrades_atuais)
 	
+func on_upgrade_selecionado(upgrade: UpgradeAbilidade) -> void:
+	aplicar_upgrade(upgrade)

@@ -6,7 +6,7 @@ signal nivel_upgrade(novo_nivel: int)
 
 const AUMENTO_DE_EXPERIENCIA_POR_NIVEL = 10
 
-@export var experiencia_atual = 0.0
+@export var experiencia_atual = 0
 @export var nivel_atual = 1
 @export var experiencia_maxima = 5
 

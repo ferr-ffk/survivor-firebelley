@@ -1,6 +1,6 @@
 extends Node
 
-const RAIO_SPAWN = 350
+const RAIO_SPAWN = 370
 
 @export var inimigo_basico_cena: PackedScene
 @export var delay_spawn: float = 1.5

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bgts8irbvlwey" path="res://scenes/ui/upgrade_abilidade_card.tscn" id="1_mbfgc"]
 
 [node name="TelaUpgrade" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_bj1o7")
 upgrade_abilidade_card = ExtResource("1_mbfgc")
 
