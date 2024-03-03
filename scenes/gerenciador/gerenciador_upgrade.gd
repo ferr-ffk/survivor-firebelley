@@ -3,6 +3,7 @@ class_name GerenciadorUpgrade
 
 @export var upgrades_disponiveis: Array[UpgradeAbilidade]
 @export var gerenciador_experiencia: GerenciadorExperiencia
+@export var tela_upgrade_cena: PackedScene
 
 var upgrades_atuais: Dictionary = {}
 
@@ -16,16 +17,23 @@ func on_nivel_upgrade(nivel_atual: int) -> void:
 	# pick_random() pode retornar nulo, então se certifica que irá pegar um upgrade valido
 	if upgrade_escolhido == null:
 		on_nivel_upgrade(nivel_atual)
+		
+	var tela_upgrade_instancia: TelaUpgrade = tela_upgrade_cena.instantiate()
+	add_child(tela_upgrade_instancia)
 	
-	var upgrade_existente: bool = upgrades_atuais.has(upgrade_escolhido.id)
+	tela_upgrade_instancia.set_upgrade_abilidade([upgrade_escolhido] as Array[UpgradeAbilidade])
+	
+
+func aplicar_tela_upgrade(upgrade: UpgradeAbilidade) -> void:
+	var upgrade_existente: bool = upgrades_atuais.has(upgrade.id)
 	
 	# anexa o upgrade na lista de upgrades do jogador, se ele já existir, aumenta o nivel dele
 	if !upgrade_existente:
-		upgrades_atuais[upgrade_escolhido.id] = {
-			"resource": upgrade_escolhido,
+		upgrades_atuais[upgrade.id] = {
+			"resource": upgrade,
 			"quantidade": 1
 		}
 	else:
-		upgrades_atuais[upgrade_escolhido.id]["quantidade"] += 1
+		upgrades_atuais[upgrade.id]["quantidade"] += 1
 
-	print(upgrades_atuais)
+	

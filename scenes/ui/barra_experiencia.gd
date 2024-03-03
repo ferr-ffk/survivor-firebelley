@@ -11,5 +11,5 @@ func _ready() -> void:
 	gerenciador_experiencia.experiencia_atualizada.connect(on_experiencia_atualizada)	
 
 func on_experiencia_atualizada(experiencia_atual: float, experiencia_maxima: float) -> void:
-	var porcentagem = experiencia_atual / experiencia_maxima
-	barra_vida.value = porcentagem 
+	#var porcentagem = experiencia_atual / experiencia_maxima
+	barra_vida.value = experiencia_atual
