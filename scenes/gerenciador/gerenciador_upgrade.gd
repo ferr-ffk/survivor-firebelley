@@ -42,7 +42,7 @@ func aplicar_upgrade(upgrade: UpgradeAbilidade) -> void:
 	else:
 		upgrades_atuais[upgrade.id]["quantidade"] += 1
 
-	print(upgrades_atuais)
+	EventosJogo.emitir_abilidade_espada_adicionada(upgrades_atuais, upgrade)
 	
 func on_upgrade_selecionado(upgrade: UpgradeAbilidade) -> void:
 	aplicar_upgrade(upgrade)

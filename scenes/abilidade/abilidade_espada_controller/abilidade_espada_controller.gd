@@ -1,11 +1,18 @@
 extends Node
 
+const AUMENTO_DANO_HABILIDADE: float = 1.125
+
 @export var cena_espada: PackedScene
 @export var alcance_maximo = 150
 
-@onready var timer = $Timer
 @export var dano: float = 25.0
+@export var duracao_ataque: float = 1.5
 
+@onready var timer = $Timer
+
+func _ready() -> void:
+	EventosJogo.abilidade_espada_adicionada.connect(on_abilidade_espada_adicionada)
+	timer.wait_time = duracao_ataque
 
 func _on_timer_timeout() -> void:
 	var inimigos: Array = get_tree().get_nodes_in_group("enemies")
@@ -41,3 +48,18 @@ func _on_timer_timeout() -> void:
 	
 	var posicao_inimigo = inimigos[0].global_position - espada.global_position
 	espada.rotation = posicao_inimigo.angle()
+	
+func on_abilidade_espada_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeAbilidade, ) -> void:
+	if upgrade.id != "espada_rate":
+		return
+	
+	# checa o nível da abilidade, e adiciona 10% a cada nível
+	var porcentagem_reducao = upgrades_atuais["espada_rate"]["quantidade"] * 0.1
+	
+	timer.wait_time = duracao_ataque * (1 - porcentagem_reducao)
+	
+	# coloca um limite de 0.75s de duração mínima 
+	timer.wait_time = max(timer.wait_time, 0.75)
+	
+	# restart necessário após alteração no wait_time
+	timer.start()
