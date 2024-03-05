@@ -10,6 +10,8 @@ const AUMENTO_DANO_HABILIDADE: float = 1.125
 
 @onready var timer = $Timer
 
+@onready var camada_primeiro_plano = get_tree().get_first_node_in_group("primeiro_plano")
+
 func _ready() -> void:
 	EventosJogo.abilidade_espada_adicionada.connect(on_abilidade_espada_adicionada)
 	timer.wait_time = duracao_ataque
@@ -38,7 +40,7 @@ func _on_timer_timeout() -> void:
 	)
 	
 	var espada: AbilidadeEspada = cena_espada.instantiate()
-	player.get_parent().add_child(espada)
+	camada_primeiro_plano.add_child(espada)
 	espada.componente_hit_box.dano = self.dano
 	
 	espada.global_position = inimigos[0].global_position

@@ -5,8 +5,13 @@ class_name ComponenteDropFrasco
 @export var cena_frasco: PackedScene
 @export var componente_vida: ComponenteVida
 
+@onready var node_entidades: Node2D = get_tree().get_first_node_in_group("camada_entidades")
+
 func _ready() -> void:
 	componente_vida.morreu.connect(on_morreu)
+	
+	if node_entidades == null:
+		push_error("Camada de entidades fornecida incorretamente!")
 	
 func on_morreu() -> void:
 	if cena_frasco == null:
@@ -23,5 +28,5 @@ func on_morreu() -> void:
 	
 	var instancia_frasco = cena_frasco.instantiate() as FrascoExperiencia
 	
-	owner.add_sibling(instancia_frasco)
+	node_entidades.add_child(instancia_frasco)
 	instancia_frasco.global_position = posicao_spawn

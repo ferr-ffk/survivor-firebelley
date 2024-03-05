@@ -1,15 +1,22 @@
 extends Node
 
+
 const RAIO_SPAWN = 370
+
 
 @export var inimigo_basico_cena: PackedScene
 @export var delay_spawn: float = 1.5
 
+
 @onready var timer = $Timer
+@onready var node_entidades: Node2D = get_tree().get_first_node_in_group("camada_entidades")
 
 
 func _ready() -> void:
 	timer.wait_time = delay_spawn
+	
+	if node_entidades == null:
+		push_error("Camada de entidades fornecida incorretamente!")
 
 
 func _on_timer_timeout() -> void:
@@ -25,5 +32,5 @@ func _on_timer_timeout() -> void:
 	
 	var inimigo = inimigo_basico_cena.instantiate()
 	
-	get_parent().add_child(inimigo)
+	node_entidades.add_child(inimigo)
 	inimigo.global_position = posicao_spawn
