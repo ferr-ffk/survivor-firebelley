@@ -24,6 +24,7 @@ func _on_timer_timeout() -> void:
 	
 	if player == null:
 		push_error("Nenhum jogador no grupo player!")
+		return
 		
 	var direcao = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	

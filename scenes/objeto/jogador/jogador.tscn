@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfm83vj8aawne"]
+[gd_scene load_steps=9 format=3 uid="uid://cfm83vj8aawne"]
 
 [ext_resource type="Script" path="res://scenes/objeto/jogador/jogador.gd" id="1_mq4pk"]
 [ext_resource type="Texture2D" uid="uid://vw50ckqdvc7q" path="res://scenes/objeto/jogador/player.png" id="1_n3371"]
@@ -9,7 +9,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_dd3i4"]
 radius = 28.0179
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2laf"]
+radius = 8.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_7rcng"]
+radius = 8.0
 
 [node name="Jogador" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, -8)
@@ -24,6 +28,10 @@ script = ExtResource("1_mq4pk")
 [node name="AbilidadeEspadaController" parent="GerenciadorAbilidade" instance=ExtResource("4_cxgr0")]
 dano = 5.0
 
+[node name="IntervaloDano" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [node name="AreaColeta" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 0
@@ -33,6 +41,14 @@ position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_dd3i4")
 debug_color = Color(0.52549, 0.572549, 0, 0.419608)
 
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_u2laf")
+debug_color = Color(1, 0.0196078, 0, 0.419608)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7rcng")
 
@@ -40,3 +56,7 @@ shape = SubResource("CircleShape2D_7rcng")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_n3371")
+
+[connection signal="timeout" from="IntervaloDano" to="." method="_on_intervalo_dano_timeout"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="body_exited" from="HurtBox" to="." method="_on_hurt_box_body_exited"]

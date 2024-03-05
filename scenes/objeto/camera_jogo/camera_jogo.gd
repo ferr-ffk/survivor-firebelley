@@ -14,11 +14,13 @@ func _process(delta: float) -> void:
 	
 	
 func obter_alvo() -> void:
-	var nodes_player = get_tree().get_nodes_in_group("player")
+	var player = get_tree().get_first_node_in_group("player")
 	
-	if nodes_player.size() == 0:
+	if player == null:
 		push_error("Nenhum jogador no grupo player!")
+		posicao_alvo = Vector2.ZERO
 		
-	player = nodes_player[0]
+		return
 	
+		
 	posicao_alvo = player.global_position
