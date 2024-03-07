@@ -1,10 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfm83vj8aawne"]
+[gd_scene load_steps=11 format=3 uid="uid://cfm83vj8aawne"]
 
 [ext_resource type="Script" path="res://scenes/objeto/jogador/jogador.gd" id="1_mq4pk"]
 [ext_resource type="Texture2D" uid="uid://vw50ckqdvc7q" path="res://scenes/objeto/jogador/player.png" id="1_n3371"]
 [ext_resource type="PackedScene" uid="uid://bg1r0r82d0fa7" path="res://scenes/componente/componente_vida.tscn" id="2_sw7gv"]
 [ext_resource type="PackedScene" uid="uid://vyi7878l7pjd" path="res://scenes/objeto/camera_jogo/camera_jogo.tscn" id="3_1p53f"]
 [ext_resource type="PackedScene" uid="uid://dk0vgd7mwfqvm" path="res://scenes/abilidade/abilidade_espada_controller/abilidade_espada_controller.tscn" id="4_cxgr0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6v1hm"]
+bg_color = Color(0.247059, 0.14902, 0.192157, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.247059, 0.14902, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyu1o"]
+bg_color = Color(0.262745, 0.882353, 0.701961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.247059, 0.14902, 0.192157, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dd3i4"]
 radius = 28.0179
@@ -22,6 +38,7 @@ motion_mode = 1
 script = ExtResource("1_mq4pk")
 
 [node name="ComponenteVida" parent="." instance=ExtResource("2_sw7gv")]
+vida_maxima = 20.0
 
 [node name="GerenciadorAbilidade" type="Node" parent="."]
 
@@ -32,7 +49,24 @@ dano = 5.0
 wait_time = 0.5
 one_shot = true
 
+[node name="BarraVida" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(32, 6)
+offset_left = -16.0
+offset_top = -17.0
+offset_right = 16.0
+offset_bottom = -11.0
+pivot_offset = Vector2(16, 3)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/outline_size = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_6v1hm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hyu1o")
+max_value = 1.0
+value = 0.8
+show_percentage = false
+
 [node name="AreaColeta" type="Area2D" parent="."]
+visible = false
 collision_layer = 16
 collision_mask = 0
 
@@ -57,6 +91,7 @@ shape = SubResource("CircleShape2D_7rcng")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_n3371")
 
+[connection signal="vida_atualizada" from="ComponenteVida" to="." method="_on_componente_vida_vida_atualizada"]
 [connection signal="timeout" from="IntervaloDano" to="." method="_on_intervalo_dano_timeout"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
 [connection signal="body_exited" from="HurtBox" to="." method="_on_hurt_box_body_exited"]
