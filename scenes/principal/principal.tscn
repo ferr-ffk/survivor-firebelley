@@ -53,6 +53,7 @@ sources/0 = SubResource("TileSetAtlasSource_5vwn2")
 arena_tempo_gerenciador = NodePath("TempoArenaGerenciador")
 
 [node name="TempoArenaGerenciador" parent="TempoArenaUI" instance=ExtResource("2_0kahf")]
+tempo_total = 15.0
 
 [node name="BarraExperiencia" parent="." node_paths=PackedStringArray("gerenciador_experiencia") instance=ExtResource("3_hgkti")]
 gerenciador_experiencia = NodePath("../GerenciadorExperiencia")

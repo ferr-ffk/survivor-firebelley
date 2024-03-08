@@ -7,6 +7,7 @@ extends CanvasLayer
 func _process(delta: float) -> void:
 	if arena_tempo_gerenciador == null:
 		push_error("Gerenciador de tempo de arena é nulo!")
+		return
 	
 	var tempo: float = arena_tempo_gerenciador.get_tempo_restante()
 	
@@ -21,3 +22,4 @@ func format_segundos_para_string(segundos: float) -> String:
 	var format_string = string % floor(segundos_restante)
 	
 	return format_string
+
