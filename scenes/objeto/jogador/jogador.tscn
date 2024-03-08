@@ -38,7 +38,6 @@ motion_mode = 1
 script = ExtResource("1_mq4pk")
 
 [node name="ComponenteVida" parent="." instance=ExtResource("2_sw7gv")]
-vida_maxima = 20.0
 
 [node name="GerenciadorAbilidade" type="Node" parent="."]
 
@@ -91,6 +90,7 @@ shape = SubResource("CircleShape2D_7rcng")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_n3371")
 
+[connection signal="morreu" from="ComponenteVida" to="." method="_on_componente_vida_morreu"]
 [connection signal="vida_atualizada" from="ComponenteVida" to="." method="_on_componente_vida_vida_atualizada"]
 [connection signal="timeout" from="IntervaloDano" to="." method="_on_intervalo_dano_timeout"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

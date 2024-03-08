@@ -1,7 +1,7 @@
 extends Node
 class_name TempoArenaGerenciador
 
-@export var cena_tela_vitoria: PackedScene
+@export var cena_tela_fim: PackedScene
 
 @export var tempo_total: float = 60.0
 
@@ -18,6 +18,6 @@ func get_tempo_restante() -> float:
 
 
 func _on_timer_timeout() -> void:
-	var tela_vitoria = cena_tela_vitoria.instantiate()
+	var tela_vitoria = cena_tela_fim.instantiate()
 	
 	owner.add_child(tela_vitoria)

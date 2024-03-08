@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwvjb34jslmhh"]
 
-[ext_resource type="Script" path="res://scenes/ui/tela_vitoria.gd" id="1_v8y43"]
+[ext_resource type="Script" path="res://scenes/ui/tela_fim.gd" id="1_v7pbq"]
 
 [node name="TelaVitoria" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_v8y43")
+script = ExtResource("1_v7pbq")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -30,27 +30,29 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="LabelTitulo" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Vitória!!"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="LabelTexto" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Você ganhou..."
 horizontal_alignment = 1
 
-[node name="JogarNovamente" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="BotaoJogarNovamente" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Jogar de novo"
 
-[node name="Sair" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="BotaoSair" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Sair do jogo
 "
 
-[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/JogarNovamente" to="." method="_on_jogar_novamente_pressed"]
-[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BotaoJogarNovamente" to="." method="_on_botao_jogar_novamente_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BotaoSair" to="." method="_on_botao_sair_pressed"]

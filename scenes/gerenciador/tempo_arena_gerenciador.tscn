@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://b22lqm08ipnij"]
 
 [ext_resource type="Script" path="res://scenes/gerenciador/tempo_arena_gerenciador.gd" id="1_5kq5q"]
-[ext_resource type="PackedScene" uid="uid://bwvjb34jslmhh" path="res://scenes/ui/tela_vitoria.tscn" id="2_ul4fe"]
+[ext_resource type="PackedScene" uid="uid://bwvjb34jslmhh" path="res://scenes/ui/tela_fim.tscn" id="2_evptc"]
 
 [node name="TempoArenaGerenciador" type="Node"]
 script = ExtResource("1_5kq5q")
-cena_tela_vitoria = ExtResource("2_ul4fe")
+cena_tela_fim = ExtResource("2_evptc")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

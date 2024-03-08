@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal morte
+
 @onready var componente_vida: ComponenteVida = $ComponenteVida
 @onready var timer_intervalo_dano: Timer = $IntervaloDano
 @onready var barra_vida: ProgressBar = $BarraVida
@@ -60,3 +62,7 @@ func _on_intervalo_dano_timeout() -> void:
 
 func _on_componente_vida_vida_atualizada() -> void:
 	barra_vida.value = componente_vida.get_porcentagem_vida()
+
+
+func _on_componente_vida_morreu() -> void:
+	morte.emit()
