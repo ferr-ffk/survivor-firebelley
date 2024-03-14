@@ -54,13 +54,12 @@ script = ExtResource("1_fbpga")
 tela_fim = ExtResource("2_2pgvt")
 
 [node name="TempoArenaUI" parent="." node_paths=PackedStringArray("arena_tempo_gerenciador") instance=ExtResource("1_7b83i")]
-arena_tempo_gerenciador = NodePath("TempoArenaGerenciador")
-
-[node name="TempoArenaGerenciador" parent="TempoArenaUI" instance=ExtResource("2_0kahf")]
-tempo_total = 120.0
+arena_tempo_gerenciador = NodePath("../GerenciadorTempoArena")
 
 [node name="BarraExperiencia" parent="." node_paths=PackedStringArray("gerenciador_experiencia") instance=ExtResource("3_hgkti")]
 gerenciador_experiencia = NodePath("../GerenciadorExperiencia")
+
+[node name="GerenciadorTempoArena" parent="." instance=ExtResource("2_0kahf")]
 
 [node name="GerenciadorInimigo" parent="." instance=ExtResource("4_og5xp")]
 delay_spawn = 2.0
@@ -87,4 +86,5 @@ position = Vector2(300, 226)
 
 [node name="PrimeiroPlano" type="Node2D" parent="." groups=["primeiro_plano"]]
 
+[connection signal="dificuldade_arena_alterada" from="GerenciadorTempoArena" to="GerenciadorInimigo" method="_on_gerenciador_tempo_arena_dificuldade_arena_alterada"]
 [connection signal="morte" from="Entidades/Jogador" to="." method="_on_jogador_morte"]
