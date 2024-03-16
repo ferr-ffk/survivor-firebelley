@@ -1,5 +1,6 @@
 extends Node
 
+# o bitshift serve para fornecer a camada de colisão diretamente
 const LAYER_COLISAO = 1 << 0
 const RAIO_SPAWN = 370
 
