@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c3gqs54rv6e6f"]
 
-[ext_resource type="Script" path="res://scenes/abilidade/habilidade_machado/habilidade_machado.gd" id="1_e3jng"]
-[ext_resource type="Texture2D" uid="uid://btb7gioj7fjia" path="res://scenes/abilidade/habilidade_machado/machado.png" id="1_iwyh5"]
+[ext_resource type="Script" path="res://scenes/habilidade/habilidade_machado/habilidade_machado.gd" id="1_e3jng"]
+[ext_resource type="Texture2D" uid="uid://btb7gioj7fjia" path="res://scenes/habilidade/habilidade_machado/machado.png" id="1_iwyh5"]
 [ext_resource type="PackedScene" uid="uid://lf8kck3wuhga" path="res://scenes/componente/componente_hit_box.tscn" id="3_kk2li"]
 
 [sub_resource type="Animation" id="Animation_44cmj"]

@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://vw50ckqdvc7q" path="res://scenes/objeto/jogador/player.png" id="1_n3371"]
 [ext_resource type="PackedScene" uid="uid://bg1r0r82d0fa7" path="res://scenes/componente/componente_vida.tscn" id="2_sw7gv"]
 [ext_resource type="PackedScene" uid="uid://vyi7878l7pjd" path="res://scenes/objeto/camera_jogo/camera_jogo.tscn" id="3_1p53f"]
-[ext_resource type="PackedScene" uid="uid://dvv85a5hdxufm" path="res://scenes/abilidade/habilidade_machado_controller/habilidade_machado_controller.tscn" id="4_6f06m"]
-[ext_resource type="PackedScene" uid="uid://dk0vgd7mwfqvm" path="res://scenes/abilidade/abilidade_espada_controller/abilidade_espada_controller.tscn" id="4_cxgr0"]
+[ext_resource type="PackedScene" uid="uid://dvv85a5hdxufm" path="res://scenes/habilidade/habilidade_machado_controller/habilidade_machado_controller.tscn" id="4_6f06m"]
+[ext_resource type="PackedScene" uid="uid://dk0vgd7mwfqvm" path="res://scenes/habilidade/habilidade_espada_controller/abilidade_espada_controller.tscn" id="4_cxgr0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6v1hm"]
 bg_color = Color(0.247059, 0.14902, 0.192157, 1)

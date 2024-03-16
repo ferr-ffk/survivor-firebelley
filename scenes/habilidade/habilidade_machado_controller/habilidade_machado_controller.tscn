@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvv85a5hdxufm"]
 
-[ext_resource type="Script" path="res://scenes/abilidade/habilidade_machado_controller/habilidade_machado_controller.gd" id="1_r03oj"]
-[ext_resource type="PackedScene" uid="uid://c3gqs54rv6e6f" path="res://scenes/abilidade/habilidade_machado/habilidade_machado.tscn" id="2_p77fv"]
+[ext_resource type="Script" path="res://scenes/habilidade/habilidade_machado_controller/habilidade_machado_controller.gd" id="1_r03oj"]
+[ext_resource type="PackedScene" uid="uid://c3gqs54rv6e6f" path="res://scenes/habilidade/habilidade_machado/habilidade_machado.tscn" id="2_p77fv"]
 
 [node name="HabilidadeMachadoController" type="Node"]
 script = ExtResource("1_r03oj")
