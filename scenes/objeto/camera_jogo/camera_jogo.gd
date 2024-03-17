@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	
 	
 func obter_alvo() -> void:
-	var player = get_tree().get_first_node_in_group("player")
+	player = get_tree().get_first_node_in_group("player")
 	
 	if player == null:
 		push_error("Nenhum jogador no grupo player!")

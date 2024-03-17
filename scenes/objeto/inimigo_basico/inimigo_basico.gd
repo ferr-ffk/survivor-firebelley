@@ -3,7 +3,7 @@ class_name InimigoBasico
 
 
 @onready var componente_vida: ComponenteVida = $ComponenteVida
-@export_range(0, 100) var dano: int = 2.0
+@export_range(0, 100) var dano: int = 2
 
 const VELOCIDADE_MAXIMA = 50
 

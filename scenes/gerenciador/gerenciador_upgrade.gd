@@ -9,6 +9,7 @@ const NUMERO_UPGRADES_PARA_ESCOLHER: int = 2
 
 var upgrades_atuais: Dictionary = {}
 
+
 func _ready() -> void:
 	gerenciador_experiencia.nivel_upgrade.connect(on_nivel_upgrade)
 
@@ -35,8 +36,6 @@ func aplicar_upgrade(upgrade: UpgradeAbilidade) -> void:
 			)
 		
 		
-	print(upgrades_atuais)
-	
 	EventosJogo.emitir_abilidade_adicionada(upgrades_atuais, upgrade)
 
 	
@@ -54,7 +53,7 @@ func obter_upgrades() -> Array[UpgradeAbilidade]:
 		var upgrade_escolhido: UpgradeAbilidade = upgrades_filtrados.pick_random()
 		
 		# se não tem mais upgrades a escolher, quebra o loop
-		if upgrades_escolhidos.size() == 0:
+		if upgrades_filtrados.size() == 0:
 			break
 		
 		upgrades_escolhidos.append(upgrade_escolhido)
@@ -72,7 +71,7 @@ func obter_upgrades() -> Array[UpgradeAbilidade]:
 ## A tela emite esse sinal para o gerenciador de upgrade
 ## O gerenciador, por fim, atualiza os upgrades do jogador com o upgrade fornecido
 func on_nivel_upgrade(nivel_atual: int) -> void:
-	var tela_upgrade_instancia: TelaUpgrade = tela_upgrade_cena.instantiate()
+	var tela_upgrade_instancia = tela_upgrade_cena.instantiate() as TelaUpgrade
 	add_child(tela_upgrade_instancia)
 
 	var upgrades_escolhidos: Array[UpgradeAbilidade] = obter_upgrades()

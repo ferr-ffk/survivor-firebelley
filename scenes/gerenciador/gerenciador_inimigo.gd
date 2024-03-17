@@ -5,7 +5,7 @@ const LAYER_COLISAO = 1 << 0
 const RAIO_SPAWN = 370
 
 @export var inimigo_basico_cena: PackedScene
-@export var delay_spawn: float = 1.5
+@export var delay_spawn: float = 2.5
 
 @onready var timer_delay_spawn = $Timer
 @onready var node_entidades: Node2D = get_tree().get_first_node_in_group("camada_entidades")
@@ -74,5 +74,3 @@ func _on_gerenciador_tempo_arena_dificuldade_arena_alterada(arena_dificuldade: i
 	# poe um limite minimo de 0.4s para spawn de novos inimigos
 	timer_delay_spawn.wait_time = min(tempo_delay_base - tempo_atualizacao, 0.3)
 		
-	print(tempo_atualizacao)
-	
