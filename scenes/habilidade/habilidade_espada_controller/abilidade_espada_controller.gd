@@ -13,7 +13,7 @@ const AUMENTO_DANO_HABILIDADE: float = 1.125
 @onready var camada_primeiro_plano = get_tree().get_first_node_in_group("primeiro_plano")
 
 func _ready() -> void:
-	EventosJogo.abilidade_espada_adicionada.connect(on_abilidade_espada_adicionada)
+	EventosJogo.abilidade_adicionada.connect(on_abilidade_adicionada)
 	timer.wait_time = duracao_ataque
 
 func _on_timer_timeout() -> void:
@@ -51,7 +51,7 @@ func _on_timer_timeout() -> void:
 	var posicao_inimigo = inimigos[0].global_position - espada.global_position
 	espada.rotation = posicao_inimigo.angle()
 	
-func on_abilidade_espada_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeAbilidade, ) -> void:
+func on_abilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeAbilidade, ) -> void:
 	if upgrade.id != "espada_rate":
 		return
 	

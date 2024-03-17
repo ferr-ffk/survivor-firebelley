@@ -5,15 +5,18 @@ signal morte
 @onready var componente_vida: ComponenteVida = $ComponenteVida
 @onready var timer_intervalo_dano: Timer = $IntervaloDano
 @onready var barra_vida: ProgressBar = $BarraVida
+@onready var habilidades = $Habilidades
 
 const VELOCIDADE_MAXIMA: float = 160.0
 const ACELERACAO = 20
 
-var num_inimigos_colidindo: int 
+var num_inimigos_colidindo: int
 
 
 func _ready() -> void:
 	barra_vida.value = componente_vida.get_porcentagem_vida()
+	
+	EventosJogo.abilidade_adicionada.connect(on_abilidade_adicionada)
 
 
 func _process(delta) -> void:
@@ -34,8 +37,8 @@ func get_vetor_movimento() -> Vector2:
 	return Vector2(movimento_x, movimento_y)
 	
 	
-	# o jogador não deveria receber dano proporcionalmente ao número de inimigos,
-	 	# então quando um inimigo entra na area inicia um timer que impede dano adicional de ser causado
+# o jogador não deveria receber dano proporcionalmente ao número de inimigos,
+# então quando um inimigo entra na area inicia um timer que impede dano adicional de ser causado
 func checar_dano(body: InimigoBasico = null) -> void:
 	if num_inimigos_colidindo == 0 || not timer_intervalo_dano.is_stopped():
 		return
@@ -66,3 +69,15 @@ func _on_componente_vida_vida_atualizada() -> void:
 
 func _on_componente_vida_morreu() -> void:
 	morte.emit()
+
+
+## como a habilidade não possui método para ser adicionada ao jogador, faremos aqui
+func on_abilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeAbilidade) -> void:
+	# verifica se é uma habilidade ou upgrade
+	if not upgrade is Habilidade:
+		return
+		
+	var habilidade = upgrade as Habilidade
+		
+	# instancia o gerenciador da habilidade e adiciona no node Habilidades do Jogador
+	habilidades.add_child(habilidade.cena_habilidade_controller.instantiate())
