@@ -1,7 +1,7 @@
 extends Node
 class_name GerenciadorUpgrade
 
-const NUMERO_UPGRADES_PARA_ESCHOLER: int = 2
+const NUMERO_UPGRADES_PARA_ESCOLHER: int = 2
 
 @export var upgrades_disponiveis: Array[UpgradeAbilidade]
 @export var gerenciador_experiencia: GerenciadorExperiencia
@@ -50,7 +50,7 @@ func obter_upgrades() -> Array[UpgradeAbilidade]:
 	
 	var upgrades_filtrados: Array[UpgradeAbilidade] = upgrades_disponiveis.duplicate()
 	
-	for i in NUMERO_UPGRADES_PARA_ESCHOLER:
+	for i in NUMERO_UPGRADES_PARA_ESCOLHER:
 		var upgrade_escolhido: UpgradeAbilidade = upgrades_filtrados.pick_random()
 		
 		# se não tem mais upgrades a escolher, quebra o loop

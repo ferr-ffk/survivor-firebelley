@@ -5,6 +5,11 @@ class_name HabilidadeMachadoController
 
 @export var habilidade_machado: PackedScene
 @export var dano: float = 10.0
+@export var duracao_ataque: float = 4.5
+
+
+func _ready() -> void:
+	timer.wait_time = duracao_ataque
 
 
 func _on_timer_timeout() -> void:
