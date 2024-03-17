@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c1mderk1ohfxn"]
+[gd_resource type="Resource" script_class="Habilidade" load_steps=3 format=3 uid="uid://c1mderk1ohfxn"]
 
 [ext_resource type="PackedScene" uid="uid://dvv85a5hdxufm" path="res://scenes/habilidade/habilidade_machado_controller/habilidade_machado_controller.tscn" id="1_duwh0"]
 [ext_resource type="Script" path="res://resources/upgrades/habilidade.gd" id="2_lddfn"]
@@ -7,5 +7,6 @@
 script = ExtResource("2_lddfn")
 cena_habilidade_controller = ExtResource("1_duwh0")
 id = "machado"
+nivel_maximo = 1
 nome = "Machado"
 descricao = "Ataca todos os inimigos em uma espiral crescente ao redor do jogador"

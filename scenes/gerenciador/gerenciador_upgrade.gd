@@ -1,6 +1,8 @@
 extends Node
 class_name GerenciadorUpgrade
 
+const NUMERO_UPGRADES_PARA_ESCHOLER: int = 2
+
 @export var upgrades_disponiveis: Array[UpgradeAbilidade]
 @export var gerenciador_experiencia: GerenciadorExperiencia
 @export var tela_upgrade_cena: PackedScene
@@ -22,7 +24,19 @@ func aplicar_upgrade(upgrade: UpgradeAbilidade) -> void:
 		}
 	else:
 		upgrades_atuais[upgrade.id]["quantidade"] += 1
-
+	
+	if upgrade.nivel_maximo > 0:
+		var nivel_atual = upgrades_atuais[upgrade.id]["quantidade"]
+		
+		# filtra os upgrades disponiveis removendo o que já está no nivel maximo
+		if upgrade.nivel_maximo == nivel_atual:
+			upgrades_disponiveis = upgrades_disponiveis.filter(func(upgrade_disponivel): 
+				return upgrade_disponivel.id != upgrade.id
+			)
+		
+		
+	print(upgrades_atuais)
+	
 	EventosJogo.emitir_abilidade_adicionada(upgrades_atuais, upgrade)
 
 	
@@ -36,8 +50,12 @@ func obter_upgrades() -> Array[UpgradeAbilidade]:
 	
 	var upgrades_filtrados: Array[UpgradeAbilidade] = upgrades_disponiveis.duplicate()
 	
-	for i in 2:
+	for i in NUMERO_UPGRADES_PARA_ESCHOLER:
 		var upgrade_escolhido: UpgradeAbilidade = upgrades_filtrados.pick_random()
+		
+		# se não tem mais upgrades a escolher, quebra o loop
+		if upgrades_escolhidos.size() == 0:
+			break
 		
 		upgrades_escolhidos.append(upgrade_escolhido)
 		

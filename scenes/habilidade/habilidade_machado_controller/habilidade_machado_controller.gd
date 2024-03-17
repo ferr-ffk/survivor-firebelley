@@ -4,7 +4,7 @@ class_name HabilidadeMachadoController
 @onready var timer = $Timer
 
 @export var habilidade_machado: PackedScene
-@export var dano: float = 20.0
+@export var dano: float = 10.0
 
 
 func _on_timer_timeout() -> void:
