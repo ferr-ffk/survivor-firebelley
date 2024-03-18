@@ -14,6 +14,10 @@ func _process(delta: float) -> void:
 	
 	velocity = direcao * VELOCIDADE_MAXIMA
 	
+	var direcao_movimento = sign(direcao.x)
+	
+	visual.scale = Vector2(direcao_movimento, 1)
+	
 	move_and_slide()
 	
 	

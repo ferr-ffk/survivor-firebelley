@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b65qad73v0m12"]
+[gd_scene load_steps=13 format=3 uid="uid://b65qad73v0m12"]
 
 [ext_resource type="Script" path="res://scenes/objeto/inimigo_basico/inimigo_basico.gd" id="1_jwog1"]
 [ext_resource type="Texture2D" uid="uid://brwk2erg54vgs" path="res://scenes/objeto/inimigo_basico/rato.png" id="2_0tugv"]
 [ext_resource type="PackedScene" uid="uid://bg1r0r82d0fa7" path="res://scenes/componente/componente_vida.tscn" id="2_cufi0"]
 [ext_resource type="PackedScene" uid="uid://dni55x2aschb" path="res://scenes/componente/componente_drop_frasco.tscn" id="3_crgxr"]
+[ext_resource type="PackedScene" uid="uid://bc82fpag1wkqc" path="res://scenes/componente/componente_morte.tscn" id="4_fk7n4"]
 [ext_resource type="PackedScene" uid="uid://cxi1v84w0yj8h" path="res://scenes/componente/componente_hurt_box.tscn" id="5_dm7vx"]
 
 [sub_resource type="Animation" id="Animation_1xurs"]
@@ -93,6 +94,10 @@ autoplay = "andar"
 [node name="ComponenteVida" parent="." instance=ExtResource("2_cufi0")]
 
 [node name="ComponenteDropFrasco" parent="." node_paths=PackedStringArray("componente_vida") instance=ExtResource("3_crgxr")]
+componente_vida = NodePath("../ComponenteVida")
+
+[node name="ComponenteMorte" parent="." node_paths=PackedStringArray("sprite", "componente_vida") instance=ExtResource("4_fk7n4")]
+sprite = NodePath("../Visual/Sprite2D")
 componente_vida = NodePath("../ComponenteVida")
 
 [node name="ComponenteHurtBox" parent="." node_paths=PackedStringArray("componente_vida") instance=ExtResource("5_dm7vx")]
