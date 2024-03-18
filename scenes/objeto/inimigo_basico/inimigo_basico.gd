@@ -1,21 +1,22 @@
 extends CharacterBody2D
 class_name InimigoBasico
 
+const VELOCIDADE_MAXIMA = 50
 
 @onready var componente_vida: ComponenteVida = $ComponenteVida
-@export_range(0, 100) var dano: int = 2
+@onready var visual: Node2D = $Visual
 
-const VELOCIDADE_MAXIMA = 50
+@export_range(0, 100) var dano: int = 2
 
 
 func _process(delta: float) -> void:
-	var direction = get_direcao_para_jogador()
+	var direcao = get_direcao_para_jogador()
 	
-	velocity = direction * VELOCIDADE_MAXIMA
+	velocity = direcao * VELOCIDADE_MAXIMA
 	
 	move_and_slide()
-
-
+	
+	
 func get_direcao_para_jogador() -> Vector2:
 	var jogador: CharacterBody2D = get_tree().get_first_node_in_group("player")
 	
