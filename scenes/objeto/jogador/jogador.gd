@@ -6,6 +6,8 @@ signal morte
 @onready var timer_intervalo_dano: Timer = $IntervaloDano
 @onready var barra_vida: ProgressBar = $BarraVida
 @onready var habilidades = $Habilidades
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var visual: Node2D = $Visual
 
 const VELOCIDADE_MAXIMA: float = 160.0
 const ACELERACAO = 20
@@ -28,6 +30,19 @@ func _process(delta) -> void:
 	velocity = velocity.lerp(velocidade_alvo,  1 - exp(-delta * ACELERACAO))
 
 	move_and_slide()
+	
+	if direcao.x != 0 || direcao.y != 0:
+		animation_player.play("andar")
+		
+		var direcao_movimento = sign(direcao.x)
+		
+		# aplica o scale para direcionar o sprite na esquerda ou direita
+		if direcao_movimento == 0:
+			visual.scale = Vector2.ONE
+		else:
+			visual.scale = Vector2(direcao_movimento, 1)
+	else:
+		animation_player.play("RESET")
 
 
 func get_vetor_movimento() -> Vector2:
