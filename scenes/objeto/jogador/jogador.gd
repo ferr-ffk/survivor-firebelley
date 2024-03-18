@@ -37,9 +37,7 @@ func _process(delta) -> void:
 		var direcao_movimento = sign(direcao.x)
 		
 		# aplica o scale para direcionar o sprite na esquerda ou direita
-		if direcao_movimento == 0:
-			visual.scale = Vector2.ONE
-		else:
+		if direcao_movimento != 0:
 			visual.scale = Vector2(direcao_movimento, 1)
 	else:
 		animation_player.play("RESET")
