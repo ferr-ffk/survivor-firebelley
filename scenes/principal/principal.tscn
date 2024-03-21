@@ -181,7 +181,7 @@ gerenciador_experiencia = NodePath("../GerenciadorExperiencia")
 tempo_total = 60.0
 
 [node name="GerenciadorInimigo" parent="." instance=ExtResource("4_og5xp")]
-delay_spawn = 1000.0
+delay_spawn = 5.0
 
 [node name="GerenciadorExperiencia" parent="." instance=ExtResource("4_v3cb1")]
 
