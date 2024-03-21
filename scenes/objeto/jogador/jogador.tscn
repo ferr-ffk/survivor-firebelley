@@ -133,7 +133,7 @@ libraries = {
 [node name="Habilidades" type="Node" parent="."]
 
 [node name="HabilidadeEspadaController" parent="Habilidades" instance=ExtResource("4_cxgr0")]
-dano = 5.0
+dano = 10.0
 
 [node name="IntervaloDano" type="Timer" parent="."]
 wait_time = 0.5

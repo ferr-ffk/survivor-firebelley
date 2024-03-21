@@ -1,0 +1,147 @@
+[gd_scene load_steps=13 format=3 uid="uid://d00df5ekr1o1d"]
+
+[ext_resource type="Script" path="res://scenes/objeto/inimigo_fantasma/inimigo_fantasma.gd" id="1_0dboa"]
+[ext_resource type="Script" path="res://scenes/componente/componente_vida.gd" id="1_bv4fy"]
+[ext_resource type="Script" path="res://scenes/componente/componente_velocidade.gd" id="2_77my1"]
+[ext_resource type="Script" path="res://scenes/componente/componente_drop_frasco.gd" id="3_bc7xh"]
+[ext_resource type="Texture2D" uid="uid://bkgb3xgx2rdsd" path="res://scenes/objeto/inimigo_fantasma/fantasma.png" id="3_ct3fn"]
+[ext_resource type="PackedScene" uid="uid://bc82fpag1wkqc" path="res://scenes/componente/componente_morte.tscn" id="3_lxhr8"]
+[ext_resource type="PackedScene" uid="uid://cxi1v84w0yj8h" path="res://scenes/componente/componente_hurt_box.tscn" id="6_u1ixx"]
+
+[sub_resource type="Animation" id="Animation_llx65"]
+resource_name = "andar"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, -2), Vector2(-3, -2), Vector2(-5, 1), Vector2(0, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.325, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2xykw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wsceq"]
+_data = {
+"RESET": SubResource("Animation_2xykw"),
+"andar": SubResource("Animation_llx65")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6dew"]
+radius = 17.0294
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qbw7p"]
+
+[node name="InimigoFantasma" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_0dboa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wsceq")
+}
+autoplay = "andar"
+
+[node name="ComponenteDropFrasco" type="Node" parent="." node_paths=PackedStringArray("componente_vida")]
+script = ExtResource("3_bc7xh")
+chance_drop = 80.0
+componente_vida = NodePath("../ComponenteVida")
+
+[node name="ComponenteMorte" parent="." node_paths=PackedStringArray("sprite", "componente_vida") instance=ExtResource("3_lxhr8")]
+sprite = NodePath("../Visual/Sprite2D")
+componente_vida = NodePath("../ComponenteVida")
+
+[node name="ComponenteVida" type="Node" parent="."]
+script = ExtResource("1_bv4fy")
+vida_maxima = 30.0
+
+[node name="ComponenteVelocidade" type="Node" parent="."]
+script = ExtResource("2_77my1")
+velocidade_maxima = 100
+aceleracao = 0.5
+
+[node name="ComponenteHurtBox" parent="." node_paths=PackedStringArray("componente_vida") instance=ExtResource("6_u1ixx")]
+componente_vida = NodePath("../ComponenteVida")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComponenteHurtBox"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_g6dew")
+debug_color = Color(0.996078, 0, 0.211765, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_qbw7p")
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual"]
+texture = ExtResource("3_ct3fn")
+offset = Vector2(0, -8)

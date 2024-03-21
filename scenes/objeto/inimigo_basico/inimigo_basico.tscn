@@ -117,6 +117,7 @@ libraries = {
 autoplay = "andar"
 
 [node name="ComponenteVida" parent="." instance=ExtResource("2_cufi0")]
+vida_maxima = 20.0
 
 [node name="ComponenteDropFrasco" parent="." node_paths=PackedStringArray("componente_vida") instance=ExtResource("3_crgxr")]
 componente_vida = NodePath("../ComponenteVida")

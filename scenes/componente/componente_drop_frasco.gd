@@ -2,7 +2,7 @@ extends Node
 class_name ComponenteDropFrasco
 
 @export_range(0, 100) var chance_drop: float = 50.0
-@export var cena_frasco: PackedScene
+@onready var cena_frasco: PackedScene = load("res://scenes/objeto/frasco_experiencia/frasco_experiencia.tscn")
 @export var componente_vida: ComponenteVida
 
 @onready var node_entidades: Node2D = get_tree().get_first_node_in_group("camada_entidades")

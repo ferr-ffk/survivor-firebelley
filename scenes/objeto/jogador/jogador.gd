@@ -52,7 +52,7 @@ func get_vetor_movimento() -> Vector2:
 	
 # o jogador não deveria receber dano proporcionalmente ao número de inimigos,
 # então quando um inimigo entra na area inicia um timer que impede dano adicional de ser causado
-func checar_dano(body: InimigoBasico = null) -> void:
+func checar_dano(body: Node2D = null) -> void:
 	if num_inimigos_colidindo == 0 || not timer_intervalo_dano.is_stopped():
 		return
 		
@@ -63,7 +63,7 @@ func checar_dano(body: InimigoBasico = null) -> void:
 	timer_intervalo_dano.start()
 	
 
-func _on_hurt_box_body_entered(body: InimigoBasico) -> void:
+func _on_hurt_box_body_entered(body: Node2D) -> void:
 	num_inimigos_colidindo += 1
 	checar_dano(body)
 

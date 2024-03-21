@@ -1,9 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dni55x2aschb"]
+[gd_scene load_steps=2 format=3 uid="uid://dni55x2aschb"]
 
 [ext_resource type="Script" path="res://scenes/componente/componente_drop_frasco.gd" id="1_2l3ny"]
-[ext_resource type="PackedScene" uid="uid://clsw43ydx4et6" path="res://scenes/objeto/frasco_experiencia/frasco_experiencia.tscn" id="2_xamt3"]
 
 [node name="ComponenteDropFrasco" type="Node"]
 script = ExtResource("1_2l3ny")
 chance_drop = 60.0
-cena_frasco = ExtResource("2_xamt3")
