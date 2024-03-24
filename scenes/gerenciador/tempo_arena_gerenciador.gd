@@ -7,9 +7,10 @@ const INTERVALO_DIFICULDADE: int = 5
 
 @export var cena_tela_fim: PackedScene
 @export var tempo_total: float = 60.0
-var arena_dificuldade: float = 0.0
 
 @onready var timer = $Timer
+
+var arena_dificuldade: float = 0.0
 
 
 func _ready() -> void:

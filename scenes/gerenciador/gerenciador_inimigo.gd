@@ -4,6 +4,7 @@ extends Node
 const LAYER_COLISAO = 1 << 0
 const RAIO_SPAWN = 370
 
+@export var inimigo_fantasma_cena: PackedScene
 @export var inimigo_basico_cena: PackedScene
 @export var delay_spawn: float = 2.5
 
@@ -12,9 +13,12 @@ const RAIO_SPAWN = 370
 
 @onready var tempo_delay_base: float = timer_delay_spawn.wait_time
 
+var inimigo_table: WeightedTable = WeightedTable.new()
 
 func _ready() -> void:
 	timer_delay_spawn.wait_time = delay_spawn
+	
+	inimigo_table.add_item(inimigo_basico_cena, 10)
 	
 	if node_entidades == null:
 		push_error("Camada de entidades fornecida incorretamente!")
@@ -61,16 +65,23 @@ func _on_timer_timeout() -> void:
 	if player == null:
 		return
 		
-	var inimigo = inimigo_basico_cena.instantiate()
+	var inimigo_cena = inimigo_table.pick_item() as PackedScene
+	var inimigo = inimigo_cena.instantiate() as Node2D
 	
 	node_entidades.add_child(inimigo)
 	inimigo.global_position = get_posicao_spawn()
 
 
 func _on_gerenciador_tempo_arena_dificuldade_arena_alterada(arena_dificuldade: int) -> void:
+	# arena_dificuldade é alterada a cada cinco segundos, por padrão
+	
 	# cinco segundos por minuto, 0.1 a mais a cada cinco segundos
 	var tempo_atualizacao = (0.1 / 12) * arena_dificuldade
 	
-	# poe um limite minimo de 0.4s para spawn de novos inimigos
+	# poe um limite minimo de 0.3s para spawn de novos inimigos
 	timer_delay_spawn.wait_time = min(tempo_delay_base - tempo_atualizacao, 0.3)
-		
+	
+	# adiciona o fantasma depois de 30s
+	if arena_dificuldade == 6:
+		inimigo_table.add_item(inimigo_fantasma_cena, 30)
+				

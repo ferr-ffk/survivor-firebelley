@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://do82vuox6wbdt"]
+[gd_scene load_steps=15 format=3 uid="uid://do82vuox6wbdt"]
 
 [ext_resource type="PackedScene" uid="uid://q1t0ikfsr4e3" path="res://scenes/ui/tempo_arena_ui.tscn" id="1_7b83i"]
 [ext_resource type="PackedScene" uid="uid://vyi7878l7pjd" path="res://scenes/objeto/camera_jogo/camera_jogo.tscn" id="1_86pjv"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://x856271tcgcq" path="res://scenes/gerenciador/gerenciador_experiencia.tscn" id="4_v3cb1"]
 [ext_resource type="PackedScene" uid="uid://cp46umbnyo4s7" path="res://scenes/gerenciador/gerenciador_upgrade.tscn" id="6_g8djs"]
 [ext_resource type="PackedScene" uid="uid://cjvjga3h6ovst" path="res://scenes/ui/tela_upgrade.tscn" id="7_54yi3"]
-[ext_resource type="PackedScene" uid="uid://d00df5ekr1o1d" path="res://scenes/objeto/inimigo_fantasma/inimigo_fantasma.tscn" id="13_t7ma7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vwn2"]
 texture = ExtResource("1_ca2x3")
@@ -202,12 +201,6 @@ y_sort_enabled = true
 [node name="Jogador" parent="Entidades" instance=ExtResource("1_tw575")]
 unique_name_in_owner = true
 position = Vector2(300, 226)
-
-[node name="InimigoFantasma" parent="Entidades" instance=ExtResource("13_t7ma7")]
-position = Vector2(539, 144)
-
-[node name="InimigoFantasma2" parent="Entidades" instance=ExtResource("13_t7ma7")]
-position = Vector2(284, 128)
 
 [node name="PrimeiroPlano" type="Node2D" parent="." groups=["primeiro_plano"]]
 
