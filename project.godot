@@ -38,6 +38,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="survivor-firebelley"
 
+[gui]
+
+theme/custom_font="res://resources/tema/Rockboxcond12.ttf"
+
 [input]
 
 move_left={
