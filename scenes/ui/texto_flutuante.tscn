@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dby2r140hqfu4"]
+
+[ext_resource type="Script" path="res://scenes/ui/texto_flutuante.gd" id="1_nchdb"]
+
+[node name="TextoFlutuante" type="Node2D"]
+script = ExtResource("1_nchdb")
+
+[node name="Dano" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 32)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -14.0
+offset_right = 50.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+text = "700
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
