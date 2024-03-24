@@ -3,8 +3,7 @@ class_name TempoArenaGerenciador
 
 signal dificuldade_arena_alterada(arena_dificuldade: int)
 
-const INTERVALO_DIFICULDADE: int = 5
-
+@export var intervalo_dificuldade: int = 5
 @export var cena_tela_fim: PackedScene
 @export var tempo_total: float = 60.0
 
@@ -20,7 +19,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	# calcula o tempo em para que aumenta a dificuldade
-	var proximo_tempo_mudanca_dificuldade = timer.wait_time - ((arena_dificuldade + 1) * INTERVALO_DIFICULDADE)
+	var proximo_tempo_mudanca_dificuldade = timer.wait_time - ((arena_dificuldade + 1) * intervalo_dificuldade)
 	
 	# para que a cada cinco segundos aumente a dificuldade
 	if timer.time_left <= proximo_tempo_mudanca_dificuldade:
