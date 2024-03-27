@@ -24,5 +24,5 @@ func _on_area_entered(area: Area2D) -> void:
 	get_tree().get_first_node_in_group("primeiro_plano").add_child(texto_flutuante)
 	
 	texto_flutuante.global_position = global_position + (Vector2.UP * 16)
-	texto_flutuante.inicio(str(componente_hit_box.dano)) 	
+	texto_flutuante.inicio(str(componente_hit_box.dano))
 	

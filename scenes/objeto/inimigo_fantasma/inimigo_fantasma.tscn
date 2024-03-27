@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d00df5ekr1o1d"]
+[gd_scene load_steps=16 format=3 uid="uid://d00df5ekr1o1d"]
 
 [ext_resource type="Script" path="res://scenes/objeto/inimigo_fantasma/inimigo_fantasma.gd" id="1_0dboa"]
 [ext_resource type="Script" path="res://scenes/componente/componente_vida.gd" id="1_bv4fy"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" path="res://scenes/componente/componente_drop_frasco.gd" id="3_bc7xh"]
 [ext_resource type="Texture2D" uid="uid://bkgb3xgx2rdsd" path="res://scenes/objeto/inimigo_fantasma/fantasma.png" id="3_ct3fn"]
 [ext_resource type="PackedScene" uid="uid://bc82fpag1wkqc" path="res://scenes/componente/componente_morte.tscn" id="3_lxhr8"]
+[ext_resource type="PackedScene" uid="uid://13nffaaiqim8" path="res://scenes/componente/componente_hit_flash.tscn" id="6_cv7nv"]
 [ext_resource type="PackedScene" uid="uid://cxi1v84w0yj8h" path="res://scenes/componente/componente_hurt_box.tscn" id="6_u1ixx"]
+[ext_resource type="Shader" path="res://scenes/componente/componente_hit_flash.gdshader" id="7_7uiq2"]
 
 [sub_resource type="Animation" id="Animation_2xykw"]
 length = 0.001
@@ -94,6 +96,11 @@ _data = {
 "andar": SubResource("Animation_llx65")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_271m2"]
+resource_local_to_scene = true
+shader = ExtResource("7_7uiq2")
+shader_parameter/porcentagem_lerp = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6dew"]
 radius = 17.0294
 
@@ -127,6 +134,11 @@ vida_maxima = 30.0
 script = ExtResource("2_77my1")
 velocidade_maxima = 100
 aceleracao = 0.5
+
+[node name="ComponenteHitFlash" parent="." node_paths=PackedStringArray("componente_vida", "sprite") instance=ExtResource("6_cv7nv")]
+hit_flash_material = SubResource("ShaderMaterial_271m2")
+componente_vida = NodePath("../ComponenteVida")
+sprite = NodePath("../Visual/Sprite2D")
 
 [node name="ComponenteHurtBox" parent="." node_paths=PackedStringArray("componente_vida") instance=ExtResource("6_u1ixx")]
 componente_vida = NodePath("../ComponenteVida")

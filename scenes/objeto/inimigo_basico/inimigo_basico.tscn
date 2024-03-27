@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cd8bmpaxxysaw"]
+[gd_scene load_steps=17 format=3 uid="uid://cd8bmpaxxysaw"]
 
 [ext_resource type="Script" path="res://scenes/objeto/inimigo_basico/inimigo_basico.gd" id="1_jwog1"]
 [ext_resource type="Texture2D" uid="uid://bb8o6c7j68tvy" path="res://scenes/objeto/inimigo_basico/rato.png" id="2_0tugv"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bc82fpag1wkqc" path="res://scenes/componente/componente_morte.tscn" id="4_fk7n4"]
 [ext_resource type="PackedScene" uid="uid://cxaa1b7kkrn7b" path="res://scenes/componente/componente_velocidade.tscn" id="5_3rdyo"]
 [ext_resource type="PackedScene" uid="uid://cxi1v84w0yj8h" path="res://scenes/componente/componente_hurt_box.tscn" id="5_dm7vx"]
+[ext_resource type="PackedScene" uid="uid://13nffaaiqim8" path="res://scenes/componente/componente_hit_flash.tscn" id="6_q0cdg"]
+[ext_resource type="Shader" path="res://scenes/componente/componente_hit_flash.gdshader" id="7_6lr80"]
 
 [sub_resource type="Animation" id="Animation_1xurs"]
 length = 0.001
@@ -98,6 +100,11 @@ _data = {
 "morte": SubResource("Animation_4ptso")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cuixb"]
+resource_local_to_scene = true
+shader = ExtResource("7_6lr80")
+shader_parameter/porcentagem_lerp = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3vtv"]
 radius = 12.0
 
@@ -128,6 +135,11 @@ componente_vida = NodePath("../ComponenteVida")
 
 [node name="ComponenteVelocidade" parent="." instance=ExtResource("5_3rdyo")]
 velocidade_maxima = 50
+
+[node name="ComponenteHitFlash" parent="." node_paths=PackedStringArray("componente_vida", "sprite") instance=ExtResource("6_q0cdg")]
+hit_flash_material = SubResource("ShaderMaterial_cuixb")
+componente_vida = NodePath("../ComponenteVida")
+sprite = NodePath("../Visual/Sprite2D")
 
 [node name="ComponenteHurtBox" parent="." node_paths=PackedStringArray("componente_vida") instance=ExtResource("5_dm7vx")]
 componente_vida = NodePath("../ComponenteVida")
