@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp46umbnyo4s7"]
+[gd_scene load_steps=3 format=3 uid="uid://cp46umbnyo4s7"]
 
 [ext_resource type="Script" path="res://scenes/gerenciador/gerenciador_upgrade.gd" id="1_ygvhq"]
-[ext_resource type="Resource" uid="uid://c1xx26s6lag0e" path="res://resources/upgrades/espada_rate.tres" id="2_1wmhd"]
-[ext_resource type="Resource" uid="uid://c1mderk1ohfxn" path="res://resources/upgrades/machado.tres" id="3_nt3jg"]
 [ext_resource type="PackedScene" uid="uid://bgts8irbvlwey" path="res://scenes/ui/upgrade_abilidade_card.tscn" id="3_vam7b"]
 
 [node name="GerenciadorUpgrade" type="Node"]
 script = ExtResource("1_ygvhq")
-upgrades_disponiveis = Array[Resource("res://resources/upgrades/upgrade_abilidade.gd")]([ExtResource("2_1wmhd"), ExtResource("3_nt3jg")])
 tela_upgrade_cena = ExtResource("3_vam7b")

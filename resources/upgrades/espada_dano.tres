@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UpgradeAbilidade" load_steps=2 format=3 uid="uid://drnxxh4gf8xhf"]
+
+[ext_resource type="Script" path="res://resources/upgrades/upgrade_abilidade.gd" id="1_ur48p"]
+
+[resource]
+script = ExtResource("1_ur48p")
+id = "espada_dano"
+nivel_maximo = 0
+nome = "Dano da Espada"
+descricao = "Aumenta o dano da espada em 15%"

@@ -5,7 +5,8 @@ const AUMENTO_DANO_HABILIDADE: float = 1.125
 @export var cena_espada: PackedScene
 @export var alcance_maximo = 150
 
-@export var dano: float = 25.0
+@export var dano_base: float = 10.0
+@export var porcentagem_dano_adicional: float = 1.0
 @export var duracao_ataque: float = 1.5
 
 @onready var timer = $Timer
@@ -41,7 +42,7 @@ func _on_timer_timeout() -> void:
 	
 	var espada: AbilidadeEspada = cena_espada.instantiate()
 	camada_primeiro_plano.add_child(espada)
-	espada.componente_hit_box.dano = self.dano
+	espada.componente_hit_box.dano = dano_base * porcentagem_dano_adicional
 	
 	espada.global_position = inimigos[0].global_position
 	
@@ -52,16 +53,17 @@ func _on_timer_timeout() -> void:
 	espada.rotation = posicao_inimigo.angle()
 	
 func on_abilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeAbilidade, ) -> void:
-	if upgrade.id != "espada_rate":
-		return
-	
-	# checa o nível da abilidade, e adiciona 10% a cada nível
-	var porcentagem_reducao = upgrades_atuais["espada_rate"]["quantidade"] * 0.1
-	
-	timer.wait_time = duracao_ataque * (1 - porcentagem_reducao)
-	
-	# coloca um limite de 0.75s de duração mínima 
-	timer.wait_time = max(timer.wait_time, 0.75)
-	
-	# restart necessário após alteração no wait_time
-	timer.start()
+	if upgrade.id == "espada_rate":
+		# checa o nível da abilidade, e adiciona 10% a cada nível
+		var porcentagem_reducao = upgrades_atuais["espada_rate"]["quantidade"] * 0.1
+		
+		timer.wait_time = duracao_ataque * (1 - porcentagem_reducao)
+		
+		# coloca um limite de 0.75s de duração mínima 
+		timer.wait_time = max(timer.wait_time, 0.75)
+		
+		# restart necessário após alteração no wait_time
+		timer.start()
+	elif upgrade.id == "espada_dano":
+		porcentagem_dano_adicional = 1 + (upgrades_atuais["espada_dano"]["quantidade"] * 0.15)
+

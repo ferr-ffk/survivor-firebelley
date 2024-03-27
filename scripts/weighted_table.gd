@@ -10,14 +10,46 @@ func add_item(item, peso: int) -> void:
 	soma_peso += peso
 
 
-func pick_item() -> Variant:
-	var peso_escolhido = randi_range(1, soma_peso)
+func remove(item: Variant) -> void:
+	items = items.filter(func(item_atual):
+		return item_atual["item"] != item
+	)
+	
+	_atualizar_peso()
+
+
+func pick_item(excluidos: Array = []) -> Variant:
+	var items_ajustados: Array[Dictionary] = items
+	var soma_items_ajustados = soma_peso
+	
+	# se há itens para excluir, filtra eles
+	if excluidos.size() > 0:
+		items_ajustados = []
+		soma_items_ajustados = 0
+		
+		for item in items:
+			var item_nao_existente: bool = not item["item"] in excluidos
+			
+			if item_nao_existente:
+				items_ajustados.append(item)
+				soma_items_ajustados += item["peso"]
+				
+			
+	
+	var peso_escolhido = randi_range(1, soma_items_ajustados)
 	var soma_iteracao = 0
 	
-	for item in items:
+	for item in items_ajustados:
 		soma_iteracao += item["peso"]
 		
 		if peso_escolhido <= soma_iteracao:
 			return item["item"]
 	
 	return items[0]
+
+
+func _atualizar_peso() -> void:
+	soma_peso = 0
+	
+	for item in items:
+		soma_peso += item["peso"]

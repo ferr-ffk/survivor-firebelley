@@ -3,14 +3,24 @@ class_name GerenciadorUpgrade
 
 const NUMERO_UPGRADES_PARA_ESCOLHER: int = 2
 
-@export var upgrades_disponiveis: Array[UpgradeAbilidade]
 @export var gerenciador_experiencia: GerenciadorExperiencia
 @export var tela_upgrade_cena: PackedScene
 
 var upgrades_atuais: Dictionary = {}
 
+var upgrades_disponiveis: WeightedTable = WeightedTable.new()
+
+var machado_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/machado.tres")
+var machado_dano_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/machado_dano.tres")
+var espada_rate_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/espada_rate.tres")
+var espada_dano_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/espada_dano.tres")
+
 
 func _ready() -> void:
+	upgrades_disponiveis.add_item(machado_upgrade, 10)
+	upgrades_disponiveis.add_item(espada_rate_upgrade, 10)
+	upgrades_disponiveis.add_item(espada_dano_upgrade, 10)
+	
 	gerenciador_experiencia.nivel_upgrade.connect(on_nivel_upgrade)
 
 
@@ -31,12 +41,19 @@ func aplicar_upgrade(upgrade: UpgradeAbilidade) -> void:
 		
 		# filtra os upgrades disponiveis removendo o que já está no nivel maximo
 		if upgrade.nivel_maximo == nivel_atual:
-			upgrades_disponiveis = upgrades_disponiveis.filter(func(upgrade_disponivel): 
-				return upgrade_disponivel.id != upgrade.id
-			)
-		
+			upgrades_disponiveis.remove(upgrade)
+
+	# usado para verificar se algum upgrade dependente de outro foi adicionado, e então
+	# o adiciona
+	atualizar_upgrades_disponiveis(upgrade)
 		
 	EventosJogo.emitir_abilidade_adicionada(upgrades_atuais, upgrade)
+
+
+func atualizar_upgrades_disponiveis(upgrade: UpgradeAbilidade) -> void:
+	# se o machado foi escolhido, então os upgrades dependentes dele podem ser disponiveis
+	if upgrade.id == machado_upgrade.id:
+		upgrades_disponiveis.add_item(machado_dano_upgrade, 10)
 
 	
 func on_upgrade_selecionado(upgrade: UpgradeAbilidade) -> void:
@@ -47,25 +64,18 @@ func on_upgrade_selecionado(upgrade: UpgradeAbilidade) -> void:
 func obter_upgrades() -> Array[UpgradeAbilidade]:
 	var upgrades_escolhidos: Array[UpgradeAbilidade] = []
 	
-	var upgrades_filtrados: Array[UpgradeAbilidade] = upgrades_disponiveis.duplicate()
-	
-	if upgrades_filtrados.is_empty():
-		push_error("Não há nenhum upgrade restante...")
+	#if upgrades_filtrados.is_empty():
+		#push_error("Não há nenhum upgrade restante...")
 	
 	for i in NUMERO_UPGRADES_PARA_ESCOLHER:
-		if upgrades_filtrados.is_empty():
-			return upgrades_escolhidos
-		
-		var upgrade_escolhido: UpgradeAbilidade = upgrades_filtrados.pick_random()
-		
 		# se não tem mais upgrades a escolher, quebra o loop
-		if upgrades_filtrados.size() == 0:
+		if upgrades_disponiveis.items.size() == upgrades_escolhidos.size():
 			break
+			
+		var upgrade_escolhido: UpgradeAbilidade = upgrades_disponiveis.pick_item(upgrades_escolhidos)
 		
 		upgrades_escolhidos.append(upgrade_escolhido)
 		
-		# filtra os upgrades dos escolhidos com o upgrade escolhido
-		upgrades_filtrados = upgrades_filtrados.filter(func(upgrade: UpgradeAbilidade): return upgrade.id != upgrade_escolhido.id)
 	
 	return upgrades_escolhidos
 
