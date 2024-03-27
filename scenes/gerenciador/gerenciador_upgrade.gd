@@ -53,6 +53,9 @@ func obter_upgrades() -> Array[UpgradeAbilidade]:
 		push_error("Não há nenhum upgrade restante...")
 	
 	for i in NUMERO_UPGRADES_PARA_ESCOLHER:
+		if upgrades_filtrados.is_empty():
+			return upgrades_escolhidos
+		
 		var upgrade_escolhido: UpgradeAbilidade = upgrades_filtrados.pick_random()
 		
 		# se não tem mais upgrades a escolher, quebra o loop
