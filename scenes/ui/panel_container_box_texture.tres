@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://mlwtwrivgj6w"]
+
+[ext_resource type="Texture2D" uid="uid://klbiiw1a0lyn" path="res://assets/ui/ui.png" id="1_oliga"]
+
+[resource]
+texture = ExtResource("1_oliga")
+texture_margin_left = 4.0
+texture_margin_top = 6.0
+texture_margin_right = 4.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 16, 16)
