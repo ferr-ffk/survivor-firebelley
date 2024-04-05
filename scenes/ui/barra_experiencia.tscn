@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqemdq54saayo"]
+[gd_scene load_steps=3 format=3 uid="uid://cqemdq54saayo"]
 
 [ext_resource type="Script" path="res://scenes/ui/barra_experiencia.gd" id="1_fi662"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1beug"]
+bg_color = Color(0.458824, 0.890196, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
 
 [node name="BarraExperiencia" type="CanvasLayer"]
 script = ExtResource("1_fi662")
@@ -22,6 +30,7 @@ custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_1beug")
 max_value = 1.0
 value = 0.5
 show_percentage = false
