@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 signal morte
 
-
 @onready var componente_velocidade: ComponenteVelocidade = $ComponenteVelocidade
 @onready var componente_vida: ComponenteVida = $ComponenteVida
 @onready var timer_intervalo_dano: Timer = $IntervaloDano
@@ -13,9 +12,12 @@ signal morte
 
 var num_inimigos_colidindo: int
 
+var velocidade_base: float = 0
 
 func _ready() -> void:
 	barra_vida.value = componente_vida.get_porcentagem_vida()
+	
+	velocidade_base = componente_velocidade.velocidade_maxima
 	
 	EventosJogo.abilidade_adicionada.connect(on_abilidade_adicionada)
 
@@ -81,11 +83,16 @@ func _on_componente_vida_morreu() -> void:
 
 ## como a habilidade não possui método para ser adicionada ao jogador, faremos aqui
 func on_abilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeAbilidade) -> void:
-	# verifica se é uma habilidade ou upgrade
-	if not upgrade is Habilidade:
-		return
+	# verifica se é uma habilidade
+	if upgrade is Habilidade:
+		var habilidade = upgrade as Habilidade
+			
+		# instancia o gerenciador da habilidade e adiciona no node Habilidades do Jogador
+		habilidades.add_child(habilidade.cena_habilidade_controller.instantiate())
+
+	if upgrade.id == "velocidade_jogador":
+		var aumento_velocidade = 0.1 * upgrades_atuais["velocidade_jogador"]["quantidade"] * velocidade_base
 		
-	var habilidade = upgrade as Habilidade
+		velocidade_base = max(velocidade_base + aumento_velocidade, 175)
 		
-	# instancia o gerenciador da habilidade e adiciona no node Habilidades do Jogador
-	habilidades.add_child(habilidade.cena_habilidade_controller.instantiate())
+		componente_velocidade.velocidade_maxima = velocidade_base

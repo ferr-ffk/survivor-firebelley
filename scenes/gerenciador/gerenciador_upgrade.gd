@@ -14,12 +14,13 @@ var machado_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/machad
 var machado_dano_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/machado_dano.tres")
 var espada_rate_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/espada_rate.tres")
 var espada_dano_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/espada_dano.tres")
-
+var velocidade_jogador = preload("res://resources/upgrades/velocidade_jogador.tres")
 
 func _ready() -> void:
 	upgrades_disponiveis.add_item(machado_upgrade, 10)
 	upgrades_disponiveis.add_item(espada_rate_upgrade, 10)
 	upgrades_disponiveis.add_item(espada_dano_upgrade, 10)
+	upgrades_disponiveis.add_item(velocidade_jogador, 1000)
 	
 	gerenciador_experiencia.nivel_upgrade.connect(on_nivel_upgrade)
 
