@@ -93,6 +93,6 @@ func on_abilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeAbilid
 	if upgrade.id == "velocidade_jogador":
 		var aumento_velocidade = 0.1 * upgrades_atuais["velocidade_jogador"]["quantidade"] * velocidade_base
 		
-		velocidade_base = max(velocidade_base + aumento_velocidade, 175)
+		velocidade_base = min(velocidade_base + aumento_velocidade, 175)
 		
 		componente_velocidade.velocidade_maxima = velocidade_base
