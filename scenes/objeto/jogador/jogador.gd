@@ -2,15 +2,14 @@ extends CharacterBody2D
 
 signal morte
 
+
+@onready var componente_velocidade: ComponenteVelocidade = $ComponenteVelocidade
 @onready var componente_vida: ComponenteVida = $ComponenteVida
 @onready var timer_intervalo_dano: Timer = $IntervaloDano
 @onready var barra_vida: ProgressBar = $BarraVida
 @onready var habilidades = $Habilidades
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visual: Node2D = $Visual
-
-const VELOCIDADE_MAXIMA: float = 160.0
-const ACELERACAO = 20
 
 var num_inimigos_colidindo: int
 
@@ -24,12 +23,8 @@ func _ready() -> void:
 func _process(delta) -> void:
 	var direcao: Vector2 = get_vetor_movimento().normalized()
 	
-	var velocidade_alvo = direcao * VELOCIDADE_MAXIMA
-	
-	# lerp é usado para alcançar uma velocidade em um tempo dado
-	velocity = velocity.lerp(velocidade_alvo,  1 - exp(-delta * ACELERACAO))
-
-	move_and_slide()
+	componente_velocidade.acelerar_em_direcao(direcao)
+	componente_velocidade.mover(self)
 	
 	if direcao.x != 0 || direcao.y != 0:
 		animation_player.play("andar")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cfm83vj8aawne"]
+[gd_scene load_steps=13 format=3 uid="uid://cfm83vj8aawne"]
 
 [ext_resource type="Script" path="res://scenes/objeto/jogador/jogador.gd" id="1_mq4pk"]
 [ext_resource type="Texture2D" uid="uid://vw50ckqdvc7q" path="res://scenes/objeto/jogador/player.png" id="1_n3371"]
+[ext_resource type="PackedScene" uid="uid://cxaa1b7kkrn7b" path="res://scenes/componente/componente_velocidade.tscn" id="2_8bxeg"]
 [ext_resource type="PackedScene" uid="uid://bg1r0r82d0fa7" path="res://scenes/componente/componente_vida.tscn" id="2_sw7gv"]
 [ext_resource type="PackedScene" uid="uid://vyi7878l7pjd" path="res://scenes/objeto/camera_jogo/camera_jogo.tscn" id="3_1p53f"]
 [ext_resource type="PackedScene" uid="uid://dk0vgd7mwfqvm" path="res://scenes/habilidade/habilidade_espada_controller/abilidade_espada_controller.tscn" id="4_cxgr0"]
@@ -111,6 +112,10 @@ script = ExtResource("1_mq4pk")
 libraries = {
 "": SubResource("AnimationLibrary_vmfcw")
 }
+
+[node name="ComponenteVelocidade" parent="." instance=ExtResource("2_8bxeg")]
+velocidade_maxima = 90
+aceleracao = 40.0
 
 [node name="ComponenteVida" parent="." instance=ExtResource("2_sw7gv")]
 
