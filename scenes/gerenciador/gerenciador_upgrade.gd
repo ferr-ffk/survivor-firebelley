@@ -20,7 +20,7 @@ func _ready() -> void:
 	upgrades_disponiveis.add_item(machado_upgrade, 10)
 	upgrades_disponiveis.add_item(espada_rate_upgrade, 10)
 	upgrades_disponiveis.add_item(espada_dano_upgrade, 10)
-	upgrades_disponiveis.add_item(velocidade_jogador, 1000)
+	upgrades_disponiveis.add_item(velocidade_jogador, 5)
 	
 	gerenciador_experiencia.nivel_upgrade.connect(on_nivel_upgrade)
 
