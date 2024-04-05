@@ -27,6 +27,9 @@ func set_upgrade_abilidade(upgrades: Array[UpgradeAbilidade]) -> void:
 		
 		
 func on_abilidade_selecionada(upgrade: UpgradeAbilidade) -> void:
+	$AnimationPlayer.play("sair")
+	await $AnimationPlayer.animation_finished
+	
 	get_tree().paused = false
 	upgrade_selecionado.emit(upgrade)
 	queue_free()

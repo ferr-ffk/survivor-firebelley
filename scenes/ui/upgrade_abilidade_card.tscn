@@ -70,34 +70,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_fhxq2"]
-resource_name = "selecionado"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 2.63902),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(-0.5, 0.75), Vector2(-0.01, 0.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -0.0872665, 0.174533]
-}
-
 [sub_resource type="Animation" id="Animation_0n8gk"]
 resource_name = "descartar"
 length = 0.1
@@ -126,12 +98,55 @@ tracks/1/keys = {
 "values": [0.0, 0.174533, -0.174533]
 }
 
+[sub_resource type="Animation" id="Animation_fhxq2"]
+resource_name = "selecionado"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 2.63902),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(-0.5, 0.75), Vector2(0, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0872665, 0.174533, -0.0872665]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ddjdj"]
 _data = {
 "RESET": SubResource("Animation_nr1r6"),
 "aparecer": SubResource("Animation_ojr18"),
 "descartar": SubResource("Animation_0n8gk"),
 "selecionado": SubResource("Animation_fhxq2")
+}
+
+[sub_resource type="Animation" id="Animation_mmdtu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_pahev"]
@@ -149,21 +164,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.174533, 0.0, -0.174533, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_mmdtu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_834dq"]

@@ -1,12 +1,80 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjvjga3h6ovst"]
+[gd_scene load_steps=7 format=3 uid="uid://cjvjga3h6ovst"]
 
 [ext_resource type="Script" path="res://scenes/ui/tela_upgrade.gd" id="1_bj1o7"]
 [ext_resource type="PackedScene" uid="uid://bgts8irbvlwey" path="res://scenes/ui/upgrade_abilidade_card.tscn" id="1_mbfgc"]
+
+[sub_resource type="Animation" id="Animation_su57x"]
+resource_name = "entrar"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d3vv6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_of4ba"]
+resource_name = "sair"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0bjqc"]
+_data = {
+"RESET": SubResource("Animation_d3vv6"),
+"entrar": SubResource("Animation_su57x"),
+"sair": SubResource("Animation_of4ba")
+}
 
 [node name="TelaUpgrade" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_bj1o7")
 upgrade_abilidade_card = ExtResource("1_mbfgc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0bjqc")
+}
+autoplay = "entrar"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.607843, 0.298039, 0.639216, 0.207843)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
