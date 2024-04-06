@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c15jyyp6dw10q"]
+[gd_scene load_steps=7 format=3 uid="uid://c15jyyp6dw10q"]
 
+[ext_resource type="Script" path="res://scenes/ui/vinheta.gd" id="1_ut6vs"]
 [ext_resource type="Shader" path="res://scenes/ui/vinheta.gdshader" id="1_v7pg1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b7uub"]
@@ -8,7 +9,93 @@ shader_parameter/vignette_intensity = 0.682
 shader_parameter/vignette_opacity = 0.115
 shader_parameter/vignette_rgb = Color(0.247059, 0.14902, 0.192157, 1)
 
+[sub_resource type="Animation" id="Animation_akxyg"]
+resource_name = "atingido"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/vignette_intensity")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 2.5, 1),
+"update": 0,
+"values": [0.682, 3.0, 0.682]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/vignette_rgb")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 2.5, 1),
+"update": 0,
+"values": [Color(0.247059, 0.14902, 0.192157, 1), Color(0.909804, 0.270588, 0.215686, 1), Color(0.247059, 0.14902, 0.192157, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:material:shader_parameter/vignette_opacity")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 2.5, 1),
+"update": 0,
+"values": [0.115, 0.2, 0.115]
+}
+
+[sub_resource type="Animation" id="Animation_6lkfy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/vignette_intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.682]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/vignette_rgb")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.247059, 0.14902, 0.192157, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:material:shader_parameter/vignette_opacity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.115]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6c6df"]
+_data = {
+"RESET": SubResource("Animation_6lkfy"),
+"atingido": SubResource("Animation_akxyg")
+}
+
 [node name="Vinheta" type="CanvasLayer"]
+script = ExtResource("1_ut6vs")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_b7uub")
@@ -18,3 +105,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6c6df")
+}

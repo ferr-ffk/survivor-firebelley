@@ -74,6 +74,7 @@ func _on_intervalo_dano_timeout() -> void:
 
 
 func _on_componente_vida_vida_atualizada() -> void:
+	EventosJogo.emitir_jogador_atingido()
 	barra_vida.value = componente_vida.get_porcentagem_vida()
 
 
