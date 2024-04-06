@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://do82vuox6wbdt"]
+[gd_scene load_steps=16 format=3 uid="uid://do82vuox6wbdt"]
 
 [ext_resource type="PackedScene" uid="uid://q1t0ikfsr4e3" path="res://scenes/ui/tempo_arena_ui.tscn" id="1_7b83i"]
 [ext_resource type="PackedScene" uid="uid://vyi7878l7pjd" path="res://scenes/objeto/camera_jogo/camera_jogo.tscn" id="1_86pjv"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b22lqm08ipnij" path="res://scenes/gerenciador/tempo_arena_gerenciador.tscn" id="2_0kahf"]
 [ext_resource type="PackedScene" uid="uid://bwvjb34jslmhh" path="res://scenes/ui/tela_fim.tscn" id="2_2pgvt"]
 [ext_resource type="PackedScene" uid="uid://cqemdq54saayo" path="res://scenes/ui/barra_experiencia.tscn" id="3_hgkti"]
+[ext_resource type="PackedScene" uid="uid://c15jyyp6dw10q" path="res://scenes/ui/vinheta.tscn" id="3_r2qwv"]
 [ext_resource type="PackedScene" uid="uid://clc4iqewsswl4" path="res://scenes/gerenciador/gerenciador_inimigo.tscn" id="4_og5xp"]
 [ext_resource type="PackedScene" uid="uid://x856271tcgcq" path="res://scenes/gerenciador/gerenciador_experiencia.tscn" id="4_v3cb1"]
 [ext_resource type="PackedScene" uid="uid://cp46umbnyo4s7" path="res://scenes/gerenciador/gerenciador_upgrade.tscn" id="6_g8djs"]
@@ -169,6 +170,8 @@ sources/0 = SubResource("TileSetAtlasSource_5vwn2")
 [node name="Principal" type="Node"]
 script = ExtResource("1_fbpga")
 tela_fim = ExtResource("2_2pgvt")
+
+[node name="Vinheta" parent="." instance=ExtResource("3_r2qwv")]
 
 [node name="TempoArenaUI" parent="." node_paths=PackedStringArray("arena_tempo_gerenciador") instance=ExtResource("1_7b83i")]
 arena_tempo_gerenciador = NodePath("../GerenciadorTempoArena")
