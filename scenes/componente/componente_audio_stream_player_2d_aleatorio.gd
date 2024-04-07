@@ -19,5 +19,5 @@ func play_aleatorio() -> void:
 		pitch_scale = randf_range(tom_minimo, tom_maximo)
 	else:
 		pitch_scale = 1
-	
+ 	
 	play()

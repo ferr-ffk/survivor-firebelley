@@ -9,10 +9,12 @@ signal morte
 @onready var habilidades = $Habilidades
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visual: Node2D = $Visual
+@onready var componente_hit_audio_stream_aleatorio: ComponenteAudioStreamPlayer2DAleatorio = $ComponenteHitAudioStreamAleatorio
 
 var num_inimigos_colidindo: int
 
 var velocidade_base: float = 0
+
 
 func _ready() -> void:
 	barra_vida.value = componente_vida.get_porcentagem_vida()
@@ -74,6 +76,8 @@ func _on_intervalo_dano_timeout() -> void:
 
 
 func _on_componente_vida_vida_atualizada() -> void:
+	componente_hit_audio_stream_aleatorio.play_aleatorio()
+	
 	EventosJogo.emitir_jogador_atingido()
 	barra_vida.value = componente_vida.get_porcentagem_vida()
 
