@@ -6,10 +6,9 @@ const VELOCIDADE_MAXIMA = 50
 @onready var componente_vida: ComponenteVida = $ComponenteVida
 @onready var componente_velocidade: ComponenteVelocidade = $ComponenteVelocidade
 @onready var visual: Node2D = $Visual
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var componente_audio_stream_player_2d_aleatorio: ComponenteAudioStreamPlayer2DAleatorio = $ComponenteAudioStreamPlayer2DAleatorio
 
 @export_range(0, 100) var dano: int = 2
-
 
 func _process(delta: float) -> void:
 	componente_velocidade.acelerar_em_player()
@@ -21,4 +20,9 @@ func _process(delta: float) -> void:
 	
 
 func _on_componente_hurt_box_atingido() -> void:
-	audio_stream_player_2d.play()
+	componente_audio_stream_player_2d_aleatorio.play_aleatorio()
+
+
+func _on_componente_morte_morte() -> void:
+	componente_audio_stream_player_2d_aleatorio.play_aleatorio()
+	
