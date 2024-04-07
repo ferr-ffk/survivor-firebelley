@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://cd8bmpaxxysaw"]
+[gd_scene load_steps=18 format=3 uid="uid://cd8bmpaxxysaw"]
 
 [ext_resource type="Script" path="res://scenes/objeto/inimigo_basico/inimigo_basico.gd" id="1_jwog1"]
 [ext_resource type="Texture2D" uid="uid://bb8o6c7j68tvy" path="res://scenes/objeto/inimigo_basico/rato.png" id="2_0tugv"]
 [ext_resource type="PackedScene" uid="uid://bg1r0r82d0fa7" path="res://scenes/componente/componente_vida.tscn" id="2_cufi0"]
+[ext_resource type="AudioStream" uid="uid://caysx2cuqfkdv" path="res://assets/audio/footstep_carpet_000.ogg" id="2_vnwow"]
 [ext_resource type="PackedScene" uid="uid://dni55x2aschb" path="res://scenes/componente/componente_drop_frasco.tscn" id="3_crgxr"]
 [ext_resource type="PackedScene" uid="uid://bc82fpag1wkqc" path="res://scenes/componente/componente_morte.tscn" id="4_fk7n4"]
 [ext_resource type="PackedScene" uid="uid://cxaa1b7kkrn7b" path="res://scenes/componente/componente_velocidade.tscn" id="5_3rdyo"]
@@ -116,6 +117,11 @@ collision_layer = 8
 collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_jwog1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_vnwow")
+max_distance = 400.0
+bus = &"sfx"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
