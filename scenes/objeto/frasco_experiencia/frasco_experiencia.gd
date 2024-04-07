@@ -3,6 +3,7 @@ class_name FrascoExperiencia
 
 @onready var collision_shape_2d: CollisionShape2D = $AreaColetaJogador/CollisionShape2D
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var componente_audio_stream_player_2d_aleatorio: ComponenteAudioStreamPlayer2DAleatorio = $ComponenteAudioStreamPlayer2DAleatorio
 
 @export var experiencia: int = 2
 
@@ -51,4 +52,6 @@ func _on_area_coleta_jogador_area_entered(area: Area2D) -> void:
 	tween.chain()
 		
 	tween.tween_callback(coletar)
+	
+	componente_audio_stream_player_2d_aleatorio.play_aleatorio()
 	

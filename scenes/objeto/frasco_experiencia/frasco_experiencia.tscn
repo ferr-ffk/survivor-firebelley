@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://clsw43ydx4et6"]
+[gd_scene load_steps=5 format=3 uid="uid://clsw43ydx4et6"]
 
 [ext_resource type="Script" path="res://scenes/objeto/frasco_experiencia/frasco_experiencia.gd" id="1_qmgt0"]
 [ext_resource type="Texture2D" uid="uid://cswuh68yvlot8" path="res://scenes/objeto/frasco_experiencia/frasco_experiencia.png" id="1_suw17"]
+[ext_resource type="PackedScene" uid="uid://bx3etpn2ipi7t" path="res://scenes/componente/componente_audio_stream_player_2d_aleatorio.tscn" id="2_iffnp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cu38k"]
 radius = 22.0907
 
 [node name="FrascoExperiencia" type="Node2D"]
 script = ExtResource("1_qmgt0")
+
+[node name="ComponenteAudioStreamPlayer2DAleatorio" parent="." instance=ExtResource("2_iffnp")]
 
 [node name="AreaColetaJogador" type="Area2D" parent="."]
 collision_layer = 0
