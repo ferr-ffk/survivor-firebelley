@@ -1,7 +1,7 @@
 extends AudioStreamPlayer2D
 class_name ComponenteAudioStreamPlayer2DAleatorio
 
-@export var streams: Array[AudioStreamPlayer2D]
+@export var streams: Array[AudioStream]
 
 func play_aleatorio() -> void:
 	if streams == null || streams.size() == 0:
