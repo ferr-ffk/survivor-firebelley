@@ -76,7 +76,7 @@ angular_velocity_max = 1440.0
 gravity = Vector3(0, 100, 0)
 scale_curve = SubResource("CurveTexture_sgj5u")
 
-[node name="ComponenteMorte" type="Node2D"]
+[node name="ComponenteMorte" type="Node"]
 script = ExtResource("1_jnai3")
 
 [node name="ComponenteAudioStreamPlayer2DAleatorio" parent="." instance=ExtResource("2_k30hk")]
