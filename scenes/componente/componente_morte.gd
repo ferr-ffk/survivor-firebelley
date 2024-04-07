@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 class_name ComponenteMorte
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
