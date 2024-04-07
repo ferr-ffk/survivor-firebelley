@@ -1,14 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://d00df5ekr1o1d"]
+[gd_scene load_steps=22 format=3 uid="uid://d00df5ekr1o1d"]
 
 [ext_resource type="Script" path="res://scenes/objeto/inimigo_fantasma/inimigo_fantasma.gd" id="1_0dboa"]
 [ext_resource type="Script" path="res://scenes/componente/componente_vida.gd" id="1_bv4fy"]
 [ext_resource type="Script" path="res://scenes/componente/componente_velocidade.gd" id="2_77my1"]
+[ext_resource type="PackedScene" uid="uid://bx3etpn2ipi7t" path="res://scenes/componente/componente_audio_stream_player_2d_aleatorio.tscn" id="2_xv27p"]
 [ext_resource type="Script" path="res://scenes/componente/componente_drop_frasco.gd" id="3_bc7xh"]
+[ext_resource type="AudioStream" uid="uid://caysx2cuqfkdv" path="res://assets/audio/footstep_carpet_000.ogg" id="3_bjepy"]
 [ext_resource type="Texture2D" uid="uid://bkgb3xgx2rdsd" path="res://scenes/objeto/inimigo_fantasma/fantasma.png" id="3_ct3fn"]
 [ext_resource type="PackedScene" uid="uid://bc82fpag1wkqc" path="res://scenes/componente/componente_morte.tscn" id="3_lxhr8"]
+[ext_resource type="AudioStream" uid="uid://dt68q3m7ne3tf" path="res://assets/audio/footstep_carpet_001.ogg" id="4_up53q"]
+[ext_resource type="AudioStream" uid="uid://d64mqbi1pymh" path="res://assets/audio/footstep_carpet_002.ogg" id="5_qpig0"]
 [ext_resource type="PackedScene" uid="uid://13nffaaiqim8" path="res://scenes/componente/componente_hit_flash.tscn" id="6_cv7nv"]
 [ext_resource type="PackedScene" uid="uid://cxi1v84w0yj8h" path="res://scenes/componente/componente_hurt_box.tscn" id="6_u1ixx"]
+[ext_resource type="AudioStream" uid="uid://0ysec4u2iful" path="res://assets/audio/footstep_carpet_003.ogg" id="6_udmjk"]
 [ext_resource type="Shader" path="res://scenes/componente/componente_hit_flash.gdshader" id="7_7uiq2"]
+[ext_resource type="AudioStream" uid="uid://dcew53sp2jmv3" path="res://assets/audio/footstep_carpet_004.ogg" id="7_ugw4j"]
 
 [sub_resource type="Animation" id="Animation_2xykw"]
 length = 0.001
@@ -111,6 +117,10 @@ collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_0dboa")
 
+[node name="ComponenteAudioStreamPlayer2DAleatorio" parent="." instance=ExtResource("2_xv27p")]
+max_distance = 400.0
+streams = Array[AudioStream]([ExtResource("3_bjepy"), ExtResource("4_up53q"), ExtResource("5_qpig0"), ExtResource("6_udmjk"), ExtResource("7_ugw4j")])
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_wsceq")
@@ -157,3 +167,5 @@ shape = SubResource("CircleShape2D_qbw7p")
 [node name="Sprite2D" type="Sprite2D" parent="Visual"]
 texture = ExtResource("3_ct3fn")
 offset = Vector2(0, -8)
+
+[connection signal="atingido" from="ComponenteHurtBox" to="." method="_on_componente_hurt_box_atingido"]
