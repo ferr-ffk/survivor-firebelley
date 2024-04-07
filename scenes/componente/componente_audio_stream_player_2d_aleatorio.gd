@@ -8,7 +8,6 @@ func play_aleatorio() -> void:
 		printerr("Nenhuma stream escolhida!")
 		return
 	
-	var stream = streams.pick_random() as AudioStreamPlayer2D
+	stream = streams.pick_random() as AudioStream
 	
-	stream.play()
-	
+	play()
