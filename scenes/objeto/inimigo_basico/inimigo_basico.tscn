@@ -165,3 +165,5 @@ shape = SubResource("CircleShape2D_woxfr")
 [node name="Sprite2D" type="Sprite2D" parent="Visual"]
 texture = ExtResource("2_0tugv")
 offset = Vector2(0, -4)
+
+[connection signal="atingido" from="ComponenteHurtBox" to="." method="_on_componente_hurt_box_atingido"]
