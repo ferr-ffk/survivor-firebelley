@@ -3,9 +3,11 @@ class_name ComponenteMorte
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var gpu_particles: GPUParticles2D = $GPUParticles2D
+@onready var componente_audio_stream_player_2d_aleatorio: ComponenteAudioStreamPlayer2DAleatorio = $ComponenteAudioStreamPlayer2DAleatorio
 
 @export var sprite: Sprite2D
 @export var componente_vida: ComponenteVida
+
 
 func _ready() -> void:
 	gpu_particles.texture = sprite.texture
@@ -26,3 +28,5 @@ func on_morreu() -> void:
 	
 	global_position = posicao
 	animation_player.play("padrao")
+
+	componente_audio_stream_player_2d_aleatorio.play_aleatorio()

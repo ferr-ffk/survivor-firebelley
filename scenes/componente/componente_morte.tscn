@@ -1,6 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc82fpag1wkqc"]
+[gd_scene load_steps=14 format=3 uid="uid://bc82fpag1wkqc"]
 
 [ext_resource type="Script" path="res://scenes/componente/componente_morte.gd" id="1_jnai3"]
+[ext_resource type="PackedScene" uid="uid://bx3etpn2ipi7t" path="res://scenes/componente/componente_audio_stream_player_2d_aleatorio.tscn" id="2_k30hk"]
+[ext_resource type="AudioStream" uid="uid://caysx2cuqfkdv" path="res://assets/audio/footstep_carpet_000.ogg" id="3_mi8xy"]
+[ext_resource type="AudioStream" uid="uid://dt68q3m7ne3tf" path="res://assets/audio/footstep_carpet_001.ogg" id="4_sl86h"]
+[ext_resource type="AudioStream" uid="uid://d64mqbi1pymh" path="res://assets/audio/footstep_carpet_002.ogg" id="5_u1dlr"]
+[ext_resource type="AudioStream" uid="uid://0ysec4u2iful" path="res://assets/audio/footstep_carpet_003.ogg" id="6_rnbnl"]
+[ext_resource type="AudioStream" uid="uid://dcew53sp2jmv3" path="res://assets/audio/footstep_carpet_004.ogg" id="7_kof64"]
 
 [sub_resource type="Animation" id="Animation_y3nlo"]
 length = 0.001
@@ -72,6 +78,10 @@ scale_curve = SubResource("CurveTexture_sgj5u")
 
 [node name="ComponenteMorte" type="Node2D"]
 script = ExtResource("1_jnai3")
+
+[node name="ComponenteAudioStreamPlayer2DAleatorio" parent="." instance=ExtResource("2_k30hk")]
+max_distance = 400.0
+streams = Array[AudioStream]([ExtResource("3_mi8xy"), ExtResource("4_sl86h"), ExtResource("5_u1dlr"), ExtResource("6_rnbnl"), ExtResource("7_kof64")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
