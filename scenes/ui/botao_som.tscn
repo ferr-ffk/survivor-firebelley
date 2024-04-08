@@ -1,0 +1,18 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddv0d67amdv7t"]
+
+[ext_resource type="Script" path="res://scenes/ui/botao_som.gd" id="1_ttwv4"]
+[ext_resource type="PackedScene" uid="uid://rxb1tafw2i77" path="res://scenes/componente/componente_audio_stream_player_aleatorio.tscn" id="2_3jmnx"]
+[ext_resource type="AudioStream" uid="uid://cwmdknywua84a" path="res://assets/audio/click1.ogg" id="3_g1ayp"]
+[ext_resource type="AudioStream" uid="uid://b24a2u33525qm" path="res://assets/audio/click2.ogg" id="4_yml4e"]
+[ext_resource type="AudioStream" uid="uid://bk06s3kqyevgr" path="res://assets/audio/click3.ogg" id="5_5y6w7"]
+[ext_resource type="AudioStream" uid="uid://mq7yjvtxgcbk" path="res://assets/audio/click4.ogg" id="6_8p36g"]
+[ext_resource type="AudioStream" uid="uid://c23a5tfgsnrev" path="res://assets/audio/click5.ogg" id="7_g8rob"]
+
+[node name="BotaoSom" type="Button"]
+offset_right = 6.0
+offset_bottom = 6.0
+text = "Pressionar botao"
+script = ExtResource("1_ttwv4")
+
+[node name="ComponenteAudioStreamPlayerAleatorio" parent="." instance=ExtResource("2_3jmnx")]
+streams = Array[AudioStream]([ExtResource("3_g1ayp"), ExtResource("4_yml4e"), ExtResource("5_5y6w7"), ExtResource("6_8p36g"), ExtResource("7_g8rob")])
