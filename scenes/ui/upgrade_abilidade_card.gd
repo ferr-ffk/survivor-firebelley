@@ -24,8 +24,6 @@ func play_animacao_aparecer(delay: float = 0) -> void:
 	await get_tree().create_timer(delay).timeout
 	
 	modulate = Color.WHITE
-	
-	animation_player.play("aparecer")
 
 
 func selecionar_card() -> void:
