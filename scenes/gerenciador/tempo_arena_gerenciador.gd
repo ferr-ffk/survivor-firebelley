@@ -32,6 +32,7 @@ func get_tempo_restante() -> float:
 
 
 func _on_timer_timeout() -> void:
-	var tela_vitoria = cena_tela_fim.instantiate()
+	var tela_vitoria = cena_tela_fim.instantiate() as TelaFim
 	
 	owner.add_child(tela_vitoria)
+	tela_vitoria.set_vitoria()
