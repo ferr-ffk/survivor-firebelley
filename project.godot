@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="survivor-firebelley"
-run/main_scene="res://scenes/principal/principal.tscn"
+run/main_scene="res://scenes/ui/menu_principal.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/bg_color=Color(0.184314, 0.121569, 0.113725, 1)
 config/icon="res://icon.png"
