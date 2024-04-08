@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwvjb34jslmhh"]
+[gd_scene load_steps=7 format=3 uid="uid://bwvjb34jslmhh"]
 
 [ext_resource type="Script" path="res://scenes/ui/tela_fim.gd" id="1_v7pbq"]
+[ext_resource type="PackedScene" uid="uid://ddv0d67amdv7t" path="res://scenes/ui/botao_som.tscn" id="2_cnmty"]
 
 [sub_resource type="Animation" id="Animation_d3vv6"]
 length = 0.001
@@ -120,16 +121,13 @@ theme_override_font_sizes/font_size = 16
 text = "Você ganhou..."
 horizontal_alignment = 1
 
-[node name="BotaoJogarNovamente" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
+[node name="BotaoJogarNovamente" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_cnmty")]
 layout_mode = 2
-text = "Jogar de novo"
+text = "Jogar Novamente"
 
-[node name="BotaoSair" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
+[node name="BotaoSair" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_cnmty")]
 layout_mode = 2
-text = "Sair do jogo
-"
+text = "Sair"
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BotaoJogarNovamente" to="." method="_on_botao_jogar_novamente_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BotaoSair" to="." method="_on_botao_sair_pressed"]

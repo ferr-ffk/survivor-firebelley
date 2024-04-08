@@ -5,6 +5,7 @@ class_name TelaFim
 @onready var label_titulo: Label = %LabelTitulo
 @onready var label_texto: Label = %LabelTexto
 
+
 func _ready() -> void:
 	# centraliza o pivot
 	panel_container.pivot_offset = panel_container.size / 2
