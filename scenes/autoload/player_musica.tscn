@@ -1,17 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://08qkf4i4w8yi"]
 
-[ext_resource type="AudioStream" uid="uid://b7p0c2su5ipph" path="res://assets/audio/impactMining_000.ogg" id="1_r4oa0"]
+[ext_resource type="AudioStream" uid="uid://d0756ff10xdq1" path="res://assets/audio/hear_what_they_say.mp3" id="1_pie30"]
 [ext_resource type="Script" path="res://scenes/autoload/player_musica.gd" id="2_0wj2c"]
 
 [node name="PlayerMusica" type="AudioStreamPlayer"]
 process_mode = 3
-stream = ExtResource("1_r4oa0")
+stream = ExtResource("1_pie30")
 volume_db = -30.0
 autoplay = true
 bus = &"musica"
 script = ExtResource("2_0wj2c")
 
 [node name="IntervaloPlayMusica" type="Timer" parent="."]
+wait_time = 10.0
 one_shot = true
 
 [connection signal="finished" from="." to="." method="_on_finished"]
