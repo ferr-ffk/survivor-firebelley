@@ -20,6 +20,7 @@ boot_splash/minimum_display_time=20
 [autoload]
 
 EventosJogo="*res://scenes/autoload/eventos_jogo.tscn"
+PlayerMusica="*res://scenes/autoload/player_musica.tscn"
 
 [debug]
 
