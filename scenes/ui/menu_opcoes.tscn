@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://g0d51wn603un"]
+[gd_scene load_steps=6 format=3 uid="uid://dqrxldv4lockj"]
 
-[ext_resource type="Script" path="res://scenes/ui/menu_principal.gd" id="1_0mx70"]
-[ext_resource type="Texture2D" uid="uid://bgfwxg7mskyua" path="res://assets/ambiente/tilemap_packed.png" id="1_k85nk"]
+[ext_resource type="Script" path="res://scenes/ui/menu_opcoes.gd" id="1_8g0le"]
+[ext_resource type="Texture2D" uid="uid://bgfwxg7mskyua" path="res://assets/ambiente/tilemap_packed.png" id="2_s6j0q"]
+[ext_resource type="PackedScene" uid="uid://ddv0d67amdv7t" path="res://scenes/ui/botao_som.tscn" id="3_cjd0b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vwn2"]
-texture = ExtResource("1_k85nk")
+texture = ExtResource("2_s6j0q")
 0:4/0 = 0
 0:4/0/terrain_set = 0
 0:4/0/terrain = 0
@@ -156,8 +157,8 @@ terrain_set_0/terrain_0/name = "piso"
 terrain_set_0/terrain_0/color = Color(0.337255, 0.607843, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_5vwn2")
 
-[node name="MenuPrincipal" type="CanvasLayer"]
-script = ExtResource("1_0mx70")
+[node name="MenuOpcoes" type="CanvasLayer"]
+script = ExtResource("1_8g0le")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_pgw8e")
@@ -180,16 +181,6 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="ContainerSobre" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ContainerSobre"]
-layout_mode = 2
-text = "Sobre:
-[autor]
-[versão]
-[assets]"
-
 [node name="Espaço" type="Control" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -207,41 +198,73 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 24
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer"]
+[node name="LabelOpcoes" type="Label" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "[NOME DO JOGO]"
-
-[node name="BotaoJogar" type="Button" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Jogar"
-
-[node name="BotaoOpcoes" type="Button" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
 text = "Opcoes"
+horizontal_alignment = 1
 
-[node name="BotaoSair" type="Button" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SFXBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/SFXBoxContainer"]
+layout_mode = 2
+text = "Volume SFX"
+
+[node name="SliderSFX" type="HSlider" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/SFXBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Sair"
+max_value = 1.0
+step = 0.01
+
+[node name="MusicaContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/MusicaContainer"]
+layout_mode = 2
+text = "Volume Música"
+
+[node name="SliderMusica" type="HSlider" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/MusicaContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="ModoJanelaContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="CheckBoxTelaCheia" type="CheckBox" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/ModoJanelaContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LabelTelaCheia" type="Label" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/ModoJanelaContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Modo Tela Cheia
+"
+
+[node name="BotaoVoltar" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer" instance=ExtResource("3_cjd0b")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Voltar"
 
 [node name="Espaço2" type="Control" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ContainerExtra" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/ContainerExtra"]
-layout_mode = 2
-text = "botão"
-
-[connection signal="pressed" from="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/BotaoJogar" to="." method="_on_botao_jogar_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/BotaoOpcoes" to="." method="_on_botao_opcoes_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/BotaoSair" to="." method="_on_botao_sair_pressed"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/ModoJanelaContainer/CheckBoxTelaCheia" to="." method="_on_check_box_tela_cheia_toggled"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/BotaoVoltar" to="." method="_on_botao_voltar_pressed"]
