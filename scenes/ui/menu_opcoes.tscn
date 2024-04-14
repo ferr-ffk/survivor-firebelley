@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqrxldv4lockj"]
+[gd_scene load_steps=7 format=3 uid="uid://dqrxldv4lockj"]
 
 [ext_resource type="Script" path="res://scenes/ui/menu_opcoes.gd" id="1_8g0le"]
 [ext_resource type="Texture2D" uid="uid://bgfwxg7mskyua" path="res://assets/ambiente/tilemap_packed.png" id="2_s6j0q"]
+[ext_resource type="PackedScene" uid="uid://c15jyyp6dw10q" path="res://scenes/ui/vinheta.tscn" id="2_xi08n"]
 [ext_resource type="PackedScene" uid="uid://ddv0d67amdv7t" path="res://scenes/ui/botao_som.tscn" id="3_cjd0b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vwn2"]
@@ -219,6 +220,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/SFXBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"LabelOutlineAzul"
 text = "Volume SFX"
 
 [node name="SliderSFX" type="HSlider" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/SFXBoxContainer"]
@@ -232,6 +234,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/MusicaContainer"]
 layout_mode = 2
+theme_type_variation = &"LabelOutlineAzul"
 text = "Volume Música"
 
 [node name="SliderMusica" type="HSlider" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/MusicaContainer"]
@@ -265,6 +268,8 @@ text = "Voltar"
 [node name="Espaço2" type="Control" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Vinheta" parent="." instance=ExtResource("2_xi08n")]
 
 [connection signal="toggled" from="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/ModoJanelaContainer/CheckBoxTelaCheia" to="." method="_on_check_box_tela_cheia_toggled"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/BotaoVoltar" to="." method="_on_botao_voltar_pressed"]
