@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://cacapo6ylv13a"]
+
+[ext_resource type="Script" path="res://scenes/autoload/transicao_tela.gd" id="1_1ud47"]
+[ext_resource type="Shader" path="res://scenes/autoload/transicao_tela.gdshader" id="1_boxkn"]
+[ext_resource type="Texture2D" uid="uid://tqbavwym1pae" path="res://assets/ui/screen_transition.png" id="2_y3d4e"]
+
+[sub_resource type="Animation" id="Animation_bam5q"]
+resource_name = "padrao"
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/porcentagem")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(2.07053, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emitir_metade_transicao_alcancada"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_njsp1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/porcentagem")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bh73f"]
+_data = {
+"RESET": SubResource("Animation_njsp1"),
+"padrao": SubResource("Animation_bam5q")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pxvt2"]
+shader = ExtResource("1_boxkn")
+shader_parameter/cor_transicao = Color(0.247059, 0.14902, 0.192157, 1)
+shader_parameter/porcentagem = 0.0
+shader_parameter/textura_transicao = ExtResource("2_y3d4e")
+
+[node name="TransicaoTela" type="CanvasLayer"]
+process_mode = 3
+layer = 5
+script = ExtResource("1_1ud47")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bh73f")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_pxvt2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
