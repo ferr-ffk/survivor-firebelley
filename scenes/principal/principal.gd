@@ -16,7 +16,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_jogador_morte() -> void:
 	var tela_morte: TelaFim = tela_fim.instantiate()
-	
+
+	ProgressaoMeta.salvar()	
 
 	add_child(tela_morte)
 	tela_morte.set_vitoria(false)
