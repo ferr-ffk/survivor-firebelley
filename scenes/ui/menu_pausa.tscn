@@ -1,0 +1,121 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh0cxfci2ges"]
+
+[ext_resource type="Script" path="res://scenes/ui/menu_pausa.gd" id="1_2bt8i"]
+
+[sub_resource type="Animation" id="Animation_o1raa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d4wmm"]
+resource_name = "padrao"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vvhsp"]
+_data = {
+"RESET": SubResource("Animation_o1raa"),
+"padrao": SubResource("Animation_d4wmm")
+}
+
+[node name="MenuPausa" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_2bt8i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vvhsp")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.607843, 0.298039, 0.639216, 0.207843)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ContainerBotoes" type="PanelContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ContainerBotoes"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ContainerBotoes/MarginContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="MarginContainer/ContainerBotoes/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelOutlineAzul"
+theme_override_font_sizes/font_size = 32
+text = "JOGO PAUSADO"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ContainerBotoes/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BotaoRetomar" type="Button" parent="MarginContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Retomar"
+
+[node name="BotaoOpcoes" type="Button" parent="MarginContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Opcoes"
+
+[node name="BotaoSairMenu" type="Button" parent="MarginContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Sair para o Menu
+"
+
+[connection signal="pressed" from="MarginContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/BotaoRetomar" to="." method="_on_botao_retomar_pressed"]
+[connection signal="pressed" from="MarginContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/BotaoOpcoes" to="." method="_on_botao_opcoes_pressed"]
+[connection signal="pressed" from="MarginContainer/ContainerBotoes/MarginContainer/VBoxContainer/VBoxContainer/BotaoSairMenu" to="." method="_on_botao_sair_menu_pressed"]
