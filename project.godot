@@ -13,9 +13,8 @@ config_version=5
 config/name="survivor-firebelley"
 run/main_scene="res://scenes/ui/menu_principal.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-boot_splash/bg_color=Color(0.184314, 0.121569, 0.113725, 1)
 config/icon="res://icon.png"
-boot_splash/minimum_display_time=20
+boot_splash/minimum_display_time=10
 
 [autoload]
 
