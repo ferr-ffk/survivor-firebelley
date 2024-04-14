@@ -20,6 +20,5 @@ func _on_botao_voltar_pressionado(instancia_menu_opcoes: Node) -> void:
 	instancia_menu_opcoes.queue_free()
 	
 
-
 func _on_botao_sair_pressed() -> void:
 	get_tree().quit()
