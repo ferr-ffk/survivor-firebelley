@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://g0d51wn603un"]
+[gd_scene load_steps=6 format=3 uid="uid://g0d51wn603un"]
 
 [ext_resource type="Script" path="res://scenes/ui/menu_principal.gd" id="1_0mx70"]
 [ext_resource type="Texture2D" uid="uid://bgfwxg7mskyua" path="res://assets/ambiente/tilemap_packed.png" id="1_k85nk"]
+[ext_resource type="PackedScene" uid="uid://c15jyyp6dw10q" path="res://scenes/ui/vinheta.tscn" id="2_eur6p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vwn2"]
 texture = ExtResource("1_k85nk")
@@ -170,6 +171,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -209,6 +214,7 @@ size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"LabelOutlineAzul"
 theme_override_font_sizes/font_size = 32
 text = "[NOME DO JOGO]"
 
@@ -234,5 +240,12 @@ size_flags_horizontal = 3
 [node name="ContainerExtra" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/ContainerExtra"]
+layout_mode = 2
+text = "botão"
+
+[node name="Vinheta" parent="." instance=ExtResource("2_eur6p")]
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/BotaoJogar" to="." method="_on_botao_jogar_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/BotaoOpcoes" to="." method="_on_botao_opcoes_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/BotaoSair" to="." method="_on_botao_sair_pressed"]
