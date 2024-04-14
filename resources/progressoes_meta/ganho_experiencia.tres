@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ctsktmxeir0fi"]
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://ctsktmxeir0fi"]
 
 [ext_resource type="Script" path="res://resources/progressoes_meta/meta_upgrade.gd" id="1_ulfgg"]
 
@@ -6,5 +6,6 @@
 script = ExtResource("1_ulfgg")
 id = "ganho_experiencia"
 quantidade_maxima = 1
+custo_experiencia = 100
 titulo = "Aumento de experiência"
-descricao = "Aumenta a chance de drop de experiência em 10%"
+descricao = "Aumenta o ganho de experiência em 10%"
