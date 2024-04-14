@@ -95,7 +95,7 @@ _data = {
 }
 
 [node name="Vinheta" type="CanvasLayer"]
-layer = 2
+layer = 3
 script = ExtResource("1_ut6vs")
 
 [node name="ColorRect" type="ColorRect" parent="."]
