@@ -1,5 +1,7 @@
 extends Node
 
+const CAMINHO_ARQUIVO_SAVE = "user://data.save"
+
 var dados_salvos: Dictionary = {
 	"financas_meta_upgrade": 0,
 	"upgrades_meta": {},
@@ -7,8 +9,23 @@ var dados_salvos: Dictionary = {
 
 func _ready() -> void:
 	EventosJogo.frasco_experiencia_coletado.connect(_on_frasco_experiencia_coletado)
-	adicionar_upgrade_meta(preload("res://resources/progressoes_meta/ganho_experiencia.tres"))
-	adicionar_upgrade_meta(preload("res://resources/progressoes_meta/ganho_experiencia.tres"))
+	
+	carregar_save()
+	
+	
+func salvar() -> void:
+	var file = FileAccess.open(CAMINHO_ARQUIVO_SAVE, FileAccess.WRITE)
+	
+	file.store_var(dados_salvos)
+	
+
+func carregar_save() -> void:
+	if !FileAccess.file_exists(CAMINHO_ARQUIVO_SAVE):
+		return
+	
+	var arquivo = FileAccess.open(CAMINHO_ARQUIVO_SAVE, FileAccess.READ)
+	
+	dados_salvos = arquivo.get_var()
 	
 	
 func _on_frasco_experiencia_coletado(number: float) -> void:
@@ -23,4 +40,3 @@ func adicionar_upgrade_meta(upgrade: MetaUpgrade) -> void:
 		
 	dados_salvos["upgrades_meta"][upgrade.id]["quantidade"] += 1
 	
-	print_debug(dados_salvos)
