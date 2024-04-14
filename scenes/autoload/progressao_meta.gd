@@ -40,3 +40,5 @@ func adicionar_upgrade_meta(upgrade: MetaUpgrade) -> void:
 		
 	dados_salvos["upgrades_meta"][upgrade.id]["quantidade"] += 1
 	
+	salvar()
+	
