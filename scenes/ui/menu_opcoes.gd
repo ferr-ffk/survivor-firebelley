@@ -64,4 +64,7 @@ func _on_check_box_tela_cheia_toggled(toggled_on: bool) -> void:
 
 
 func _on_botao_voltar_pressed() -> void:
+	TransicaoTela.transicao()
+	await TransicaoTela.metade_transicao_alcancada
+	
 	voltar_pressionado.emit()

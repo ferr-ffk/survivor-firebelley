@@ -67,6 +67,9 @@ func _on_botao_retomar_pressed() -> void:
 
 
 func _on_botao_opcoes_pressed() -> void:
+	TransicaoTela.transicao()
+	await TransicaoTela.metade_transicao_alcancada
+	
 	var menu_opcoes = cena_menu_opcoes.instantiate() as MenuOpcoes
 	
 	add_child(menu_opcoes)
@@ -74,6 +77,9 @@ func _on_botao_opcoes_pressed() -> void:
 
 
 func _on_botao_sair_menu_pressed() -> void:
+	TransicaoTela.transicao()
+	await TransicaoTela.metade_transicao_alcancada
+	
 	get_tree().paused = false
 	
 	get_tree().change_scene_to_file("res://scenes/ui/menu_principal.tscn")

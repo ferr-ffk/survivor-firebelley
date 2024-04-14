@@ -37,6 +37,9 @@ func set_vitoria(vitoria: bool = true):
 
  
 func _on_botao_jogar_novamente_pressed() -> void:
+	TransicaoTela.transicao()
+	await TransicaoTela.metade_transicao_alcancada
+	
 	$AnimationPlayer.play("sair")
 	await $AnimationPlayer.animation_finished
 	
@@ -45,4 +48,7 @@ func _on_botao_jogar_novamente_pressed() -> void:
 
 
 func _on_botao_sair_pressed() -> void:
+	TransicaoTela.transicao()
+	await TransicaoTela.metade_transicao_alcancada
+	
 	get_tree().quit()

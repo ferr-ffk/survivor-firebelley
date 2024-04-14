@@ -3,12 +3,17 @@ class_name MenuPrincipal
 
 var menu_opcoes = preload("res://scenes/ui/menu_opcoes.tscn")
 
-
 func _on_botao_jogar_pressed() -> void:
+	TransicaoTela.transicao()
+	await TransicaoTela.metade_transicao_alcancada
+	
 	get_tree().change_scene_to_file("res://scenes/principal/principal.tscn")
 
 
 func _on_botao_opcoes_pressed() -> void:
+	TransicaoTela.transicao()
+	await TransicaoTela.metade_transicao_alcancada
+	
 	var instancia_menu_opcoes = menu_opcoes.instantiate() as MenuOpcoes
 	
 	add_child(instancia_menu_opcoes)
