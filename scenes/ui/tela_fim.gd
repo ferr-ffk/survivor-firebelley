@@ -7,7 +7,6 @@ class_name TelaFim
 @onready var audio_derrota: AudioStreamPlayer = $AudioDerrota
 @onready var audio_vitoria: AudioStreamPlayer = $AudioVitoria
 
-
 func _ready() -> void:
 	# centraliza o pivot
 	panel_container.pivot_offset = panel_container.size / 2
@@ -51,4 +50,4 @@ func _on_botao_sair_pressed() -> void:
 	TransicaoTela.transicao()
 	await TransicaoTela.metade_transicao_alcancada
 	
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://scenes/ui/menu_principal.tscn")

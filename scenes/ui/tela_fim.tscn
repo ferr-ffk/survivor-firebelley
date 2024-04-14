@@ -133,7 +133,7 @@ text = "Jogar Novamente"
 
 [node name="BotaoSair" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_cnmty")]
 layout_mode = 2
-text = "Sair"
+text = "Sair para o menu principal"
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BotaoJogarNovamente" to="." method="_on_botao_jogar_novamente_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BotaoSair" to="." method="_on_botao_sair_pressed"]
