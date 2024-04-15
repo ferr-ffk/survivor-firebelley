@@ -34,5 +34,3 @@ func on_morreu() -> void:
 	
 	node_entidades.add_child(instancia_frasco)
 	instancia_frasco.global_position = posicao_spawn
-	
-	print_debug(chance_drop_ajustado)
