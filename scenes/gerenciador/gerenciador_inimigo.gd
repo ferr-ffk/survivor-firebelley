@@ -33,14 +33,17 @@ func get_posicao_spawn() -> Vector2:
 	var posicao_spawn: Vector2 = Vector2.ZERO
 	var direcao = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	
-	
+	# tenta quatro vezes obter um spawn valido, girando 90° por vez
 	for i in 4:
 		# obtem um ponto de spawn em um círculo fora do alcanc da câmera ao redor do jogador
 		posicao_spawn = player.global_position + (direcao * RAIO_SPAWN)
 		
+		# devido a um bug de inimigo preso entre a parede, adiciona 20 pixels em caso de colisão
+		var checagem_offset_adicional = direcao * 20
+		
 		# cria os parametros do raycast
 		# verifica se o spawn colide com a camada de colisão de terreno
-		var parametros_query = PhysicsRayQueryParameters2D.create(player.global_position, posicao_spawn, LAYER_COLISAO)	
+		var parametros_query = PhysicsRayQueryParameters2D.create(player.global_position, posicao_spawn + checagem_offset_adicional, LAYER_COLISAO)	
 		
 		# aplica os parametros
 		var resultado: Dictionary = get_tree().root.world_2d.direct_space_state.intersect_ray(parametros_query)
