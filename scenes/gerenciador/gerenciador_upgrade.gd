@@ -11,6 +11,7 @@ var upgrades_atuais: Dictionary = {}
 var upgrades_disponiveis: WeightedTable = WeightedTable.new()
 
 var machado_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/machado.tres")
+var bigorna_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/bigorna.tres")
 var machado_dano_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/machado_dano.tres")
 var espada_rate_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/espada_rate.tres")
 var espada_dano_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/espada_dano.tres")
@@ -21,6 +22,7 @@ func _ready() -> void:
 	upgrades_disponiveis.add_item(espada_rate_upgrade, 10)
 	upgrades_disponiveis.add_item(espada_dano_upgrade, 10)
 	upgrades_disponiveis.add_item(velocidade_jogador, 5)
+	upgrades_disponiveis.add_item(bigorna_upgrade, 100)
 	
 	gerenciador_experiencia.nivel_upgrade.connect(on_nivel_upgrade)
 
