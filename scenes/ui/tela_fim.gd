@@ -50,4 +50,5 @@ func _on_botao_sair_pressed() -> void:
 	TransicaoTela.transicao()
 	await TransicaoTela.metade_transicao_alcancada
 	
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/ui/menu_principal.tscn")
