@@ -10,11 +10,11 @@ var upgrades_atuais: Dictionary = {}
 
 var upgrades_disponiveis: WeightedTable = WeightedTable.new()
 
-var machado_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/machado.tres")
-var bigorna_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/bigorna.tres")
-var machado_dano_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/machado_dano.tres")
-var espada_rate_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/espada_rate.tres")
-var espada_dano_upgrade: UpgradeAbilidade = preload("res://resources/upgrades/espada_dano.tres")
+var machado_upgrade: UpgradeHabilidade = preload("res://resources/upgrades/machado.tres")
+var bigorna_upgrade: UpgradeHabilidade = preload("res://resources/upgrades/bigorna.tres")
+var machado_dano_upgrade: UpgradeHabilidade = preload("res://resources/upgrades/machado_dano.tres")
+var espada_rate_upgrade: UpgradeHabilidade = preload("res://resources/upgrades/espada_rate.tres")
+var espada_dano_upgrade: UpgradeHabilidade = preload("res://resources/upgrades/espada_dano.tres")
 var velocidade_jogador = preload("res://resources/upgrades/velocidade_jogador.tres")
 
 func _ready() -> void:
@@ -27,7 +27,7 @@ func _ready() -> void:
 	gerenciador_experiencia.nivel_upgrade.connect(on_nivel_upgrade)
 
 
-func aplicar_upgrade(upgrade: UpgradeAbilidade) -> void:
+func aplicar_upgrade(upgrade: UpgradeHabilidade) -> void:
 	var upgrade_existente: bool = upgrades_atuais.has(upgrade.id)
 	
 	# anexa o upgrade na lista de upgrades do jogador; se ele já foi alcançado, aumenta o nivel dele
@@ -53,19 +53,19 @@ func aplicar_upgrade(upgrade: UpgradeAbilidade) -> void:
 	EventosJogo.emitir_abilidade_adicionada(upgrades_atuais, upgrade)
 
 
-func atualizar_upgrades_disponiveis(upgrade: UpgradeAbilidade) -> void:
+func atualizar_upgrades_disponiveis(upgrade: UpgradeHabilidade) -> void:
 	# se o machado foi escolhido, então os upgrades dependentes dele podem ser disponiveis
 	if upgrade.id == machado_upgrade.id:
 		upgrades_disponiveis.add_item(machado_dano_upgrade, 10)
 
 	
-func on_upgrade_selecionado(upgrade: UpgradeAbilidade) -> void:
+func on_upgrade_selecionado(upgrade: UpgradeHabilidade) -> void:
 	aplicar_upgrade(upgrade)
 
 
 ## Retorna o array dos upgrades escolhidos
-func obter_upgrades() -> Array[UpgradeAbilidade]:
-	var upgrades_escolhidos: Array[UpgradeAbilidade] = []
+func obter_upgrades() -> Array[UpgradeHabilidade]:
+	var upgrades_escolhidos: Array[UpgradeHabilidade] = []
 	
 	#if upgrades_filtrados.is_empty():
 		#push_error("Não há nenhum upgrade restante...")
@@ -75,7 +75,7 @@ func obter_upgrades() -> Array[UpgradeAbilidade]:
 		if upgrades_disponiveis.items.size() == upgrades_escolhidos.size():
 			break
 			
-		var upgrade_escolhido: UpgradeAbilidade = upgrades_disponiveis.pick_item(upgrades_escolhidos)
+		var upgrade_escolhido: UpgradeHabilidade = upgrades_disponiveis.pick_item(upgrades_escolhidos)
 		
 		upgrades_escolhidos.append(upgrade_escolhido)
 		
@@ -93,7 +93,7 @@ func on_nivel_upgrade(nivel_atual: int) -> void:
 	var tela_upgrade_instancia = tela_upgrade_cena.instantiate() as TelaUpgrade
 	add_child(tela_upgrade_instancia)
 
-	var upgrades_escolhidos: Array[UpgradeAbilidade] = obter_upgrades()
+	var upgrades_escolhidos: Array[UpgradeHabilidade] = obter_upgrades()
 	
 	tela_upgrade_instancia.set_upgrade_abilidade(upgrades_escolhidos)
 	

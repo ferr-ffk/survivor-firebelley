@@ -1,7 +1,7 @@
 extends CanvasLayer
 class_name TelaUpgrade
 
-signal upgrade_selecionado(upgrade: UpgradeAbilidade)
+signal upgrade_selecionado(upgrade: UpgradeHabilidade)
 
 @export var upgrade_abilidade_card: PackedScene
 
@@ -13,7 +13,7 @@ func _ready() -> void:
 	get_tree().paused = true
 
 
-func set_upgrade_abilidade(upgrades: Array[UpgradeAbilidade]) -> void:
+func set_upgrade_abilidade(upgrades: Array[UpgradeHabilidade]) -> void:
 	var delay: float = 0.0
 	
 	for upgrade in upgrades:
@@ -26,7 +26,7 @@ func set_upgrade_abilidade(upgrades: Array[UpgradeAbilidade]) -> void:
 		delay += 0.3
 		
 		
-func on_abilidade_selecionada(upgrade: UpgradeAbilidade) -> void:
+func on_abilidade_selecionada(upgrade: UpgradeHabilidade) -> void:
 	$AnimationPlayer.play("sair")
 	await $AnimationPlayer.animation_finished
 	

@@ -1,7 +1,7 @@
 extends PanelContainer
 class_name UpgradeAbilidadeCard
 
-signal abilidade_selecionada(upgrade: UpgradeAbilidade)
+signal abilidade_selecionada(upgrade: UpgradeHabilidade)
 
 @onready var label_nome: Label = %Nome
 @onready var label_descricao: Label = %Descricao
@@ -12,7 +12,7 @@ signal abilidade_selecionada(upgrade: UpgradeAbilidade)
 var disabled = false
 
 
-func set_upgrade_abilidade(upgrade: UpgradeAbilidade) -> void:
+func set_upgrade_abilidade(upgrade: UpgradeHabilidade) -> void:
 	label_nome.text = upgrade.nome
 	label_descricao.text = upgrade.descricao
 

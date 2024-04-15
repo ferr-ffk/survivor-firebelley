@@ -1,5 +1,5 @@
 extends Resource
-class_name UpgradeAbilidade
+class_name UpgradeHabilidade
 
 @export var id: String
 @export var nivel_maximo: int = 0

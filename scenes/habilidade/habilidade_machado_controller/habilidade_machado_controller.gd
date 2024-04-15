@@ -35,6 +35,6 @@ func _on_timer_timeout() -> void:
 	instancia_machado.componente_hitbox.dano = dano_base * porcentagem_dano_adicional
 
 
-func on_abilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeAbilidade, ) -> void:
+func on_abilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeHabilidade) -> void:
 	if upgrade.id == "machado_dano":
 		porcentagem_dano_adicional = 1 + (upgrades_atuais["machado_dano"]["quantidade"] * 0.1)

@@ -87,7 +87,7 @@ func _on_componente_vida_morreu() -> void:
 
 
 ## como a habilidade não possui método para ser adicionada ao jogador, faremos aqui
-func on_abilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeAbilidade) -> void:
+func on_abilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeHabilidade) -> void:
 	# verifica se é uma habilidade
 	if upgrade is Habilidade:
 		var habilidade = upgrade as Habilidade
