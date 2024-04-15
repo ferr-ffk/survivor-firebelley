@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://8hig3pk6c1jx"]
+[gd_scene load_steps=8 format=3 uid="uid://8hig3pk6c1jx"]
 
 [ext_resource type="Script" path="res://scenes/ui/menu_meta_upgrades.gd" id="1_ng2rq"]
 [ext_resource type="Texture2D" uid="uid://bgfwxg7mskyua" path="res://assets/ambiente/tilemap_packed.png" id="2_luypg"]
 [ext_resource type="Resource" uid="uid://ctsktmxeir0fi" path="res://resources/progressoes_meta/ganho_experiencia.tres" id="2_x7le5"]
 [ext_resource type="PackedScene" uid="uid://c15jyyp6dw10q" path="res://scenes/ui/vinheta.tscn" id="4_0wefs"]
+[ext_resource type="PackedScene" uid="uid://b11ga00b5ms7l" path="res://scenes/ui/meta_upgrade_card.tscn" id="4_ouu4f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vwn2"]
 texture = ExtResource("2_luypg")
@@ -182,7 +183,26 @@ theme_override_constants/margin_bottom = 16
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/h_separation = 41
-columns = 3
+columns = 2
+
+[node name="MetaAbilidadeCard" parent="MarginContainer/GridContainer" instance=ExtResource("4_ouu4f")]
+layout_mode = 2
+
+[node name="MetaAbilidadeCard2" parent="MarginContainer/GridContainer" instance=ExtResource("4_ouu4f")]
+layout_mode = 2
+
+[node name="MetaAbilidadeCard3" parent="MarginContainer/GridContainer" instance=ExtResource("4_ouu4f")]
+layout_mode = 2
+
+[node name="BotaoVoltar" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Voltar"
 
 [node name="Vinheta" parent="." instance=ExtResource("4_0wefs")]
+
+[connection signal="pressed" from="MarginContainer/BotaoVoltar" to="." method="_on_botao_voltar_pressed"]

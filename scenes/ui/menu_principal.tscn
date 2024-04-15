@@ -224,6 +224,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Jogar"
 
+[node name="BotaoUpgrades" type="Button" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Upgrades"
+
 [node name="BotaoOpcoes" type="Button" parent="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -249,5 +254,6 @@ text = "botão"
 [node name="Vinheta" parent="." instance=ExtResource("2_eur6p")]
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/BotaoJogar" to="." method="_on_botao_jogar_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/BotaoUpgrades" to="." method="_on_botao_upgrades_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/BotaoOpcoes" to="." method="_on_botao_opcoes_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ContainerBotoes/MarginContainer/VBoxContainer/BotaoSair" to="." method="_on_botao_sair_pressed"]

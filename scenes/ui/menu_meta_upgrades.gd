@@ -8,9 +8,19 @@ class_name MenuMetaUpgrades
 var card_meta_upgrade_cena = preload("res://scenes/ui/meta_upgrade_card.tscn")
 
 func _ready() -> void:
+	# limpa os cards para debug de ui
+	for child in grid_container.get_children():
+		child.queue_free()
+	
 	for upgrade in upgrades:
 		var card_meta_upgrade = card_meta_upgrade_cena.instantiate() as MetaUpgradeCard
 		
 		grid_container.add_child(card_meta_upgrade)
 		card_meta_upgrade.set_meta_upgrade_abilidade(upgrade)
-		
+
+
+func _on_botao_voltar_pressed() -> void:
+	TransicaoTela.transicao()
+	await TransicaoTela.metade_transicao_alcancada
+	
+	get_tree().change_scene_to_file("res://scenes/ui/menu_principal.tscn")
