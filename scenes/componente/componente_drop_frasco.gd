@@ -24,9 +24,6 @@ func on_morreu() -> void:
 	if quantidade_upgrade_ganho_experiencia > 0:
 		chance_drop_ajustado += 10
 	
-	if not owner is Node2D:
-		push_error("Owner deve ser do tipo Node2D!")
-		
 	var posicao_spawn = (owner as Node2D).global_position
 	var chance_drop_frasco = randf_range(0, 100)
 	
