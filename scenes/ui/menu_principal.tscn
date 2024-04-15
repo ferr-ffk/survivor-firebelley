@@ -190,11 +190,17 @@ size_flags_horizontal = 3
 [node name="ContainerSobre" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ContainerSobre"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ContainerSobre"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ContainerSobre/VBoxContainer"]
 layout_mode = 2
 text = "Autor: Fernando F.
-v0.8.alpha
 Assets de kenneyAssets"
+
+[node name="LabelVersao" type="Label" parent="MarginContainer/HBoxContainer/ContainerSobre/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="Espaço" type="Control" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

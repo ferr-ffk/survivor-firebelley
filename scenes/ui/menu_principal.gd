@@ -1,7 +1,13 @@
 extends CanvasLayer
 class_name MenuPrincipal
 
+@onready var label_versao: Label = %LabelVersao
+
 var menu_opcoes = preload("res://scenes/ui/menu_opcoes.tscn")
+
+func _ready() -> void:
+	label_versao.text = ProjectSettings.get_setting("application/config/version")
+
 
 func _on_botao_jogar_pressed() -> void:
 	TransicaoTela.transicao()

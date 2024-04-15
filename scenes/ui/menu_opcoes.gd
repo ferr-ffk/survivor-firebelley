@@ -19,7 +19,6 @@ func _ready() -> void:
 	slider_sfx.value_changed.connect(_on_slider_audio_changed.bind("sfx"))
 	slider_musica.value_changed.connect(_on_slider_audio_changed.bind("musica"))
 	
-	
 	if DisplayServer.window_get_mode() == Window.MODE_FULLSCREEN:
 		check_box_tela_cheia.toggle_mode = false
 	else:
