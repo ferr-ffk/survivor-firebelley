@@ -59,6 +59,7 @@ func _on_botao_comprar_pressed() -> void:
 	ProgressaoMeta.dados_salvos["financas_meta_upgrade"] -= upgrade_card.custo_experiencia
 	ProgressaoMeta.salvar()
 	
+	# avisa a todos os cards no menu para atualizar a contagem do dinheiroO
 	get_tree().call_group("meta_card_upgrade", "atualizar_progresso")
 	
 	selecionar_card()

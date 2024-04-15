@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://dr4pk2crvett"]
+
+[ext_resource type="Script" path="res://resources/progressoes_meta/meta_upgrade.gd" id="1_fghgf"]
+
+[resource]
+script = ExtResource("1_fghgf")
+id = "vida_maxima"
+quantidade_maxima = 3
+custo_experiencia = 50
+titulo = "Aumento de vida máxima"
+descricao = "Aumenta a vida máxima em 5 pontos"

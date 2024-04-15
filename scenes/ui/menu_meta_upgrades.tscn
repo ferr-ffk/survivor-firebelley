@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://8hig3pk6c1jx"]
+[gd_scene load_steps=9 format=3 uid="uid://8hig3pk6c1jx"]
 
 [ext_resource type="Script" path="res://scenes/ui/menu_meta_upgrades.gd" id="1_ng2rq"]
 [ext_resource type="Texture2D" uid="uid://bgfwxg7mskyua" path="res://assets/ambiente/tilemap_packed.png" id="2_luypg"]
 [ext_resource type="Resource" uid="uid://ctsktmxeir0fi" path="res://resources/progressoes_meta/ganho_experiencia.tres" id="2_x7le5"]
+[ext_resource type="Resource" uid="uid://dr4pk2crvett" path="res://resources/progressoes_meta/vida_maxima.tres" id="3_n04ig"]
 [ext_resource type="PackedScene" uid="uid://c15jyyp6dw10q" path="res://scenes/ui/vinheta.tscn" id="4_0wefs"]
 [ext_resource type="PackedScene" uid="uid://b11ga00b5ms7l" path="res://scenes/ui/meta_upgrade_card.tscn" id="4_ouu4f"]
 
@@ -162,7 +163,7 @@ sources/0 = SubResource("TileSetAtlasSource_5vwn2")
 [node name="MenuMetaUpgrades" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_ng2rq")
-upgrades = Array[Resource("res://resources/progressoes_meta/meta_upgrade.gd")]([ExtResource("2_x7le5")])
+upgrades = Array[Resource("res://resources/progressoes_meta/meta_upgrade.gd")]([ExtResource("2_x7le5"), ExtResource("3_n04ig")])
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_pgw8e")

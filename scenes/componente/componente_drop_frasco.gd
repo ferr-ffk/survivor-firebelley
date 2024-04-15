@@ -25,7 +25,7 @@ func on_morreu() -> void:
 	var posicao_spawn = (owner as Node2D).global_position
 	var chance_drop_frasco = randf_range(0, 100)
 	
-	if not chance_drop_frasco <= chance_drop_ajustado:
+	if chance_drop_frasco > chance_drop_ajustado:
 		return
 	
 	var instancia_frasco = cena_frasco.instantiate() as FrascoExperiencia

@@ -23,6 +23,11 @@ func _ready() -> void:
 	
 	EventosJogo.abilidade_adicionada.connect(on_abilidade_adicionada)
 
+	var contagem_upgrade_aumento_vida_maxima: int = ProgressaoMeta.get_contagem_upgrade("vida_maxima")
+	
+	if contagem_upgrade_aumento_vida_maxima > 0:
+		componente_vida.alterar_vida_maxima(componente_vida.vida_maxima + (contagem_upgrade_aumento_vida_maxima * 5))
+		
 
 func _process(delta) -> void:
 	var direcao: Vector2 = get_vetor_movimento().normalized()
@@ -60,6 +65,10 @@ func checar_dano(body: Node2D = null) -> void:
 	
 	componente_vida.dano(body.dano)
 	timer_intervalo_dano.start()
+	
+
+func on_upgrade_comprado(upgrade: MetaUpgrade) -> void:
+	print_debug(upgrade)
 	
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
