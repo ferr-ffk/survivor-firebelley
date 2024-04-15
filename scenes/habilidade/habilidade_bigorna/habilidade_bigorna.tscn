@@ -1,8 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://be6lxt6rqvs0d"]
+[gd_scene load_steps=14 format=3 uid="uid://be6lxt6rqvs0d"]
 
 [ext_resource type="Script" path="res://scenes/habilidade/habilidade_bigorna/habilidade_bigorna.gd" id="1_3x3gt"]
 [ext_resource type="Texture2D" uid="uid://6xwxg75g80nh" path="res://scenes/habilidade/habilidade_bigorna/bigorna.png" id="1_4aw7o"]
+[ext_resource type="PackedScene" uid="uid://rxb1tafw2i77" path="res://scenes/componente/componente_audio_stream_player_aleatorio.tscn" id="2_5iwui"]
 [ext_resource type="PackedScene" uid="uid://lf8kck3wuhga" path="res://scenes/componente/componente_hit_box.tscn" id="2_ns65d"]
+[ext_resource type="AudioStream" uid="uid://bgvwuorw8eilh" path="res://assets/audio/impactMetal_heavy_000.ogg" id="3_r0qyo"]
+[ext_resource type="AudioStream" uid="uid://dh5nea3j4x5gs" path="res://assets/audio/impactMetal_heavy_001.ogg" id="4_8dr44"]
+[ext_resource type="AudioStream" uid="uid://02cp7a0g347i" path="res://assets/audio/impactMetal_heavy_002.ogg" id="5_mx0mw"]
+[ext_resource type="AudioStream" uid="uid://jo7th0e24u58" path="res://assets/audio/impactMetal_heavy_003.ogg" id="6_4g7gd"]
+[ext_resource type="AudioStream" uid="uid://byw3sd1ke2gth" path="res://assets/audio/impactMetal_heavy_004.ogg" id="7_lcwhx"]
 
 [sub_resource type="Animation" id="Animation_7112t"]
 resource_name = "padrao"
@@ -57,6 +63,20 @@ tracks/3/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ComponenteAudioStreamPlayerAleatorio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_aleatorio"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_72ygd"]
 length = 0.001
@@ -108,6 +128,9 @@ size = Vector2(64, 44)
 
 [node name="HabilidadeBigorna" type="Node2D"]
 script = ExtResource("1_3x3gt")
+
+[node name="ComponenteAudioStreamPlayerAleatorio" parent="." instance=ExtResource("2_5iwui")]
+streams = Array[AudioStream]([ExtResource("3_r0qyo"), ExtResource("4_8dr44"), ExtResource("5_mx0mw"), ExtResource("6_4g7gd"), ExtResource("7_lcwhx")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
