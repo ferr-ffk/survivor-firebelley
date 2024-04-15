@@ -29,8 +29,8 @@ func carregar_save() -> void:
 	
 
 func get_contagem_upgrade(upgrade_id: String) -> int:
-	if dados_salvos["upgrade_meta"].has(upgrade_id):
-		return dados_salvos["upgrade_meta"][upgrade_id]["quantidade"]
+	if dados_salvos["upgrades_meta"].has(upgrade_id):
+		return dados_salvos["upgrades_meta"][upgrade_id]["quantidade"]
 		
 	return 0
 	
