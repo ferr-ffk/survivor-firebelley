@@ -107,7 +107,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jhel"]
 size = Vector2(30, 30)
 
-[node name="AbilidadeEspada" type="Node2D"]
+[node name="HabilidadeEspada" type="Node2D"]
 script = ExtResource("1_gknpg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

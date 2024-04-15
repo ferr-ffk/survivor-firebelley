@@ -130,7 +130,7 @@ aceleracao = 40.0
 
 [node name="Habilidades" type="Node" parent="."]
 
-[node name="HabilidadeEspadaController" parent="Habilidades" instance=ExtResource("4_cxgr0")]
+[node name="AbilidadeEspadaController" parent="Habilidades" instance=ExtResource("4_cxgr0")]
 
 [node name="IntervaloDano" type="Timer" parent="."]
 wait_time = 0.5
