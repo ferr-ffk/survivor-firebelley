@@ -24,9 +24,6 @@ func on_morreu() -> void:
 	if quantidade_upgrade_ganho_experiencia > 0:
 		chance_drop_ajustado += 10
 	
-	if cena_frasco == null:
-		push_error("Nenhuma cena de frasco definida!")
-		
 	if not owner is Node2D:
 		push_error("Owner deve ser do tipo Node2D!")
 		
