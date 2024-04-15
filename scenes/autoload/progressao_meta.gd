@@ -27,9 +27,12 @@ func carregar_save() -> void:
 	
 	dados_salvos = arquivo.get_var()
 	
-	
-func _on_frasco_experiencia_coletado(number: float) -> void:
-	dados_salvos["financas_meta_upgrade"] += number
+
+func get_contagem_upgrade(upgrade_id: String) -> int:
+	if dados_salvos["upgrade_meta"].has(upgrade_id):
+		return dados_salvos["upgrade_meta"][upgrade_id]["quantidade"]
+		
+	return 0
 	
 	
 func adicionar_upgrade_meta(upgrade: MetaUpgrade) -> void:
@@ -41,4 +44,8 @@ func adicionar_upgrade_meta(upgrade: MetaUpgrade) -> void:
 	dados_salvos["upgrades_meta"][upgrade.id]["quantidade"] += 1
 	
 	salvar()
+	
+
+func _on_frasco_experiencia_coletado(number: float) -> void:
+	dados_salvos["financas_meta_upgrade"] += number
 	
