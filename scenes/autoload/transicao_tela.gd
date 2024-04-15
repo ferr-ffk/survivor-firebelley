@@ -7,6 +7,13 @@ signal metade_transicao_alcancada
 
 var pular_emicao = false
 
+func transicao_para_cena(cena: String) -> void:
+	TransicaoTela.transicao()
+	await TransicaoTela.metade_transicao_alcancada
+	
+	get_tree().change_scene_to_file(cena)
+
+
 func transicao() -> void:
 	animation_player.play("padrao")
 	
