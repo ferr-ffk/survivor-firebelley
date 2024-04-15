@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://clc4iqewsswl4"]
+[gd_scene load_steps=5 format=3 uid="uid://clc4iqewsswl4"]
 
 [ext_resource type="Script" path="res://scenes/gerenciador/gerenciador_inimigo.gd" id="1_vsesw"]
 [ext_resource type="PackedScene" uid="uid://cd8bmpaxxysaw" path="res://scenes/objeto/inimigo_basico/inimigo_basico.tscn" id="2_4p7nn"]
 [ext_resource type="PackedScene" uid="uid://d00df5ekr1o1d" path="res://scenes/objeto/inimigo_fantasma/inimigo_fantasma.tscn" id="2_cadai"]
+[ext_resource type="PackedScene" uid="uid://cl504bnkhldxf" path="res://scenes/objeto/inimigo_morcego/inimigo_morcego.tscn" id="4_jc4rl"]
 
 [node name="GerenciadorInimigo" type="Node"]
 script = ExtResource("1_vsesw")
 inimigo_fantasma_cena = ExtResource("2_cadai")
 inimigo_basico_cena = ExtResource("2_4p7nn")
+inimigo_morcego_cena = ExtResource("4_jc4rl")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

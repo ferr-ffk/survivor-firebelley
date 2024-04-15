@@ -6,6 +6,7 @@ const RAIO_SPAWN = 370
 
 @export var inimigo_fantasma_cena: PackedScene
 @export var inimigo_basico_cena: PackedScene
+@export var inimigo_morcego_cena: PackedScene
 @export var delay_spawn: float = 2.5
 
 @onready var timer_delay_spawn = $Timer
@@ -87,4 +88,8 @@ func _on_gerenciador_tempo_arena_dificuldade_arena_alterada(arena_dificuldade: i
 	# adiciona o fantasma depois de 30s
 	if arena_dificuldade == 6:
 		inimigo_table.add_item(inimigo_fantasma_cena, 30)
+		
+	# adiciona o morcego após 1 minuto
+	if arena_dificuldade == 12:
+		inimigo_table.add_item(inimigo_morcego_cena, 20)
 				
