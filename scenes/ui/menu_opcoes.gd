@@ -20,9 +20,14 @@ func _ready() -> void:
 	slider_musica.value_changed.connect(_on_slider_audio_changed.bind("musica"))
 	
 	if DisplayServer.window_get_mode() == Window.MODE_FULLSCREEN:
-		check_box_tela_cheia.toggle_mode = false
+		check_box_tela_cheia.button_pressed = true
+
+
+func verificar_modo_janela(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
-		check_box_tela_cheia.toggle_mode = true
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 
 func get_volume_bus_porcentagem(bus_name: String) -> float:
@@ -52,15 +57,8 @@ func _on_slider_audio_changed(value: float, bus_name: String):
 
 
 func _on_check_box_tela_cheia_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	verificar_modo_janela(toggled_on)
 		
-		label_tela_cheia.text = "Modo Janela"
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-
-		label_tela_cheia.text = "Modo Tela Cheia"
-
 
 func _on_botao_voltar_pressed() -> void:
 	TransicaoTela.transicao()
