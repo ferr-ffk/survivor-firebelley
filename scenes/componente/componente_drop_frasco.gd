@@ -12,8 +12,18 @@ func _ready() -> void:
 	
 	if node_entidades == null:
 		push_error("Camada de entidades fornecida incorretamente!")
-	
+		
+			
 func on_morreu() -> void:
+	print_debug(chance_drop)
+	
+	var chance_drop_ajustado = chance_drop
+	
+	var quantidade_upgrade_ganho_experiencia = ProgressaoMeta.get_contagem_upgrade("ganho_experiencia")
+	
+	if quantidade_upgrade_ganho_experiencia > 0:
+		chance_drop_ajustado += 10
+	
 	if cena_frasco == null:
 		push_error("Nenhuma cena de frasco definida!")
 		
@@ -23,10 +33,12 @@ func on_morreu() -> void:
 	var posicao_spawn = (owner as Node2D).global_position
 	var chance_drop_frasco = randf_range(0, 100)
 	
-	if not chance_drop_frasco <= chance_drop:
+	if not chance_drop_frasco <= chance_drop_ajustado:
 		return
 	
 	var instancia_frasco = cena_frasco.instantiate() as FrascoExperiencia
 	
 	node_entidades.add_child(instancia_frasco)
 	instancia_frasco.global_position = posicao_spawn
+	
+	print_debug(chance_drop_ajustado)
