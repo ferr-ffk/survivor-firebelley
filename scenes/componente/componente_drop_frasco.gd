@@ -15,8 +15,6 @@ func _ready() -> void:
 		
 			
 func on_morreu() -> void:
-	print_debug(chance_drop)
-	
 	var chance_drop_ajustado = chance_drop
 	
 	var quantidade_upgrade_ganho_experiencia = ProgressaoMeta.get_contagem_upgrade("ganho_experiencia")
