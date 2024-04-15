@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_ulfgg")
 id = "ganho_experiencia"
-quantidade_maxima = 3
+quantidade_maxima = 1
 custo_experiencia = 100
 titulo = "Aumento de experiência"
 descricao = "Aumenta o ganho de experiência em 10%"
