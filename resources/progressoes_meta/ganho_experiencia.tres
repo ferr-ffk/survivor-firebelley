@@ -8,4 +8,4 @@ id = "ganho_experiencia"
 quantidade_maxima = 1
 custo_experiencia = 100
 titulo = "Aumento de experiência"
-descricao = "Aumenta o ganho de experiência em 10%"
+descricao = "Aumenta a chance de obter experiência em 10%"
