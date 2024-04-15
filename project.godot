@@ -48,7 +48,12 @@ window/size/mode.debug=0
 
 [dotnet]
 
-project/assembly_name="survivor-firebelley"
+project/assembly_name="Justa Arena"
+project/assembly_reload_attempts=1
+
+[filesystem]
+
+import/blender/enabled=false
 
 [gui]
 
