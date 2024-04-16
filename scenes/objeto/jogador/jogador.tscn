@@ -139,9 +139,9 @@ one_shot = true
 [node name="BarraVida" type="ProgressBar" parent="."]
 custom_minimum_size = Vector2(32, 6)
 offset_left = -16.0
-offset_top = -17.0
+offset_top = -18.0
 offset_right = 16.0
-offset_bottom = -11.0
+offset_bottom = -10.0
 pivot_offset = Vector2(16, 3)
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -149,6 +149,15 @@ theme_override_constants/outline_size = 1
 max_value = 1.0
 value = 0.8
 show_percentage = false
+
+[node name="LabelVida" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -32.0
+offset_top = -20.0
+offset_right = -21.0
+offset_bottom = -5.0
+theme_type_variation = &"LabelOutlineAzul"
+text = "10"
 
 [node name="AreaColeta" type="Area2D" parent="."]
 visible = false

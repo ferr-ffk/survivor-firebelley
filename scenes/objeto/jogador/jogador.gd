@@ -10,6 +10,7 @@ signal morte
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visual: Node2D = $Visual
 @onready var componente_hit_audio_stream_aleatorio: ComponenteAudioStreamPlayer2DAleatorio = $ComponenteHitAudioStreamAleatorio
+@onready var label_vida: Label = %LabelVida
 
 var num_inimigos_colidindo: int
 
@@ -27,6 +28,8 @@ func _ready() -> void:
 	
 	if contagem_upgrade_aumento_vida_maxima > 0:
 		componente_vida.alterar_vida_maxima(componente_vida.vida_maxima + (contagem_upgrade_aumento_vida_maxima * 5))
+		
+	label_vida.text = str(componente_vida.vida_atual)
 		
 
 func _process(delta) -> void:
@@ -67,10 +70,6 @@ func checar_dano(body: Node2D = null) -> void:
 	timer_intervalo_dano.start()
 	
 
-func on_upgrade_comprado(upgrade: MetaUpgrade) -> void:
-	print_debug(upgrade)
-	
-
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	num_inimigos_colidindo += 1
 	checar_dano(body)
@@ -89,6 +88,8 @@ func _on_componente_vida_vida_atualizada() -> void:
 	
 	EventosJogo.emitir_jogador_atingido()
 	barra_vida.value = componente_vida.get_porcentagem_vida()
+	
+	label_vida.text = str(componente_vida.vida_atual)
 
 
 func _on_componente_vida_morreu() -> void:
