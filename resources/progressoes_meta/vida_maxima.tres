@@ -7,5 +7,5 @@ script = ExtResource("1_fghgf")
 id = "vida_maxima"
 quantidade_maxima = 3
 custo_experiencia = 50
-titulo = "Aumento de vida máxima"
+titulo = "Aumento de vida"
 descricao = "Aumenta a vida máxima em 5 pontos"
