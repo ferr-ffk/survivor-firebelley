@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_e76am")
-id = "espada_dano"
-nivel_maximo = 0
-nome = "Dano da Espada"
-descricao = "Aumenta o dano da espada em 15%"
+id = "quantidade_bigorna"
+nivel_maximo = 3
+nome = "Quantidade de bigornas"
+descricao = "Acrescenta um ao número de bigornas do ataque"
