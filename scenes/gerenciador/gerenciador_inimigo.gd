@@ -87,11 +87,9 @@ func _on_gerenciador_tempo_arena_dificuldade_arena_alterada(arena_dificuldade: i
 	
 	# adiciona o fantasma depois de 30s
 	if arena_dificuldade == 3:
-		print_debug("adicionando fantasmas")
 		inimigo_table.add_item(inimigo_fantasma_cena, 15)
 		
 	# adiciona o morcego após 1 minuto
 	if arena_dificuldade == 6:
-		print_debug("adicionando morcego")
 		inimigo_table.add_item(inimigo_morcego_cena, 20)
 				
