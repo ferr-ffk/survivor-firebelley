@@ -51,6 +51,10 @@ window/size/mode.debug=0
 project/assembly_name="Justa Arena"
 project/assembly_reload_attempts=1
 
+[editor]
+
+movie_writer/movie_file="C:/Users/fe_fr/OneDrive/Documentos/godot vida/videos/justa_arena/principal.avi"
+
 [filesystem]
 
 import/blender/enabled=false

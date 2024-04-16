@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_lddfn")
 cena_habilidade_controller = ExtResource("1_5hl0k")
-id = "bigorna"
+id = "machado"
 nivel_maximo = 1
-nome = "Bigorna"
-descricao = "Invoca uma bigorna imensa do céu que ataca inimigos em área"
+nome = "Machado"
+descricao = "Invoca um machado que ataca vários inimigos em uma espiral"

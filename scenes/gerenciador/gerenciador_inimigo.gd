@@ -77,19 +77,21 @@ func _on_timer_timeout() -> void:
 
 
 func _on_gerenciador_tempo_arena_dificuldade_arena_alterada(arena_dificuldade: int) -> void:
-	# arena_dificuldade é alterada a cada cinco segundos, por padrão
+	# arena_dificuldade é alterada a cada dez segundos, por padrão
 	
-	# cinco segundos por minuto, 0.1 a mais a cada cinco segundos
+	# dez segundos por minuto, 0.1 a mais a cada dez segundos
 	var tempo_atualizacao = (0.1 / 12) * arena_dificuldade
 	
 	# poe um limite minimo de 0.3s para spawn de novos inimigos
 	timer_delay_spawn.wait_time = min(tempo_delay_base - tempo_atualizacao, 0.3)
 	
 	# adiciona o fantasma depois de 30s
-	if arena_dificuldade == 6:
+	if arena_dificuldade == 3:
+		print_debug("adicionando fantasmas")
 		inimigo_table.add_item(inimigo_fantasma_cena, 15)
 		
 	# adiciona o morcego após 1 minuto
-	if arena_dificuldade == 12:
+	if arena_dificuldade == 6:
+		print_debug("adicionando morcego")
 		inimigo_table.add_item(inimigo_morcego_cena, 20)
 				

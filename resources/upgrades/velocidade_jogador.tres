@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_x8gto")
-id = "quantidade_bigorna"
+id = "velocidade_jogador"
 nivel_maximo = 2
-nome = "+1 Bigorna"
-descricao = "Ao atacar, +1 bigorna cairá"
+nome = "Aumento de velocidade"
+descricao = "Aumenta a velocidade do jogador em 10%"

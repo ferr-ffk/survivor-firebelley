@@ -21,8 +21,9 @@ func _process(delta: float) -> void:
 	# calcula o tempo em para que aumenta a dificuldade
 	var proximo_tempo_mudanca_dificuldade = timer.wait_time - ((arena_dificuldade + 1) * intervalo_dificuldade)
 	
-	# para que a cada cinco segundos aumente a dificuldade
+	# para que a cada dez segundos aumente a dificuldade
 	if timer.time_left <= proximo_tempo_mudanca_dificuldade:
+		
 		arena_dificuldade += 1
 		dificuldade_arena_alterada.emit(arena_dificuldade)
 	
