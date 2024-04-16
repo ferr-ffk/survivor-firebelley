@@ -14,7 +14,7 @@ signal morte
 
 var num_inimigos_colidindo: int
 
-var velocidade_base: float = 0
+var velocidade_base: int = 0
 
 
 func _ready() -> void:
