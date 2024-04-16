@@ -31,17 +31,25 @@ func _on_timer_timeout() -> void:
 	
 	var direcao = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	
-	var posicao_spawn = player.global_position + (direcao * randf_range(0, alcance_maximo))
+	# separa as bigornas em uma formação homogenea"
+	var rotacao_adicional_graus = 360.0 / (contagem_bigornas + 1)
 	
-	var parametro_query = PhysicsRayQueryParameters2D.create(player.global_position, posicao_spawn)
+	var distancia_bigorna: float = randf_range(0, alcance_maximo)
 	
-	var resultado = get_tree().root.world_2d.direct_space_state.intersect_ray(parametro_query)
-	
-	if !resultado.is_empty():
-		posicao_spawn = resultado["position"]
+	# spawna bigornas em posições aleatórias
+	for i in contagem_bigornas + 1:
+		var direcao_ajustada = direcao.rotated(deg_to_rad(i + rotacao_adicional_graus))
 		
-	var bigorna = habilidade_bigorna_cena.instantiate() as HabilidadeBigorna
-	
-	get_tree().get_first_node_in_group("primeiro_plano").add_child(bigorna)
-	bigorna.global_position = posicao_spawn
-	bigorna.componente_hit_box.dano = dano_base
+		var posicao_spawn = player.global_position + (direcao_ajustada * distancia_bigorna)
+
+		var parametro_query = PhysicsRayQueryParameters2D.create(player.global_position, posicao_spawn)
+		var resultado = get_tree().root.world_2d.direct_space_state.intersect_ray(parametro_query)
+
+		if !resultado.is_empty():
+			posicao_spawn = resultado["position"]
+			
+		var bigorna = habilidade_bigorna_cena.instantiate() as HabilidadeBigorna
+
+		get_tree().get_first_node_in_group("primeiro_plano").add_child(bigorna)
+		bigorna.global_position = posicao_spawn
+		bigorna.componente_hit_box.dano = dano_base
