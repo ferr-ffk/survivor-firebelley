@@ -59,6 +59,10 @@ func atualizar_upgrades_disponiveis(upgrade: UpgradeHabilidade) -> void:
 	if upgrade.id == machado_upgrade.id:
 		upgrades_disponiveis.add_item(machado_dano_upgrade, 10)
 
+	# se a bigorna foi adicionada, deixa o upgrade de aumento de bigorna disponivel
+	if upgrade.id == bigorna_upgrade.id:
+		upgrades_disponiveis.add_item(quantidade_bigorna, 10)
+	
 	
 func on_upgrade_selecionado(upgrade: UpgradeHabilidade) -> void:
 	aplicar_upgrade(upgrade)
