@@ -27,6 +27,8 @@ func curar(vida: float) -> void:
 func alterar_vida_maxima(novo_valor: float) -> void:
 	vida_maxima = novo_valor
 	
+	vida_atual = vida_maxima
+	
 	
 func get_porcentagem_vida():
 	if vida_maxima <= 0:
