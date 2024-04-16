@@ -14,7 +14,7 @@ func dano(qtd_dano: float) -> void:
 	
 	vida_atualizada.emit()
 	
-	# para monitorar alguma mudança de estado e realizar mudanças no próximo frame livre
+	# para monitorar alguma mudança deO estado e realizar mudanças no próximo frame livre
 	Callable(checar_morreu).call_deferred()
 
 	

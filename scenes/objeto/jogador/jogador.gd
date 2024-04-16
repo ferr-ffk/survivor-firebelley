@@ -22,7 +22,7 @@ func _ready() -> void:
 	
 	velocidade_base = componente_velocidade.velocidade_maxima
 	
-	EventosJogo.abilidade_adicionada.connect(on_abilidade_adicionada)
+	EventosJogo.habilidade_adicionada.connect(on_habilidade_adicionada)
 
 	var contagem_upgrade_aumento_vida_maxima: int = ProgressaoMeta.get_contagem_upgrade("vida_maxima")
 	
@@ -97,7 +97,7 @@ func _on_componente_vida_morreu() -> void:
 
 
 ## como a habilidade não possui método para ser adicionada ao jogador, faremos aqui
-func on_abilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeHabilidade) -> void:
+func on_habilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeHabilidade) -> void:
 	# verifica se é uma habilidade
 	if upgrade is Habilidade:
 		var habilidade = upgrade as Habilidade

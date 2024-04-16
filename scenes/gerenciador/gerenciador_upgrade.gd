@@ -16,6 +16,7 @@ var machado_dano_upgrade: UpgradeHabilidade = preload("res://resources/upgrades/
 var espada_rate_upgrade: UpgradeHabilidade = preload("res://resources/upgrades/espada_rate.tres")
 var espada_dano_upgrade: UpgradeHabilidade = preload("res://resources/upgrades/espada_dano.tres")
 var velocidade_jogador = preload("res://resources/upgrades/velocidade_jogador.tres")
+var quantidade_bigorna = preload("res://resources/upgrades/quantidade_bigorna.tres")
 
 func _ready() -> void:
 	upgrades_disponiveis.add_item(machado_upgrade, 10)
@@ -50,7 +51,7 @@ func aplicar_upgrade(upgrade: UpgradeHabilidade) -> void:
 	# o adiciona
 	atualizar_upgrades_disponiveis(upgrade)
 		
-	EventosJogo.emitir_abilidade_adicionada(upgrades_atuais, upgrade)
+	EventosJogo.emitir_habilidade_adicionada(upgrades_atuais, upgrade)
 
 
 func atualizar_upgrades_disponiveis(upgrade: UpgradeHabilidade) -> void:

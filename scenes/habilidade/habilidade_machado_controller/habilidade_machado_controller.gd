@@ -12,7 +12,7 @@ class_name HabilidadeMachadoController
 func _ready() -> void:
 	timer.wait_time = duracao_ataque
 	
-	EventosJogo.abilidade_adicionada.connect(on_abilidade_adicionada)
+	EventosJogo.habilidade_adicionada.connect(on_habilidade_adicionada)
 
 
 func _on_timer_timeout() -> void:
@@ -35,6 +35,6 @@ func _on_timer_timeout() -> void:
 	instancia_machado.componente_hitbox.dano = dano_base * porcentagem_dano_adicional
 
 
-func on_abilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeHabilidade) -> void:
+func on_habilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeHabilidade) -> void:
 	if upgrade.id == "machado_dano":
 		porcentagem_dano_adicional = 1 + (upgrades_atuais["machado_dano"]["quantidade"] * 0.1)
