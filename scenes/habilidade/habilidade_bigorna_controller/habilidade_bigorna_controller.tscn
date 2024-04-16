@@ -4,9 +4,11 @@
 
 [node name="HabilidadeBigornaController" type="Node"]
 script = ExtResource("1_egcw8")
+alcance_maximo = 80
+intervalo_ataque = 3.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
