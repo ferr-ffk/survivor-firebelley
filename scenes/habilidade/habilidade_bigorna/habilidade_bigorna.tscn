@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://be6lxt6rqvs0d"]
+[gd_scene load_steps=20 format=3 uid="uid://be6lxt6rqvs0d"]
 
 [ext_resource type="Script" path="res://scenes/habilidade/habilidade_bigorna/habilidade_bigorna.gd" id="1_3x3gt"]
 [ext_resource type="Texture2D" uid="uid://6xwxg75g80nh" path="res://scenes/habilidade/habilidade_bigorna/bigorna.png" id="1_4aw7o"]
@@ -9,10 +9,11 @@
 [ext_resource type="AudioStream" uid="uid://02cp7a0g347i" path="res://assets/audio/impactMetal_heavy_002.ogg" id="5_mx0mw"]
 [ext_resource type="AudioStream" uid="uid://jo7th0e24u58" path="res://assets/audio/impactMetal_heavy_003.ogg" id="6_4g7gd"]
 [ext_resource type="AudioStream" uid="uid://byw3sd1ke2gth" path="res://assets/audio/impactMetal_heavy_004.ogg" id="7_lcwhx"]
+[ext_resource type="Texture2D" uid="uid://q28khcqnltpj" path="res://assets/ui/particle.png" id="8_tgn04"]
 
 [sub_resource type="Animation" id="Animation_7112t"]
 resource_name = "padrao"
-length = 0.6
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -32,7 +33,7 @@ tracks/1/path = NodePath("Visual:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.55, 0.6),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.55, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 1), Vector2(1, 1), Vector2(1.5, 1), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
@@ -56,7 +57,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.6),
+"times": PackedFloat32Array(0.7),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -76,6 +77,18 @@ tracks/4/keys = {
 "args": [],
 "method": &"play_aleatorio"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_72ygd"]
@@ -116,12 +129,51 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nt55k"]
 _data = {
 "RESET": SubResource("Animation_72ygd"),
 "padrao": SubResource("Animation_7112t")
 }
+
+[sub_resource type="Gradient" id="Gradient_pr85i"]
+offsets = PackedFloat32Array(0.00334448, 1)
+colors = PackedColorArray(0.545098, 0.607843, 0.705882, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_us0ss"]
+gradient = SubResource("Gradient_pr85i")
+
+[sub_resource type="Curve" id="Curve_ky8qk"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.131498, 1), 1.28507, 1.28507, 0, 0, Vector2(0.608563, 0.544135), -1.626, -1.626, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_2xeko"]
+curve = SubResource("Curve_ky8qk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wqapv"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 6.0
+angle_max = 360.0
+spread = 180.0
+radial_velocity_min = 100.0
+radial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_2xeko")
+color_initial_ramp = SubResource("GradientTexture1D_us0ss")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adlvv"]
 size = Vector2(64, 44)
@@ -137,6 +189,17 @@ libraries = {
 "": SubResource("AnimationLibrary_nt55k")
 }
 autoplay = "padrao"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_wqapv")
+texture = ExtResource("8_tgn04")
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.9
+fixed_fps = 0
+interpolate = false
 
 [node name="Visual" type="Node2D" parent="."]
 
