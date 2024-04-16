@@ -180,10 +180,10 @@ arena_tempo_gerenciador = NodePath("../GerenciadorTempoArena")
 gerenciador_experiencia = NodePath("../GerenciadorExperiencia")
 
 [node name="GerenciadorTempoArena" parent="." instance=ExtResource("2_0kahf")]
+intervalo_dificuldade = 10
 tempo_total = 120.0
 
 [node name="GerenciadorInimigo" parent="." instance=ExtResource("4_og5xp")]
-delay_spawn = 5.0
 
 [node name="GerenciadorExperiencia" parent="." instance=ExtResource("4_v3cb1")]
 

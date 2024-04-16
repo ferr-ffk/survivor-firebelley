@@ -7,7 +7,7 @@ const RAIO_SPAWN = 370
 @export var inimigo_fantasma_cena: PackedScene
 @export var inimigo_basico_cena: PackedScene
 @export var inimigo_morcego_cena: PackedScene
-@export var delay_spawn: float = 2.5
+@export var delay_spawn: float = 10
 
 @onready var timer_delay_spawn = $Timer
 @onready var node_entidades: Node2D = get_tree().get_first_node_in_group("camada_entidades")
