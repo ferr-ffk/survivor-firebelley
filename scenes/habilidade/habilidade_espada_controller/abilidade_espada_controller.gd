@@ -52,7 +52,7 @@ func _on_timer_timeout() -> void:
 	var posicao_inimigo = inimigos[0].global_position - espada.global_position
 	espada.rotation = posicao_inimigo.angle()
 	
-func on_habilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeHabilidade, ) -> void:
+func on_habilidade_adicionada(upgrades_atuais: Dictionary, upgrade: UpgradeHabilidade) -> void:
 	if upgrade.id == "espada_rate":
 		# checa o nível da abilidade, e adiciona 10% a cada nível
 		var porcentagem_reducao = upgrades_atuais["espada_rate"]["quantidade"] * 0.1
