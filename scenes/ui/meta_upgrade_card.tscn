@@ -218,14 +218,23 @@ text = "Teste nome"
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="Descricao" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
+size_flags_vertical = 3
 theme_type_variation = &"LabelOutlineAzul"
 theme_override_colors/font_shadow_color = Color(0.14902, 0.168627, 0.266667, 1)
 text = "lorem ipsum dolot itmun bla"
 autowrap_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -280,6 +289,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
 texture = ExtResource("13_spjdl")
+
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="BotaoComprar" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

@@ -44,7 +44,7 @@ func atualizar_progresso() -> void:
 	if quantidade_maxima_atingida:
 		botao_comprar.text = "Maximizado"
 	
-	label_conta.text = "x%d" % quantidade_atual
+	label_conta.text = "x%d" % quantidade_atual + "(%d)" % upgrade_card.quantidade_maxima
 
 
 func selecionar_card() -> void:
