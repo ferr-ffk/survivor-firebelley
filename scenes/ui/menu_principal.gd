@@ -10,10 +10,7 @@ func _ready() -> void:
 
 
 func _on_botao_jogar_pressed() -> void:
-	TransicaoTela.transicao()
-	await TransicaoTela.metade_transicao_alcancada
-	
-	get_tree().change_scene_to_file("res://scenes/principal/principal.tscn")
+	TransicaoTela.transicao_para_cena("res://scenes/ui/menu_ajuda.tscn")
 
 
 func _on_botao_upgrades_pressed() -> void:
