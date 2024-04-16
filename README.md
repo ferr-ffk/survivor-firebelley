@@ -23,7 +23,7 @@ Sobreviva até o tempo acabar e compre upgrades permanentes
 
 ## 💾 Instalação
 
-- Vá para a aba ```Releases```
+- Vá para a aba [Releases](https://github.com/ferr-ffk/survivor-firebelley/releases)
 - Clique no arquivo zip com respectivo do seu sistema operacional
 - Extraia o arquivo
 - Execute o jogo
