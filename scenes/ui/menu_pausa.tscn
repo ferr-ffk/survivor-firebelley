@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dh0cxfci2ges"]
 
-[ext_resource type="Script" path="res://scenes/ui/menu_pausa.gd" id="1_2bt8i"]
+[ext_resource type="Script" uid="uid://c6an7wfrxtg3t" path="res://scenes/ui/menu_pausa.gd" id="1_2bt8i"]
 
 [sub_resource type="Animation" id="Animation_o1raa"]
 length = 0.001
@@ -35,8 +35,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vvhsp"]
 _data = {
-"RESET": SubResource("Animation_o1raa"),
-"padrao": SubResource("Animation_d4wmm")
+&"RESET": SubResource("Animation_o1raa"),
+&"padrao": SubResource("Animation_d4wmm")
 }
 
 [node name="MenuPausa" type="CanvasLayer"]

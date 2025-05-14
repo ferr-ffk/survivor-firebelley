@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://clc4iqewsswl4"]
 
-[ext_resource type="Script" path="res://scenes/gerenciador/gerenciador_inimigo.gd" id="1_vsesw"]
+[ext_resource type="Script" uid="uid://do8gifbqomlw3" path="res://scenes/gerenciador/gerenciador_inimigo.gd" id="1_vsesw"]
 [ext_resource type="PackedScene" uid="uid://cd8bmpaxxysaw" path="res://scenes/objeto/inimigo_basico/inimigo_basico.tscn" id="2_4p7nn"]
 [ext_resource type="PackedScene" uid="uid://d00df5ekr1o1d" path="res://scenes/objeto/inimigo_fantasma/inimigo_fantasma.tscn" id="2_cadai"]
 [ext_resource type="PackedScene" uid="uid://cl504bnkhldxf" path="res://scenes/objeto/inimigo_morcego/inimigo_morcego.tscn" id="4_jc4rl"]

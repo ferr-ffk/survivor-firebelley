@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://cfm83vj8aawne"]
 
-[ext_resource type="Script" path="res://scenes/objeto/jogador/jogador.gd" id="1_mq4pk"]
+[ext_resource type="Script" uid="uid://p07fjwi2iv3g" path="res://scenes/objeto/jogador/jogador.gd" id="1_mq4pk"]
 [ext_resource type="Texture2D" uid="uid://vw50ckqdvc7q" path="res://scenes/objeto/jogador/player.png" id="1_n3371"]
 [ext_resource type="PackedScene" uid="uid://cxaa1b7kkrn7b" path="res://scenes/componente/componente_velocidade.tscn" id="2_8bxeg"]
 [ext_resource type="PackedScene" uid="uid://bx3etpn2ipi7t" path="res://scenes/componente/componente_audio_stream_player_2d_aleatorio.tscn" id="2_kujy7"]
@@ -95,8 +95,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vmfcw"]
 _data = {
-"RESET": SubResource("Animation_6calv"),
-"andar": SubResource("Animation_amivb")
+&"RESET": SubResource("Animation_6calv"),
+&"andar": SubResource("Animation_amivb")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dd3i4"]

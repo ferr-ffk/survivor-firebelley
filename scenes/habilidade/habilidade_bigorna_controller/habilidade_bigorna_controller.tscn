@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dg3scdba8t6sk"]
 
-[ext_resource type="Script" path="res://scenes/habilidade/habilidade_bigorna_controller/habilidade_bigorna_controller.gd" id="1_egcw8"]
+[ext_resource type="Script" uid="uid://c57g0ejm6tq70" path="res://scenes/habilidade/habilidade_bigorna_controller/habilidade_bigorna_controller.gd" id="1_egcw8"]
 
 [node name="HabilidadeBigornaController" type="Node"]
 script = ExtResource("1_egcw8")

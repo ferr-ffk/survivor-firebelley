@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Habilidade" load_steps=3 format=3 uid="uid://bk4cmclnptv5e"]
 
 [ext_resource type="PackedScene" uid="uid://dvv85a5hdxufm" path="res://scenes/habilidade/habilidade_machado_controller/habilidade_machado_controller.tscn" id="1_5duj5"]
-[ext_resource type="Script" path="res://resources/upgrades/habilidade.gd" id="2_vgq0y"]
+[ext_resource type="Script" uid="uid://gyuxwsww50tg" path="res://resources/upgrades/habilidade.gd" id="2_vgq0y"]
 
 [resource]
 script = ExtResource("2_vgq0y")

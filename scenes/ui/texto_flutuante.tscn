@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dby2r140hqfu4"]
 
-[ext_resource type="Script" path="res://scenes/ui/texto_flutuante.gd" id="1_nchdb"]
+[ext_resource type="Script" uid="uid://vmbkrxei3c0p" path="res://scenes/ui/texto_flutuante.gd" id="1_nchdb"]
 
 [node name="TextoFlutuante" type="Node2D"]
 script = ExtResource("1_nchdb")

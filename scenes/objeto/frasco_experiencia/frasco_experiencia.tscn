@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://clsw43ydx4et6"]
 
-[ext_resource type="Script" path="res://scenes/objeto/frasco_experiencia/frasco_experiencia.gd" id="1_qmgt0"]
+[ext_resource type="Script" uid="uid://do8x6i3bfnl63" path="res://scenes/objeto/frasco_experiencia/frasco_experiencia.gd" id="1_qmgt0"]
 [ext_resource type="Texture2D" uid="uid://cswuh68yvlot8" path="res://scenes/objeto/frasco_experiencia/frasco_experiencia.png" id="1_suw17"]
 [ext_resource type="PackedScene" uid="uid://bx3etpn2ipi7t" path="res://scenes/componente/componente_audio_stream_player_2d_aleatorio.tscn" id="2_iffnp"]
 [ext_resource type="AudioStream" uid="uid://dneqx3tqxldq5" path="res://assets/audio/impactGeneric_light_000.ogg" id="3_1dtkn"]

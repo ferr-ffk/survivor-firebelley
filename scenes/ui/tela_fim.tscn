@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bwvjb34jslmhh"]
 
-[ext_resource type="Script" path="res://scenes/ui/tela_fim.gd" id="1_v7pbq"]
+[ext_resource type="Script" uid="uid://dj5u4kn6ucws6" path="res://scenes/ui/tela_fim.gd" id="1_v7pbq"]
 [ext_resource type="PackedScene" uid="uid://ddv0d67amdv7t" path="res://scenes/ui/botao_som.tscn" id="2_cnmty"]
 [ext_resource type="AudioStream" uid="uid://bhili85jo02dj" path="res://assets/audio/jingles_derrota.ogg" id="2_nygj4"]
 [ext_resource type="AudioStream" uid="uid://ba55nxfyx0bk5" path="res://assets/audio/jingles_vitoria.ogg" id="3_4p32d"]
@@ -54,9 +54,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0bjqc"]
 _data = {
-"RESET": SubResource("Animation_d3vv6"),
-"entrar": SubResource("Animation_su57x"),
-"sair": SubResource("Animation_of4ba")
+&"RESET": SubResource("Animation_d3vv6"),
+&"entrar": SubResource("Animation_su57x"),
+&"sair": SubResource("Animation_of4ba")
 }
 
 [node name="TelaVitoria" type="CanvasLayer"]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Habilidade" load_steps=3 format=3 uid="uid://l6cd4q1cxb0e"]
 
 [ext_resource type="PackedScene" uid="uid://dg3scdba8t6sk" path="res://scenes/habilidade/habilidade_bigorna_controller/habilidade_bigorna_controller.tscn" id="1_exs1b"]
-[ext_resource type="Script" path="res://resources/upgrades/habilidade.gd" id="2_rgjrh"]
+[ext_resource type="Script" uid="uid://gyuxwsww50tg" path="res://resources/upgrades/habilidade.gd" id="2_rgjrh"]
 
 [resource]
 script = ExtResource("2_rgjrh")

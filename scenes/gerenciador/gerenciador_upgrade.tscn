@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp46umbnyo4s7"]
 
-[ext_resource type="Script" path="res://scenes/gerenciador/gerenciador_upgrade.gd" id="1_ygvhq"]
+[ext_resource type="Script" uid="uid://clesfe2t2t3ah" path="res://scenes/gerenciador/gerenciador_upgrade.gd" id="1_ygvhq"]
 [ext_resource type="PackedScene" uid="uid://bgts8irbvlwey" path="res://scenes/ui/upgrade_abilidade_card.tscn" id="3_vam7b"]
 
 [node name="GerenciadorUpgrade" type="Node"]

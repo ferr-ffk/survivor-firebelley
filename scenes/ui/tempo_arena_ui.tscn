@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://q1t0ikfsr4e3"]
 
-[ext_resource type="Script" path="res://scenes/ui/tempo_arena_ui.gd" id="1_hexts"]
+[ext_resource type="Script" uid="uid://bjpmfhggf2ono" path="res://scenes/ui/tempo_arena_ui.gd" id="1_hexts"]
 
 [node name="TempoArenaUI" type="CanvasLayer"]
 script = ExtResource("1_hexts")

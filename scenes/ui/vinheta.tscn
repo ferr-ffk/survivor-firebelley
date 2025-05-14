@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c15jyyp6dw10q"]
 
-[ext_resource type="Script" path="res://scenes/ui/vinheta.gd" id="1_ut6vs"]
-[ext_resource type="Shader" path="res://scenes/ui/vinheta.gdshader" id="1_v7pg1"]
+[ext_resource type="Script" uid="uid://cihbmyamc2hmg" path="res://scenes/ui/vinheta.gd" id="1_ut6vs"]
+[ext_resource type="Shader" uid="uid://dsokwg7uve67c" path="res://scenes/ui/vinheta.gdshader" id="1_v7pg1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b7uub"]
 shader = ExtResource("1_v7pg1")
@@ -90,8 +90,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6c6df"]
 _data = {
-"RESET": SubResource("Animation_6lkfy"),
-"atingido": SubResource("Animation_akxyg")
+&"RESET": SubResource("Animation_6lkfy"),
+&"atingido": SubResource("Animation_akxyg")
 }
 
 [node name="Vinheta" type="CanvasLayer"]

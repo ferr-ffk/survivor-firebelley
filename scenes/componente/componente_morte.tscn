@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bc82fpag1wkqc"]
 
-[ext_resource type="Script" path="res://scenes/componente/componente_morte.gd" id="1_jnai3"]
+[ext_resource type="Script" uid="uid://yt7snpxwma4e" path="res://scenes/componente/componente_morte.gd" id="1_jnai3"]
 [ext_resource type="PackedScene" uid="uid://bx3etpn2ipi7t" path="res://scenes/componente/componente_audio_stream_player_2d_aleatorio.tscn" id="2_k30hk"]
 [ext_resource type="AudioStream" uid="uid://caysx2cuqfkdv" path="res://assets/audio/footstep_carpet_000.ogg" id="3_mi8xy"]
 [ext_resource type="AudioStream" uid="uid://dt68q3m7ne3tf" path="res://assets/audio/footstep_carpet_001.ogg" id="4_sl86h"]
@@ -54,8 +54,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fhu2k"]
 _data = {
-"RESET": SubResource("Animation_y3nlo"),
-"padrao": SubResource("Animation_yq83s")
+&"RESET": SubResource("Animation_y3nlo"),
+&"padrao": SubResource("Animation_yq83s")
 }
 
 [sub_resource type="Curve" id="Curve_jayc6"]

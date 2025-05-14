@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cacapo6ylv13a"]
 
-[ext_resource type="Script" path="res://scenes/autoload/transicao_tela.gd" id="1_1ud47"]
-[ext_resource type="Shader" path="res://scenes/autoload/transicao_tela.gdshader" id="1_boxkn"]
+[ext_resource type="Script" uid="uid://bpvv6o5lfib8r" path="res://scenes/autoload/transicao_tela.gd" id="1_1ud47"]
+[ext_resource type="Shader" uid="uid://b62djsppw1be3" path="res://scenes/autoload/transicao_tela.gdshader" id="1_boxkn"]
 [ext_resource type="Texture2D" uid="uid://tqbavwym1pae" path="res://assets/ui/screen_transition.png" id="2_y3d4e"]
 
 [sub_resource type="Animation" id="Animation_njsp1"]
@@ -76,15 +76,15 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bh73f"]
 _data = {
-"RESET": SubResource("Animation_njsp1"),
-"padrao": SubResource("Animation_bam5q")
+&"RESET": SubResource("Animation_njsp1"),
+&"padrao": SubResource("Animation_bam5q")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pxvt2"]
 shader = ExtResource("1_boxkn")
 shader_parameter/cor_transicao = Color(0.247059, 0.14902, 0.192157, 1)
-shader_parameter/porcentagem = 0.0
 shader_parameter/textura_transicao = ExtResource("2_y3d4e")
+shader_parameter/porcentagem = 0.0
 
 [node name="TransicaoTela" type="CanvasLayer"]
 process_mode = 3

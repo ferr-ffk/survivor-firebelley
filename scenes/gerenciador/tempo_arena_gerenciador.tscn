@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b22lqm08ipnij"]
 
-[ext_resource type="Script" path="res://scenes/gerenciador/tempo_arena_gerenciador.gd" id="1_5kq5q"]
+[ext_resource type="Script" uid="uid://b2nbalc7seg08" path="res://scenes/gerenciador/tempo_arena_gerenciador.gd" id="1_5kq5q"]
 [ext_resource type="PackedScene" uid="uid://bwvjb34jslmhh" path="res://scenes/ui/tela_fim.tscn" id="2_evptc"]
 
 [node name="TempoArenaGerenciador" type="Node"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=22 format=3 uid="uid://d00df5ekr1o1d"]
 
-[ext_resource type="Script" path="res://scenes/objeto/inimigo_fantasma/inimigo_fantasma.gd" id="1_0dboa"]
-[ext_resource type="Script" path="res://scenes/componente/componente_vida.gd" id="1_bv4fy"]
-[ext_resource type="Script" path="res://scenes/componente/componente_velocidade.gd" id="2_77my1"]
+[ext_resource type="Script" uid="uid://caomvql3cr5xg" path="res://scenes/objeto/inimigo_fantasma/inimigo_fantasma.gd" id="1_0dboa"]
+[ext_resource type="Script" uid="uid://c6c2gg3ldltq0" path="res://scenes/componente/componente_vida.gd" id="1_bv4fy"]
+[ext_resource type="Script" uid="uid://buhgmwwvpivag" path="res://scenes/componente/componente_velocidade.gd" id="2_77my1"]
 [ext_resource type="PackedScene" uid="uid://bx3etpn2ipi7t" path="res://scenes/componente/componente_audio_stream_player_2d_aleatorio.tscn" id="2_xv27p"]
-[ext_resource type="Script" path="res://scenes/componente/componente_drop_frasco.gd" id="3_bc7xh"]
+[ext_resource type="Script" uid="uid://dd3pw0ao4t3mj" path="res://scenes/componente/componente_drop_frasco.gd" id="3_bc7xh"]
 [ext_resource type="AudioStream" uid="uid://caysx2cuqfkdv" path="res://assets/audio/footstep_carpet_000.ogg" id="3_bjepy"]
 [ext_resource type="Texture2D" uid="uid://bkgb3xgx2rdsd" path="res://scenes/objeto/inimigo_fantasma/fantasma.png" id="3_ct3fn"]
 [ext_resource type="PackedScene" uid="uid://bc82fpag1wkqc" path="res://scenes/componente/componente_morte.tscn" id="3_lxhr8"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://13nffaaiqim8" path="res://scenes/componente/componente_hit_flash.tscn" id="6_cv7nv"]
 [ext_resource type="PackedScene" uid="uid://cxi1v84w0yj8h" path="res://scenes/componente/componente_hurt_box.tscn" id="6_u1ixx"]
 [ext_resource type="AudioStream" uid="uid://0ysec4u2iful" path="res://assets/audio/footstep_carpet_003.ogg" id="6_udmjk"]
-[ext_resource type="Shader" path="res://scenes/componente/componente_hit_flash.gdshader" id="7_7uiq2"]
+[ext_resource type="Shader" uid="uid://d0qqhr3mw48r0" path="res://scenes/componente/componente_hit_flash.gdshader" id="7_7uiq2"]
 [ext_resource type="AudioStream" uid="uid://dcew53sp2jmv3" path="res://assets/audio/footstep_carpet_004.ogg" id="7_ugw4j"]
 
 [sub_resource type="Animation" id="Animation_2xykw"]
@@ -98,8 +98,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wsceq"]
 _data = {
-"RESET": SubResource("Animation_2xykw"),
-"andar": SubResource("Animation_llx65")
+&"RESET": SubResource("Animation_2xykw"),
+&"andar": SubResource("Animation_llx65")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_271m2"]

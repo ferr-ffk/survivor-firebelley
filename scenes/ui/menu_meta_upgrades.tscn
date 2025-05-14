@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://8hig3pk6c1jx"]
+[gd_scene load_steps=10 format=3 uid="uid://8hig3pk6c1jx"]
 
-[ext_resource type="Script" path="res://scenes/ui/menu_meta_upgrades.gd" id="1_ng2rq"]
+[ext_resource type="Script" uid="uid://cx3naektt5nve" path="res://scenes/ui/menu_meta_upgrades.gd" id="1_ng2rq"]
+[ext_resource type="Script" uid="uid://byoy4hc6lq7wo" path="res://resources/progressoes_meta/meta_upgrade.gd" id="2_ho4gl"]
 [ext_resource type="Texture2D" uid="uid://bgfwxg7mskyua" path="res://assets/ambiente/tilemap_packed.png" id="2_luypg"]
 [ext_resource type="Resource" uid="uid://ctsktmxeir0fi" path="res://resources/progressoes_meta/ganho_experiencia.tres" id="2_x7le5"]
 [ext_resource type="Resource" uid="uid://dr4pk2crvett" path="res://resources/progressoes_meta/vida_maxima.tres" id="3_n04ig"]
@@ -13,8 +14,6 @@ texture = ExtResource("2_luypg")
 0:4/0/terrain_set = 0
 0:4/0/terrain = 0
 0:4/0/probability = 20.0
-0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:4/0/physics_layer_0/angular_velocity = 0.0
 0:4/0/terrains_peering_bit/right_side = 0
 0:4/0/terrains_peering_bit/bottom_right_corner = 0
 0:4/0/terrains_peering_bit/bottom_side = 0
@@ -27,8 +26,6 @@ texture = ExtResource("2_luypg")
 1:4/0/terrain_set = 0
 1:4/0/terrain = 0
 1:4/0/probability = 10.0
-1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:4/0/physics_layer_0/angular_velocity = 0.0
 1:4/0/terrains_peering_bit/right_side = 0
 1:4/0/terrains_peering_bit/bottom_right_corner = 0
 1:4/0/terrains_peering_bit/bottom_side = 0
@@ -41,8 +38,6 @@ texture = ExtResource("2_luypg")
 6:3/0/terrain_set = 0
 6:3/0/terrain = 0
 6:3/0/probability = 2.5
-6:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-6:3/0/physics_layer_0/angular_velocity = 0.0
 6:3/0/terrains_peering_bit/right_side = 0
 6:3/0/terrains_peering_bit/bottom_right_corner = 0
 6:3/0/terrains_peering_bit/bottom_side = 0
@@ -54,8 +49,6 @@ texture = ExtResource("2_luypg")
 1:2/0 = 0
 1:2/0/terrain_set = 0
 1:2/0/terrain = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.6, -8, 8, -8, 8, -1.6, 1.6, -1.6)
 1:2/0/terrains_peering_bit/right_side = 0
 1:2/0/terrains_peering_bit/top_side = 0
@@ -63,8 +56,6 @@ texture = ExtResource("2_luypg")
 2:2/0 = 0
 2:2/0/terrain_set = 0
 2:2/0/terrain = 0
-2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:2/0/physics_layer_0/angular_velocity = 0.0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0.875, -8, 0.875)
 2:2/0/terrains_peering_bit/right_side = 0
 2:2/0/terrains_peering_bit/left_side = 0
@@ -74,8 +65,6 @@ texture = ExtResource("2_luypg")
 3:2/0 = 0
 3:2/0/terrain_set = 0
 3:2/0/terrain = 0
-3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:2/0/physics_layer_0/angular_velocity = 0.0
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1.6, -8, -8, -1.6, -8, -1.6, -1.6)
 3:2/0/terrains_peering_bit/left_side = 0
 3:2/0/terrains_peering_bit/top_left_corner = 0
@@ -83,8 +72,6 @@ texture = ExtResource("2_luypg")
 3:1/0 = 0
 3:1/0/terrain_set = 0
 3:1/0/terrain = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, -1.6, -8, -1.6, 8)
 3:1/0/terrains_peering_bit/bottom_side = 0
 3:1/0/terrains_peering_bit/bottom_left_corner = 0
@@ -94,8 +81,6 @@ texture = ExtResource("2_luypg")
 3:0/0 = 0
 3:0/0/terrain_set = 0
 3:0/0/terrain = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.6, 8, -8, 8, -8, 1.6, -1.6, 1.6)
 3:0/0/terrains_peering_bit/bottom_side = 0
 3:0/0/terrains_peering_bit/bottom_left_corner = 0
@@ -103,8 +88,6 @@ texture = ExtResource("2_luypg")
 2:0/0 = 0
 2:0/0/terrain_set = 0
 2:0/0/terrain = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, -0.875, 8, -0.875)
 2:0/0/terrains_peering_bit/right_side = 0
 2:0/0/terrains_peering_bit/bottom_right_corner = 0
@@ -114,8 +97,6 @@ texture = ExtResource("2_luypg")
 1:0/0 = 0
 1:0/0/terrain_set = 0
 1:0/0/terrain = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 1.6, 8, 8, 1.6, 8, 1.6, 1.6)
 1:0/0/terrains_peering_bit/right_side = 0
 1:0/0/terrains_peering_bit/bottom_right_corner = 0
@@ -123,8 +104,6 @@ texture = ExtResource("2_luypg")
 1:1/0 = 0
 1:1/0/terrain_set = 0
 1:1/0/terrain = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, 1.6, 8, 1.6, -8)
 1:1/0/terrains_peering_bit/right_side = 0
 1:1/0/terrains_peering_bit/bottom_right_corner = 0
@@ -133,24 +112,12 @@ texture = ExtResource("2_luypg")
 1:1/0/terrains_peering_bit/top_right_corner = 0
 2:1/0 = 0
 2:1/0/terrain_set = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:4/0 = 0
-2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:4/0/physics_layer_0/angular_velocity = 0.0
 3:4/0 = 0
-3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:4/0/physics_layer_0/angular_velocity = 0.0
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_pgw8e"]
 physics_layer_0/collision_layer = 1
@@ -163,7 +130,7 @@ sources/0 = SubResource("TileSetAtlasSource_5vwn2")
 [node name="MenuMetaUpgrades" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_ng2rq")
-upgrades = Array[Resource("res://resources/progressoes_meta/meta_upgrade.gd")]([ExtResource("2_x7le5"), ExtResource("3_n04ig")])
+upgrades = Array[ExtResource("2_ho4gl")]([ExtResource("2_x7le5"), ExtResource("3_n04ig")])
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_pgw8e")

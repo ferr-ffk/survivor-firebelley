@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cjvjga3h6ovst"]
 
-[ext_resource type="Script" path="res://scenes/ui/tela_upgrade.gd" id="1_bj1o7"]
+[ext_resource type="Script" uid="uid://gj3f0etrk0ma" path="res://scenes/ui/tela_upgrade.gd" id="1_bj1o7"]
 [ext_resource type="PackedScene" uid="uid://bgts8irbvlwey" path="res://scenes/ui/upgrade_abilidade_card.tscn" id="1_mbfgc"]
 
 [sub_resource type="Animation" id="Animation_d3vv6"]
@@ -52,9 +52,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0bjqc"]
 _data = {
-"RESET": SubResource("Animation_d3vv6"),
-"entrar": SubResource("Animation_su57x"),
-"sair": SubResource("Animation_of4ba")
+&"RESET": SubResource("Animation_d3vv6"),
+&"entrar": SubResource("Animation_su57x"),
+&"sair": SubResource("Animation_of4ba")
 }
 
 [node name="TelaUpgrade" type="CanvasLayer"]

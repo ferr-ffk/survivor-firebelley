@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://cl504bnkhldxf"]
 
-[ext_resource type="Script" path="res://scenes/objeto/inimigo_morcego/inimigo_morcego.gd" id="1_jxu4y"]
+[ext_resource type="Script" uid="uid://cxhyinc6msb4w" path="res://scenes/objeto/inimigo_morcego/inimigo_morcego.gd" id="1_jxu4y"]
 [ext_resource type="PackedScene" uid="uid://bx3etpn2ipi7t" path="res://scenes/componente/componente_audio_stream_player_2d_aleatorio.tscn" id="2_d8t6v"]
 [ext_resource type="Texture2D" uid="uid://c50vmv1sogsyi" path="res://scenes/objeto/inimigo_morcego/morcego.png" id="2_i624x"]
 [ext_resource type="AudioStream" uid="uid://caysx2cuqfkdv" path="res://assets/audio/footstep_carpet_000.ogg" id="3_1gqrb"]
@@ -8,13 +8,40 @@
 [ext_resource type="AudioStream" uid="uid://d64mqbi1pymh" path="res://assets/audio/footstep_carpet_002.ogg" id="5_v5wik"]
 [ext_resource type="AudioStream" uid="uid://0ysec4u2iful" path="res://assets/audio/footstep_carpet_003.ogg" id="6_wi0ce"]
 [ext_resource type="AudioStream" uid="uid://dcew53sp2jmv3" path="res://assets/audio/footstep_carpet_004.ogg" id="7_q7guu"]
-[ext_resource type="Script" path="res://scenes/componente/componente_drop_frasco.gd" id="8_ycbmk"]
+[ext_resource type="Script" uid="uid://dd3pw0ao4t3mj" path="res://scenes/componente/componente_drop_frasco.gd" id="8_ycbmk"]
 [ext_resource type="PackedScene" uid="uid://13nffaaiqim8" path="res://scenes/componente/componente_hit_flash.tscn" id="9_ji7d2"]
-[ext_resource type="Shader" path="res://scenes/componente/componente_hit_flash.gdshader" id="10_3mc8s"]
+[ext_resource type="Shader" uid="uid://d0qqhr3mw48r0" path="res://scenes/componente/componente_hit_flash.gdshader" id="10_3mc8s"]
 [ext_resource type="PackedScene" uid="uid://bc82fpag1wkqc" path="res://scenes/componente/componente_morte.tscn" id="11_81d8f"]
-[ext_resource type="Script" path="res://scenes/componente/componente_velocidade.gd" id="12_xd3sw"]
-[ext_resource type="Script" path="res://scenes/componente/componente_vida.gd" id="13_7lekx"]
+[ext_resource type="Script" uid="uid://buhgmwwvpivag" path="res://scenes/componente/componente_velocidade.gd" id="12_xd3sw"]
+[ext_resource type="Script" uid="uid://c6c2gg3ldltq0" path="res://scenes/componente/componente_vida.gd" id="13_7lekx"]
 [ext_resource type="PackedScene" uid="uid://cxi1v84w0yj8h" path="res://scenes/componente/componente_hurt_box.tscn" id="14_dpxfx"]
+
+[sub_resource type="Animation" id="Animation_8v5po"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_2n45n"]
 resource_name = "mover"
@@ -45,37 +72,10 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(0.75, 1), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_8v5po"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visual/Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visual/Sprite2D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_85rdj"]
 _data = {
-"RESET": SubResource("Animation_8v5po"),
-"mover": SubResource("Animation_2n45n")
+&"RESET": SubResource("Animation_8v5po"),
+&"mover": SubResource("Animation_2n45n")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1yjtj"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://cd8bmpaxxysaw"]
 
-[ext_resource type="Script" path="res://scenes/objeto/inimigo_basico/inimigo_basico.gd" id="1_jwog1"]
+[ext_resource type="Script" uid="uid://51d7kowmcl7d" path="res://scenes/objeto/inimigo_basico/inimigo_basico.gd" id="1_jwog1"]
 [ext_resource type="Texture2D" uid="uid://bb8o6c7j68tvy" path="res://scenes/objeto/inimigo_basico/rato.png" id="2_0tugv"]
 [ext_resource type="PackedScene" uid="uid://bg1r0r82d0fa7" path="res://scenes/componente/componente_vida.tscn" id="2_cufi0"]
 [ext_resource type="PackedScene" uid="uid://bx3etpn2ipi7t" path="res://scenes/componente/componente_audio_stream_player_2d_aleatorio.tscn" id="2_tdep6"]
@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://d64mqbi1pymh" path="res://assets/audio/footstep_carpet_002.ogg" id="5_wf8t8"]
 [ext_resource type="AudioStream" uid="uid://0ysec4u2iful" path="res://assets/audio/footstep_carpet_003.ogg" id="6_l2igx"]
 [ext_resource type="PackedScene" uid="uid://13nffaaiqim8" path="res://scenes/componente/componente_hit_flash.tscn" id="6_q0cdg"]
-[ext_resource type="Shader" path="res://scenes/componente/componente_hit_flash.gdshader" id="7_6lr80"]
+[ext_resource type="Shader" uid="uid://d0qqhr3mw48r0" path="res://scenes/componente/componente_hit_flash.gdshader" id="7_6lr80"]
 [ext_resource type="AudioStream" uid="uid://dcew53sp2jmv3" path="res://assets/audio/footstep_carpet_004.ogg" id="7_dfn3c"]
 
 [sub_resource type="Animation" id="Animation_1xurs"]
@@ -101,9 +101,9 @@ resource_name = "morte"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6p16s"]
 _data = {
-"RESET": SubResource("Animation_1xurs"),
-"andar": SubResource("Animation_8bq4w"),
-"morte": SubResource("Animation_4ptso")
+&"RESET": SubResource("Animation_1xurs"),
+&"andar": SubResource("Animation_8bq4w"),
+&"morte": SubResource("Animation_4ptso")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cuixb"]

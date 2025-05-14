@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cfg21dyo0crbo"]
 
 [ext_resource type="Texture2D" uid="uid://rrh0pimbrwhy" path="res://scenes/habilidade/habilidade_espada/espada.png" id="1_a1x7j"]
-[ext_resource type="Script" path="res://scenes/habilidade/habilidade_espada/habilidade_espada.gd" id="1_gknpg"]
+[ext_resource type="Script" uid="uid://bwb8khivklash" path="res://scenes/habilidade/habilidade_espada/habilidade_espada.gd" id="1_gknpg"]
 [ext_resource type="PackedScene" uid="uid://lf8kck3wuhga" path="res://scenes/componente/componente_hit_box.tscn" id="2_etik5"]
 
 [sub_resource type="Animation" id="Animation_b53ps"]
@@ -100,8 +100,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mlfsd"]
 _data = {
-"RESET": SubResource("Animation_b53ps"),
-"swing": SubResource("Animation_sne4g")
+&"RESET": SubResource("Animation_b53ps"),
+&"swing": SubResource("Animation_sne4g")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jhel"]
